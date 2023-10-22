@@ -12,3 +12,8 @@ Feature: Home Page Related Scenarios
   Scenario: Verify the Title of Home & Personal page
     When I click on Home & Personal button
     Then Verify the Title of Home & Personal page is "ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider"
+
+    @AS-6
+    Scenario: Verify ADT logo button
+      When I open url of homepage
+      Then Verify ADT logo button is displayed

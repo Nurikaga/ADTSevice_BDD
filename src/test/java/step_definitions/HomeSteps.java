@@ -28,6 +28,11 @@ public class HomeSteps implements CommonPage {
     public void verifyTheTitleOfHomePersonalPageIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
+
+    @Then("Verify ADT logo button is displayed")
+    public void verifyADTLogoButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.adtLogoBtn);
+    }
 }
 
 
