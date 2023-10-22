@@ -36,6 +36,27 @@ Feature: Home Page Related Scenarios
     Then I change Window to the new tab
     And I verify the header "Professionally-monitored intrusion detection" in the page
 
+  @US04
+  Scenario Outline:
+  : Verify a header and the links are displayed on Interactive Security page
+    When I click "Home & Personal" hovered-over button
+    Then I click on "Small Business" link button that forwarding to the Small Business page
+    And I change Window to the new tab
+    Then I navigate to "Solutions" drop down menu
+    Then I navigate to "Interactive Security" drop down menu
+    Then I change Window to the new tab
+    And I verify the header "Interactive security with automations" in the page
+    And Verify  all "<links>" are displayed
+    Examples:
+      | links              |
+      | Remote Arm/Disarm  |
+      | Multiple Locations |
+      | Climate Control    |
+      | Instant Alerts     |
+      | Security Cameras   |
+      | Lighting Control   |
+
+
   @US20
   Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed
     When I click on Home & Personal button
