@@ -7,8 +7,20 @@ import utils.BrowserUtils;
 
 public class SmallBusinessPage {
 
+ Nurik
+    public SmallBusinessPage(){
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
+    @FindBy(xpath = "//button[@id='mainNav']")
+    public WebElement homeAndPersonalBtn;
+
+    @FindBy(xpath = "(//span[text()='Small Business'])[1]")
+    public WebElement smallBusinessBtn;
+
+  
     public SmallBusinessPage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
+ main
 
 }

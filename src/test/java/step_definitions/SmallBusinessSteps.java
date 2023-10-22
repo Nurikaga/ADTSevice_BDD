@@ -4,18 +4,56 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+Nurik
+import org.openqa.selenium.support.ui.Select;
+import pages.CommonPage;
+
 import pages.CommonPage;
 import pages.HomePage;
+main
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 
 public class SmallBusinessSteps implements CommonPage {
+ Nurik
+
+
+ main
     SmallBusinessPage page;
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
 
     }
+ Nurik
+
+    @When("I click on Home & Personal button")
+    public void iClickOnHomePersonalButton() throws InterruptedException {
+
+        BrowserUtils.click(page.homeAndPersonalBtn);
+
+    }
+
+    @And("I click on Small Business button")
+    public void iClickOnSmallBusinessButton() throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath("(//span[text()='Small Business'])[1]")).click();
+        Thread.sleep(5000);
+    }
+
+
+    @Then("Verify {string} are displayed")
+    public void verifyAreDisplayed(String btns) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));
+    }
+
+    @Then("Verify {string} are enabled")
+    public void verifyAreEnabled(String Buttons) {
+        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));
+    }
+}
+
+
+=======
     @When("I click {string} hovered-over button")
     public void iClickHoveredOverButton(String homePersonalBtn) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();
@@ -55,3 +93,4 @@ public class SmallBusinessSteps implements CommonPage {
 
 
 
+main
