@@ -36,9 +36,7 @@ public class SmallBusinessSteps implements CommonPage {
         Thread.sleep(5000);
     }
 
-//    @Then("Verify {string} are displayed")
-//    public void verify_are_displayed(String string) {
-//    }
+
 
     @Then("Verify {string} are displayed")
     public void verifyAreDisplayed(String btns) {
@@ -120,5 +118,13 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+
+    @And("Verify  all {string} are displayed")
+    public void verifyAllAreDisplayed(String links) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();
+        ;
+    }
 }
+
+
 
