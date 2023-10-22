@@ -18,6 +18,7 @@ public class SmallBusinessPage {
 
     @FindBy(xpath = "(//span[text()='Small Business'])[1]")
     public WebElement smallBusinessBtn;
+
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
 

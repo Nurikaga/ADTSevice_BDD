@@ -4,6 +4,12 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
+  @US01
+  Scenario:Verify title of the Small Business page
+    When I click "Home & Personal" hovered-over button
+    Then I click on "Small Business" link button that forwarding to the Small Business page
+    Then I verify the title of the page "Business Security Systems & Services | ADT®"
+
   @US02
   Scenario Outline: Verify Solutions, Industries, Products, Packages, Risk Assessment, and Resources buttons in the header are displayed, & enable to click
     When I click on Home & Personal button
@@ -19,7 +25,8 @@ Feature: Home Page Related Scenarios
       | Risk Assessment | Risk Assessment |
       | Resources       | Resources       |
 
-  @AS03
+
+  @US03
   Scenario: Verify that user is able to see the a header of the page
     When I click "Home & Personal" hovered-over button
     Then I click on "Small Business" link button that forwarding to the Small Business page
@@ -38,3 +45,5 @@ Feature: Home Page Related Scenarios
     Then Verify pictures are displayed
     Then Verify the texts under pictures are displayed
     Then Verify Learn more buttons are displayed
+
+

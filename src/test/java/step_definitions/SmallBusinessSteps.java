@@ -14,14 +14,15 @@ import utils.BrowserUtils;
 
 import java.util.List;
 
+
 public class SmallBusinessSteps implements CommonPage {
+
     SmallBusinessPage page;
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
 
     }
-
     @When("I click on Home & Personal button")
     public void iClickOnHomePersonalButton() throws InterruptedException {
 
@@ -35,9 +36,15 @@ public class SmallBusinessSteps implements CommonPage {
         Thread.sleep(5000);
     }
 
+//    @Then("Verify {string} are displayed")
+//    public void verify_are_displayed(String string) {
+//    }
+
     @Then("Verify {string} are displayed")
-    public void verify_are_displayed(String string) {
+    public void verifyAreDisplayed(String btns) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));
     }
+
     @Then("Verify {string} are enabled")
     public void verifyAreEnabled(String Buttons) {
         BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));
@@ -73,6 +80,7 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, header))).getText(), header);
     }
 
+
     @Then("Verify {string} text in header is displayed")
     public void verifyTextInHeaderIsDisplayed(String headerText) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));
@@ -107,9 +115,11 @@ public class SmallBusinessSteps implements CommonPage {
             System.out.println(element.getText());
         }
     }
+
+    @Then("I verify the title of the page {string}")
+    public void iVerifyTheTitleOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
 }
-
-
-
-
 
