@@ -3,8 +3,13 @@ Feature: Home Page Related Scenarios
 
   Background: Navigate to page
     Given I open url of homepage
+    @AS01
+      Scenario:Verify title of the Small Business page
+        When I click "Home & Personal" hovered-over button
+        Then I click on "Small Business" link button that forwarding to the Small Business page
+        Then I verify the title of the page "Business Security Systems & Services | ADT®"
 
-    @AS03
+  @AS03
     Scenario: Verify that user is able to see the a header of the page
       When I click "Home & Personal" hovered-over button
       Then I click on "Small Business" link button that forwarding to the Small Business page
