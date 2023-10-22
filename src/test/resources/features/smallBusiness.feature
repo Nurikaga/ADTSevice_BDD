@@ -1,8 +1,14 @@
- Nurik
-Feature: Small Business related scenarios
+@smallBusinessScenarios
+Feature: Home Page Related Scenarios
 
   Background: Navigate to page
     Given I open url of homepage
+
+  @US01
+  Scenario:Verify title of the Small Business page
+    When I click "Home & Personal" hovered-over button
+    Then I click on "Small Business" link button that forwarding to the Small Business page
+    Then I verify the title of the page "Business Security Systems & Services | ADT®"
 
   @US02
   Scenario Outline: Verify Solutions, Industries, Products, Packages, Risk Assessment, and Resources buttons in the header are displayed, & enable to click
@@ -19,24 +25,25 @@ Feature: Small Business related scenarios
       | Risk Assessment | Risk Assessment |
       | Resources       | Resources       |
 
-@smallBusinessScenarios
-Feature: Home Page Related Scenarios
 
-  Background: Navigate to page
-    Given I open url of homepage
-    @AS01
-      Scenario:Verify title of the Small Business page
-        When I click "Home & Personal" hovered-over button
-        Then I click on "Small Business" link button that forwarding to the Small Business page
-        Then I verify the title of the page "Business Security Systems & Services | ADT®"
+  @US03
+  Scenario: Verify that user is able to see the a header of the page
+    When I click "Home & Personal" hovered-over button
+    Then I click on "Small Business" link button that forwarding to the Small Business page
+    And I change Window to the new tab
+    Then I navigate to "Solutions" drop down menu
+    And I click on "Intrusion Detection" link button that takes to the Intrusion Detection page
+    Then I change Window to the new tab
+    And I verify the header "Professionally-monitored intrusion detection" in the page
 
-  @AS03
-    Scenario: Verify that user is able to see the a header of the page
-      When I click "Home & Personal" hovered-over button
-      Then I click on "Small Business" link button that forwarding to the Small Business page
-      And I change Window to the new tab
-      Then I navigate to "Solutions" drop down menu
-      And I click on "Intrusion Detection" link button that takes to the Intrusion Detection page
-      Then I change Window to the new tab
-      And I verify the header "Professionally-monitored intrusion detection" in the page
-main
+  @US20
+  Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed
+    When I click on Home & Personal button
+    And I click on Small Business button
+    Then Verify "Customize a business security system today " text in header is displayed
+    Then Verify "Your business isn’t just your business. It’s your passion, your way of life. It’s also a livelihood for you and your employees. We can tailor a security solution to help protect it. " text under header is displayed
+    Then Verify pictures are displayed
+    Then Verify the texts under pictures are displayed
+    Then Verify Learn more buttons are displayed
+
+
