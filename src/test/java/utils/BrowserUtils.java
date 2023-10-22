@@ -16,12 +16,11 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserUtils {
+    private static WebDriver driver;
+
     //private constructor to implement Singleton Design Class
     private BrowserUtils() {
-
     }
-
-    private static WebDriver driver;
 
     public static WebDriver getDriver() {
         if (driver == null)
@@ -56,7 +55,6 @@ public class BrowserUtils {
             default:
                 System.out.println("Invalid browser name");
         }
-
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
