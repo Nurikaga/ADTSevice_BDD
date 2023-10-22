@@ -45,7 +45,13 @@ public class SmallBusinessSteps implements CommonPage {
     public void iVerifyTheHeaderInThePage(String header) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, header))).getText(), header);
     }
+
+    @Then("I verify the title of the page {string}")
+    public void iVerifyTheTitleOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
+
+}
 
 
 
