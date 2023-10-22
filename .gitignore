@@ -39,3 +39,7 @@ build/
 
 /target
 report.html
+*.xml
+src/test/java/runners/CukesRunner.java
+.idea/uiDesigner.xml
+
