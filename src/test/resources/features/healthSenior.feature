@@ -3,3 +3,31 @@ Feature: Home Page Related Scenarios
 
   Background: Navigate to page
     Given I open url of homepage
+
+  @US26
+  Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
+    Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
+    Then Verify pictures are displayed under header above
+    Then Verify text under name is displayed
+    Then Verify "<description>" is displayed
+    Then Verify "<description>" is displayed
+    Then Verify "<textUnderDesk1>" is displayed
+    Then Verify "<textUnderDesk2>" is displayed
+    Then Verify "<textUnderDesk3>" is displayed
+    Then Verify "<textUnderDesk4>" is displayed
+    Then Verify "<textUnderDesk5>" is displayed
+    Then Verify "<textUnderDesk6>" is displayed
+    Then Verify "<textUnderDesk7>" is displayed
+    Then Verify Online special buttons are displayed
+    Then Verify "<textUnderDesk8>" is displayed
+    Then Verify "<textUnderDesk9>" is displayed
+    Then Verify "<textUnderDesk10>" is displayed
+    Then Verify "<shopNowButton>" is displayed
+    Examples:
+      | description                                                                                           | textUnderDesk1     | textUnderDesk2       | textUnderDesk3              | textUnderDesk4              | textUnderDesk5            | textUnderDesk6 | textUnderDesk8                        | textUnderDesk9  | textUnderDesk10 | shopNowButton |
+      | Provides freedom and peace of mind while at home or miles from it.                                    | Mobile base unit   | No landline required | Fall Detection (optional)   | GPS location capabilities   | Pendant options available | $39.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
+      | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
+      | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |

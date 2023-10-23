@@ -13,4 +13,5 @@ public interface CommonPage {
     String XPATH_TEMPLATE_TEXT2 = "//div[@class='menu-bg']//a[contains(@href,'%s')]";
     String XPATH_TEMPLATE_LINKTEXT_HREF = "//a[@href='%s']";
     String XPATH_TEMPLATE_IMG= "//img[@id='%s')]";
+    String XPATH_TEMPLATE_NUR = "//div[@id='parent-padding-654710006']//div[@class='adt7-text-multi aem-GridColumn aem-GridColumn--default--12']";
 }
