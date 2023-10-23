@@ -13,4 +13,10 @@ public class HomePage {
 
     @FindBy (css = ".logo > img[alt='ADT LOGO']")
     public WebElement adtLogoBtn;
+
+    @FindBy (css = ".dropdown-menu.show")
+    public WebElement dropDownMenu;
+
+    @FindBy (css =".tfn-wrapper > a[title='Call'] > img[alt='Call icon']")
+    public WebElement callBtn;
 }

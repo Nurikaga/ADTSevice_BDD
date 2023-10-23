@@ -18,6 +18,25 @@ Feature: Home Page Related Scenarios
     When I open url of homepage
     Then Verify ADT logo button is displayed
 
+  @US-07
+  Scenario: Verify drop down menu is present
+    When I open url of homepage
+    Then I click on Home & Personal button
+    And Verify the drop down menu should be visible
+
+  @US-08
+  Scenario Outline: Verify Home & Personal drop down menu text links are displayed & clickable
+    When I click on Home & Personal button
+    Then Verify "<links>" are displayed
+    And Verify "<buttons>" are enable
+    Examples:
+      | links                  | buttons                |
+      | Home & Personal        | Home & Personal        |
+      | Small Business         | Small Business         |
+      | Health & Senior Safety | Health & Senior Safety |
+      | Commercial             | Commercial             |
+      | Solar                  | Solar                  |
+
   @US-09
   Scenario Outline: Verify top menu text links are displayed & enable to click
     When I open url of homepage
@@ -30,4 +49,7 @@ Feature: Home Page Related Scenarios
       | Build Your own | Build Your own |
       | Deals          | Deals          |
       | Shop Now       | Shop Now       |
+
+
+
 

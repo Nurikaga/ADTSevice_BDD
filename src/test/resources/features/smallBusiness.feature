@@ -4,7 +4,6 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
-
   @US01
   Scenario:Verify title of the Small Business page
     When I click "Home & Personal" hovered-over button
