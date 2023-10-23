@@ -4,6 +4,7 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
+
   @US01
   Scenario:Verify title of the Small Business page
     When I click "Home & Personal" hovered-over button
@@ -24,6 +25,7 @@ Feature: Home Page Related Scenarios
       | Packages        | Packages        |
       | Risk Assessment | Risk Assessment |
       | Resources       | Resources       |
+
 
 
   @US03
@@ -66,5 +68,8 @@ Feature: Home Page Related Scenarios
     Then Verify pictures are displayed
     Then Verify the texts under pictures are displayed
     Then Verify Learn more buttons are displayed
+
+
+
 
 
