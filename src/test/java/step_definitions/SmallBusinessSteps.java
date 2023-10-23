@@ -5,18 +5,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
-import pages.CommonPage;
-import pages.HomePage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 
-import java.util.List;
-
 
 public class SmallBusinessSteps implements CommonPage {
-
     SmallBusinessPage page;
 
     public SmallBusinessSteps() {
@@ -47,6 +41,7 @@ public class SmallBusinessSteps implements CommonPage {
     public void verifyAreEnabled(String Buttons) {
         BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));
     }
+
 
     @When("I click {string} hovered-over button")
     public void iClickHoveredOverButton(String homePersonalBtn) {
@@ -125,6 +120,7 @@ public class SmallBusinessSteps implements CommonPage {
         ;
     }
 }
+
 
 
 
