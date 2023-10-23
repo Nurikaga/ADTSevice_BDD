@@ -30,8 +30,7 @@ public class VideoSurveillanceSteps implements CommonPage {
              BrowserUtils.isDisplayed(page.pic1);
 
             }
-
-    }
+}
 
 
 
