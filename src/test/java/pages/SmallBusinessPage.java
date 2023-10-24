@@ -24,12 +24,13 @@ public class SmallBusinessPage {
 
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
-
     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
     public List<WebElement> textUnderPictures;
-
     @FindBy(xpath = "//div[@class='card-main-content']//div[@class='tertiary-link-text']")
     public List<WebElement> learnMoreBtns;
+    @FindBy(xpath = "//div[@class='mainc-69392292']/div/div")
+    public List<WebElement> imageList4;
+
 }
 
 

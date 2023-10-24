@@ -3,6 +3,9 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import io.cucumber.java.en.When;
+
 import org.openqa.selenium.By;
 import pages.CommonPage;
 import pages.HomePage;
@@ -57,6 +60,12 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.isEnabled(page.shopNowBtn);
     }
 
+
+    @And("I verify the {string} is displayed")
+    public void iVerifyTheIsDisplayed(String image) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();
+    }
+
 //    @Then("I click on {string} hovered-over button")
 //    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
 //        BrowserUtils.click(page.callBtn);
@@ -78,9 +87,9 @@ public class HomeSteps implements CommonPage {
     @Then("I click on Customer Login icon")
     public void iClickOnCustomerLoginIcon() {
         BrowserUtils.click(page.customerIcon);
+
     }
 
-}
 
 
 
