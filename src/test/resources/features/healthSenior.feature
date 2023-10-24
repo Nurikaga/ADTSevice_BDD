@@ -14,11 +14,26 @@ Feature: Home Page Related Scenarios
     Then Verify "Use" is displayed
     Then Verify "promo code" is displayed
     Then Verify ": SAFETY" is displayed
-    Then Verify "SHOP NOW" button is enabled
+    Then Verify SHOP NOW button is enabled
     Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
     When I scroll up
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
+
+
+  @US-22
+  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
+    When I click  "Home & Personal" button
+    Then I click on "Health & Senior Safety" button
+    Then I change Window to the new tab
+    And Verify "<links>" are displayed
+    Examples:
+      | links            |
+      | Products         |
+      | Compare Packages |
+      | Why ADT          |
+      | FAQS             |
+      | Testimonials     |
 
 
   @US26
@@ -48,3 +63,4 @@ Feature: Home Page Related Scenarios
       | Provides freedom and peace of mind while at home or miles from it.                                    | Mobile base unit   | No landline required | Fall Detection (optional)   | GPS location capabilities   | Pendant options available | $39.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
       | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
       | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |
+

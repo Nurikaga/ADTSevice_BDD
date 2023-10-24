@@ -18,18 +18,19 @@ public class SmallBusinessPage {
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
 
-    @FindBy(xpath = "(//span[text()='Small Business'])[1]")
+    @FindBy(css = "(.dropdown-menu.show > a:nth-of-type(3) > span")
     public WebElement smallBusinessBtn;
 
 
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
-
     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
     public List<WebElement> textUnderPictures;
-
     @FindBy(xpath = "//div[@class='card-main-content']//div[@class='tertiary-link-text']")
     public List<WebElement> learnMoreBtns;
+    @FindBy(xpath = "//div[@class='mainc-69392292']/div/div")
+    public List<WebElement> imageList4;
+
 }
 
 

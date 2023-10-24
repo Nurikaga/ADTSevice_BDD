@@ -11,7 +11,7 @@ Feature: Home Page Related Scenarios
     And I change Window to the new tab
     Then I navigate to "Solutions" drop down menu
     Then I navigate to "Video Surveillance" drop down menu
-    And I change Window to the new tab
+    Then I change Window to the new tab
     Then I verify the header "A high-tech window into your business" in the page
-    And I verify the pictures, titles, and texts are displayed in the page
-
+    And I verify the image,title,text is displayed
+    And I take screenshot of test

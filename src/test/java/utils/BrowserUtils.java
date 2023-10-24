@@ -3,10 +3,12 @@ package utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -197,6 +199,14 @@ public class BrowserUtils {
     public static void selectByVisibleText(WebElement element, String text) {
         Select select = new Select(element);
         select.selectByVisibleText(text);
+    }
+    public static void actionPageUP(WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).sendKeys(Keys.PAGE_UP).perform();
+    }
+    public static void actionPageDOWN(WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).sendKeys(Keys.PAGE_DOWN).perform();
     }
 
     public static void deleteAllUsers(List<WebElement> list) {
