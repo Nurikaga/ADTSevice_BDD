@@ -117,7 +117,7 @@ public class SmallBusinessSteps implements CommonPage {
     @And("Verify  all {string} are displayed")
     public void verifyAllAreDisplayed(String links) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();
-        ;
+
     }
 }
 

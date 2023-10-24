@@ -1,0 +1,9 @@
+## SCROLL UP METHOD##
+
+Actions actions = new Actions(BrowserUtils.getDriver());
+actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+## SCROLL DOWN METHOD##
+
+Actions actions = new Actions(BrowserUtils.getDriver());
+actions.sendKeys(Keys.PAGE_DOWN).build().perform();

@@ -31,8 +31,9 @@ public class HomeSteps implements CommonPage {
     }
 
     @Then("Verify ADT logo button is displayed")
-    public void verifyADTLogoButtonIsDisplayed() {
+    public void verifyADTLogoButtonIsDisplayed() throws InterruptedException {
         BrowserUtils.isDisplayed(page.adtLogoBtn);
+        Thread.sleep(3000);
     }
 
 
