@@ -1,5 +1,13 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v85.page.Page;
+import org.openqa.selenium.interactions.Actions;
 
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -9,9 +17,11 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+
 import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
+
 
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
@@ -19,7 +29,6 @@ public class HealthSeniorSteps implements CommonPage {
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
     }
-
 
     @When("I click  {string} button")
     public void iClickHoveredOverButton(String homePersonalBtn) {
@@ -30,7 +39,6 @@ public class HealthSeniorSteps implements CommonPage {
     public void iClickOnButton(String healthSafetyBtn) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, healthSafetyBtn))).click();
     }
-
 
     @When("I click on {string} button")
     public void i_click_on_button(String btn) {
@@ -66,6 +74,30 @@ public class HealthSeniorSteps implements CommonPage {
         for (WebElement each : page.onlineSpecialBtn) {
             BrowserUtils.assertTrue(each.isDisplayed());
         }
+    }
+
+    @Then("Verify {string} button is enabled")
+    public void verifyButtonIsEnabled(String btn) throws InterruptedException {
+        BrowserUtils.assertTrue(page.shopNowBtn.isEnabled());
+
+    }
+
+    @When("I scroll up")
+    public void iScrollUp() {
+
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    }
+
+    @When("I click {string} button")
+    public void iClickButton(String button) throws InterruptedException {
+
+        BrowserUtils.click(page.clickHereBtn);
+    }
+
+    @Then("Verify title is {string}")
+    public void verifyTitleIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
 }

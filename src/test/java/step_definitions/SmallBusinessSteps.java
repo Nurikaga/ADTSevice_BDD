@@ -113,6 +113,7 @@ public class SmallBusinessSteps implements CommonPage {
     @And("Verify  all {string} are displayed")
     public void verifyAllAreDisplayed(String links) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();
+
     }
     @And("I verify the image,title,text is displayed")
     public void iVerifyTheImageTitleTextIsDisplayed() {
@@ -123,6 +124,7 @@ public class SmallBusinessSteps implements CommonPage {
     @And("I take screenshot of test")
     public void iTakeScreenshotOfTest() {
         CucumberLogUtils.logPass("Image is displayed", true);
+
     }
 }
 

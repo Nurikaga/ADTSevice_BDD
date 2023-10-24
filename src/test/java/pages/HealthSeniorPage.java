@@ -24,4 +24,11 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//div[@id='parent-padding-654710006']//div[@class='adt7-text-multi aem-GridColumn aem-GridColumn--default--12']")
     public List<WebElement> onlineSpecialBtn;
+
+    @FindBy(xpath = "(//span[@class='btn-cta-text'])[1]")
+    public WebElement shopNowBtn;
+
+    @FindBy(xpath = "//u[normalize-space()='Click here.']")
+    public WebElement clickHereBtn;
 }
+

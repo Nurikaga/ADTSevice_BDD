@@ -38,8 +38,15 @@ public class VideoSurveillanceSteps implements CommonPage {
         at.sendKeys(Keys.PAGE_UP).build().perform();
         at.moveToElement(page.pic1).build().perform();
         BrowserUtils.sleep(2000);
+
+             BrowserUtils.isDisplayed(page.pic1);
+
+            }
+}
+
         BrowserUtils.isDisplayed(page.pic1);
     }
+
 
 }
 
