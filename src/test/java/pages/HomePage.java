@@ -17,6 +17,9 @@ public class HomePage {
     @FindBy (css = ".dropdown-menu.show")
     public WebElement dropDownMenu;
 
+    @FindBy(xpath = "//span[contains(text(),'Shop Now')]")
+    public WebElement shopNowBtn;
+
     @FindBy (css =".tfn-wrapper > a[title='Call'] > img[alt='Call icon']")
     public WebElement callBtn;
 }

@@ -41,14 +41,17 @@ Feature: Home Page Related Scenarios
   Scenario Outline: Verify top menu text links are displayed & enable to click
     When I open url of homepage
     Then Verify "<links>" are displayed
-    And Verify "<buttons>" are enabled
+    Then Verify "<buttons>" are enabled
+    Then Verify "Shop Now" button is displayed
+    And Verify "Shop Now" button is enabled
     Examples:
       | links          | buttons        |
       | Products       | Products       |
       | Packages       | Packages       |
       | Build Your own | Build Your own |
       | Deals          | Deals          |
-      | Shop Now       | Shop Now       |
+
+
 
 
 

@@ -47,6 +47,15 @@ public class HomeSteps implements CommonPage {
                 (By.xpath(String.format(XPATH_TEMPLATE_TEXT, buttons))));
     }
 
+    @Then("Verify {string} button is displayed")
+    public void verifyButtonIsDisplayed(String shopNowBtn) {
+        BrowserUtils.isDisplayed(page.shopNowBtn);
+    }
+
+    @And("Verify {string} button is enabled")
+    public void verifyButtonIsEnabled(String shopNowBtn) {
+        BrowserUtils.isEnabled(page.shopNowBtn);
+    }
 }
 
 
