@@ -31,23 +31,6 @@ public class VideoSurveillanceSteps implements CommonPage {
             BrowserUtils.isDisplayed(each);
 
     }}
-
-    @And("I verify the pictures, titles, and texts are displayed in the page")
-    public void iVerifyThePicturesTitlesAndTextsAreDisplayedInThePage() {
-        Actions at = new Actions(BrowserUtils.getDriver());
-        at.sendKeys(Keys.PAGE_UP).build().perform();
-        at.moveToElement(page.pic1).build().perform();
-        BrowserUtils.sleep(2000);
-
-             BrowserUtils.isDisplayed(page.pic1);
-
-            }
-}
-
-        BrowserUtils.isDisplayed(page.pic1);
-    }
-
-
 }
 
 
