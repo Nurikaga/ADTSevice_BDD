@@ -8,6 +8,11 @@ import utils.BrowserUtils;
 import java.util.List;
 
 public class HealthSeniorPage {
+    @FindBy(css = ".dropdown-menu.show")
+    public WebElement dropDownMenu;
+    @FindBy(xpath = "/html//header[@id='nav-menu']//div[@class='dropdown-menu show']/a[@href='/health']")
+    public WebElement healthSeniorSafetyBtn;
+
     public HealthSeniorPage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }

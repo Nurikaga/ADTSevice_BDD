@@ -1,8 +1,9 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -35,9 +36,52 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.adtLogoBtn);
     }
 
+    @And("Verify the drop down menu should be visible")
+    public void verifyTheDropDownMenuShouldBeVisible() {
+        BrowserUtils.isDisplayed(page.dropDownMenu);
+    }
 
+    @And("Verify {string} are enable")
+    public void verifyAreEnable(String buttons) {
+        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, buttons))));
+    }
+
+    @Then("Verify {string} button is displayed")
+    public void verifyButtonIsDisplayed(String shopNowBtn) {
+        BrowserUtils.isDisplayed(page.shopNowBtn);
+    }
+
+    @And("Verify {string} button is enabled")
+    public void verifyButtonIsEnabled(String shopNowBtn) {
+        BrowserUtils.isEnabled(page.shopNowBtn);
+    }
+
+//    @Then("I click on {string} hovered-over button")
+//    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
+//        BrowserUtils.click(page.callBtn);
+//        Thread.sleep(5000);
+//        Alert alert = BrowserUtils.getDriver().switchTo().alert();
+//        alert.dismiss();
+//    }
+
+    @And("Verify {string} under icon is displayed")
+    public void verifyUnderIconIsDisplayed() {
+        BrowserUtils.isDisplayed(page.phoneNumber);
+    }
+
+    @Then("I hover over call button")
+    public void iHoverOverCallButton() {
+        BrowserUtils.moveIntoView(page.callBtn);
+    }
+
+    @Then("I click on Customer Login icon")
+    public void iClickOnCustomerLoginIcon() {
+        BrowserUtils.click(page.customerIcon);
+    }
 
 }
+
 
 
 
