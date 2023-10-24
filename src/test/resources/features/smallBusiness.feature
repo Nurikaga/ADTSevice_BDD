@@ -4,7 +4,6 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
-
   @US01
   Scenario:Verify title of the Small Business page
     When I click "Home & Personal" hovered-over button
@@ -27,7 +26,6 @@ Feature: Home Page Related Scenarios
       | Resources       | Resources       |
 
 
-
   @US03
   Scenario: Verify that user is able to see the a header of the page
     When I click "Home & Personal" hovered-over button
@@ -39,8 +37,7 @@ Feature: Home Page Related Scenarios
     And I verify the header "Professionally-monitored intrusion detection" in the page
 
   @US04
-  Scenario Outline:
-  : Verify a header and the links are displayed on Interactive Security page
+  Scenario Outline: Verify a header and the links are displayed on Interactive Security page
     When I click "Home & Personal" hovered-over button
     Then I click on "Small Business" link button that forwarding to the Small Business page
     And I change Window to the new tab
@@ -68,8 +65,5 @@ Feature: Home Page Related Scenarios
     Then Verify pictures are displayed
     Then Verify the texts under pictures are displayed
     Then Verify Learn more buttons are displayed
-
-
-
 
 
