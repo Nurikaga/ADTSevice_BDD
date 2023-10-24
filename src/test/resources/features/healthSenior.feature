@@ -20,7 +20,6 @@ Feature: Home Page Related Scenarios
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
-
   @US-22
   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
     When I click  "Home & Personal" button
@@ -34,7 +33,6 @@ Feature: Home Page Related Scenarios
       | Why ADT          |
       | FAQS             |
       | Testimonials     |
-
 
   @US26
   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed

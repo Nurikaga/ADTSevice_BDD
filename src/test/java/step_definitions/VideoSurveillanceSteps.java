@@ -31,7 +31,6 @@ public class VideoSurveillanceSteps implements CommonPage {
             BrowserUtils.isDisplayed(each);
 
     }}
-
 }
 
 

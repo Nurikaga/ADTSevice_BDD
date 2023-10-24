@@ -5,52 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0695ab31-aa45-42a7-8f88-c0c463c5fe98" name="Changes" comment="US-09 test is fixed">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/5/15803a54dcca0244ba46bb1e307221dcae375b15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3b21f601d55500afdf7ac23b7d439f41cf32dfc0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/2/42b8300070bf5b4b5a0097b050c9368a280f7ab1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/9/69dc0c0cc996152d2769d308d63ea8b4fa8f88e8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6a4905d6de54545782cdbf6e56be4728a13706ff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/9607604da85812495c867216ab5e32d14fbae309" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c8a3f33358445f00ca2a16ffb92b5f8fe85e8f45" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4d134b1447a0b225a6658351ee7e1983b1ca16f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/e/de436e270b88f4782d017ced1fb4fc586e776586" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/5/15803a54dcca0244ba46bb1e307221dcae375b15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/b/3b21f601d55500afdf7ac23b7d439f41cf32dfc0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/2/42b8300070bf5b4b5a0097b050c9368a280f7ab1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/9/69dc0c0cc996152d2769d308d63ea8b4fa8f88e8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/a/6a4905d6de54545782cdbf6e56be4728a13706ff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/6/9607604da85812495c867216ab5e32d14fbae309" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/8/c8a3f33358445f00ca2a16ffb92b5f8fe85e8f45" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/4/d4d134b1447a0b225a6658351ee7e1983b1ca16f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/e/de436e270b88f4782d017ced1fb4fc586e776586" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/VideoSurveillancePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/VideoSurveillancePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/VideoSurveillanceSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/VideoSurveillanceSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/BrowserUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/BrowserUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
