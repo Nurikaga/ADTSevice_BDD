@@ -18,7 +18,7 @@ public class SmallBusinessPage {
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
 
-    @FindBy(xpath = "(//span[text()='Small Business'])[1]")
+    @FindBy(css = "(.dropdown-menu.show > a:nth-of-type(3) > span")
     public WebElement smallBusinessBtn;
 
 

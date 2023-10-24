@@ -20,9 +20,7 @@ public class SmallBusinessSteps implements CommonPage {
 
     @When("I click on Home & Personal button")
     public void iClickOnHomePersonalButton() throws InterruptedException {
-
         BrowserUtils.click(page.homeAndPersonalBtn);
-
     }
 
     @And("I click on Small Business button")

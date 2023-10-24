@@ -56,7 +56,32 @@ public class HomeSteps implements CommonPage {
     public void verifyButtonIsEnabled(String shopNowBtn) {
         BrowserUtils.isEnabled(page.shopNowBtn);
     }
+
+//    @Then("I click on {string} hovered-over button")
+//    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
+//        BrowserUtils.click(page.callBtn);
+//        Thread.sleep(5000);
+//        Alert alert = BrowserUtils.getDriver().switchTo().alert();
+//        alert.dismiss();
+//    }
+
+    @And("Verify {string} under icon is displayed")
+    public void verifyUnderIconIsDisplayed() {
+        BrowserUtils.isDisplayed(page.phoneNumber);
+    }
+
+    @Then("I hover over call button")
+    public void iHoverOverCallButton() {
+        BrowserUtils.moveIntoView(page.callBtn);
+    }
+
+    @Then("I click on Customer Login icon")
+    public void iClickOnCustomerLoginIcon() {
+        BrowserUtils.click(page.customerIcon);
+    }
+
 }
+
 
 
 

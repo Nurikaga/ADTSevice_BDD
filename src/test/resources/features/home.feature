@@ -20,8 +20,7 @@ Feature: Home Page Related Scenarios
 
   @US-07
   Scenario: Verify drop down menu is present
-    When I open url of homepage
-    Then I click on Home & Personal button
+    When I click on Home & Personal button
     And Verify the drop down menu should be visible
 
   @US-08
@@ -50,6 +49,33 @@ Feature: Home Page Related Scenarios
       | Packages       | Packages       |
       | Build Your own | Build Your own |
       | Deals          | Deals          |
+
+  @US-12.1
+  Scenario: Verify the phone number pops up
+    When I open url of homepage
+    Then I click on "Call Button" hovered-over button
+    And Verify "(800) 510-9061" under icon is displayed
+
+  @US-12
+  Scenario: Verify the phone number pops up
+    When I open url of homepage
+    Then I hover over call button
+    And Verify the texts under pictures are displayed
+
+  @US-13
+  Scenario: Verify the Customer Login page title
+    When I open url of homepage
+    Then I click on Customer Login icon
+    And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+
+  @US-17
+  Scenario: Verify the Small Business header
+    When I click on Home & Personal button
+    Then I click on Small Business button
+    And Verify "Customize a business security system today " text in header is displayed
+
+
+
 
 
 
