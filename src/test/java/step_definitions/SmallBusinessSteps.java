@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
+import utils.CucumberLogUtils;
 
 
 public class SmallBusinessSteps implements CommonPage {
@@ -17,6 +18,7 @@ public class SmallBusinessSteps implements CommonPage {
         page = new SmallBusinessPage();
 
     }
+
     @When("I click on Home & Personal button")
     public void iClickOnHomePersonalButton() throws InterruptedException {
 
@@ -29,7 +31,6 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath("(//span[text()='Small Business'])[1]")).click();
         Thread.sleep(5000);
     }
-
 
 
     @Then("Verify {string} are displayed")
@@ -119,8 +120,17 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();
         ;
     }
+    @And("I verify the image,title,text is displayed")
+    public void iVerifyTheImageTitleTextIsDisplayed() {
+        for (WebElement each : page.imageList4) {
+            BrowserUtils.isDisplayed(each);
+        }
+    }
+    @And("I take screenshot of test")
+    public void iTakeScreenshotOfTest() {
+        CucumberLogUtils.logPass("Image is displayed", true);
+    }
 }
-
 
 
 

@@ -12,11 +12,13 @@ public class VideoSurveillancePage {
     }
     @FindBy(xpath = "//a[normalize-space()='Video Surveillance']")
     public WebElement videoSurveillanceBtn;
-    @FindBy(xpath = "//div[@class=' col-12 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xg-3 ']")
-    public List<WebElement> picTitleText;
+    @FindBy(xpath = "//div[@id='parent-padding-69392292']/div")
+    public List<WebElement> imageList;
+    @FindBy(xpath = "//div[@class='mainc-69392292']/div/div")
+    public List<WebElement> imageList4;
 
-    @FindBy(id = "img-4828")
-    public WebElement pic1;
+
+
 
     }
 

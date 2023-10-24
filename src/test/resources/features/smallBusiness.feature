@@ -70,6 +70,3 @@ Feature: Home Page Related Scenarios
     Then Verify Learn more buttons are displayed
 
 
-
-
-
