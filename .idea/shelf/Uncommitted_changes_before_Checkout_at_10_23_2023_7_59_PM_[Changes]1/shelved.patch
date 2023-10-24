@@ -1,0 +1,106 @@
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+deleted file mode 100644
+--- a/.idea/encodings.xml	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="azul-19" project-jdk-type="JavaSDK" />
+-</project>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.ADTSevice_BDD</groupId>\r\n    <artifactId>ADTSevice_BDD</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>8</maven.compiler.source>\r\n        <maven.compiler.target>8</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n\r\n    <dependencies>\r\n\r\n        <dependency>\r\n            <groupId>com.github.javafaker</groupId>\r\n            <artifactId>javafaker</artifactId>\r\n            <version>1.0.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>4.12.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.github.bonigarcia</groupId>\r\n            <artifactId>webdrivermanager</artifactId>\r\n            <version>5.5.3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi-ooxml</artifactId>\r\n            <version>4.1.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>junit</groupId>\r\n            <artifactId>junit</artifactId>\r\n            <version>4.13.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-java</artifactId>\r\n            <version>6.11.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-junit</artifactId>\r\n            <version>6.11.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.googlecode.json-simple</groupId>\r\n            <artifactId>json-simple</artifactId>\r\n            <version>1.1.1</version>\r\n        </dependency>\r\n    </dependencies>\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-surefire-plugin</artifactId>\r\n                <version>2.18.1</version>\r\n                <configuration>\r\n                    <forkCount>1</forkCount>\r\n                    <includes>\r\n                        <include>**/*CukesRunner.class</include>\r\n                    </includes>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>net.masterthought</groupId>\r\n                <artifactId>maven-cucumber-reporting</artifactId>\r\n                <version>5.0.0</version>\r\n                <executions>\r\n                    <execution>\r\n                        <id>execution</id>\r\n                        <phase>verify</phase>\r\n                        <goals>\r\n                            <goal>generate</goal>\r\n                        </goals>\r\n                        <configuration>\r\n\r\n                            <projectName>Example</projectName>\r\n                            <projectName>Example</projectName>\r\n\r\n                            <skip>false</skip>\r\n                            <!-- output directory for the generated report -->\r\n                            <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>\r\n                            <jsonFiles>\r\n                                <param>**/*.json</param>\r\n                            </jsonFiles>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n\r\n\r\n        </plugins>\r\n    </build>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -45,13 +45,13 @@
+         <dependency>
+             <groupId>io.cucumber</groupId>
+             <artifactId>cucumber-java</artifactId>
+-            <version>6.11.0</version>
++            <version>7.14.0</version>
+         </dependency>
+ 
+         <dependency>
+             <groupId>io.cucumber</groupId>
+             <artifactId>cucumber-junit</artifactId>
+-            <version>6.11.0</version>
++            <version>7.14.0</version>
+         </dependency>
+         <dependency>
+             <groupId>com.googlecode.json-simple</groupId>
+Index: src/test/java/step_definitions/SmallBusinessSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\r\n\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebElement;\r\nimport pages.CommonPage;\r\nimport pages.SmallBusinessPage;\r\nimport utils.BrowserUtils;\r\n\r\n\r\npublic class SmallBusinessSteps implements CommonPage {\r\n    SmallBusinessPage page;\r\n\r\n    public SmallBusinessSteps() {\r\n        page = new SmallBusinessPage();\r\n\r\n    }\r\n\r\n    @When(\"I click on Home & Personal button\")\r\n    public void iClickOnHomePersonalButton() throws InterruptedException {\r\n\r\n        BrowserUtils.click(page.homeAndPersonalBtn);\r\n\r\n    }\r\n\r\n    @And(\"I click on Small Business button\")\r\n    public void iClickOnSmallBusinessButton() throws InterruptedException {\r\n        BrowserUtils.getDriver().findElement(By.xpath(\"(//span[text()='Small Business'])[1]\")).click();\r\n        Thread.sleep(5000);\r\n    }\r\n\r\n    @Then(\"Verify {string} are displayed\")\r\n    public void verifyAreDisplayed(String btns) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));\r\n    }\r\n\r\n    @Then(\"Verify {string} are enabled\")\r\n    public void verifyAreEnabled(String Buttons) {\r\n        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));\r\n    }\r\n\r\n    @When(\"I click {string} hovered-over button\")\r\n    public void iClickHoveredOverButton(String homePersonalBtn) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();\r\n    }\r\n\r\n    @Then(\"I click on {string} link button that forwarding to the Small Business page\")\r\n    public void iClickOnLinkButtonThatForwardingToTheSmallBusinessPage(String smallBusinessBtn) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, smallBusinessBtn))).click();\r\n    }\r\n\r\n    @And(\"I change Window to the new tab\")\r\n    public void iChangeWindowToTheNewTab() {\r\n        BrowserUtils.switchToNewWindow();\r\n    }\r\n\r\n    @Then(\"I navigate to {string} drop down menu\")\r\n    public void iNavigateToDropDownMenu(String solutionLink) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, solutionLink))).click();\r\n    }\r\n\r\n    @And(\"I click on {string} link button that takes to the Intrusion Detection page\")\r\n    public void iClickOnLinkButtonThatTakesToTheIntrusionDetectionPage(String intrusionDetectionLink) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, intrusionDetectionLink))).click();\r\n    }\r\n\r\n    @And(\"I verify the header {string} in the page\")\r\n    public void iVerifyTheHeaderInThePage(String header) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, header))).getText(), header);\r\n    }\r\n\r\n    @Then(\"Verify {string} text in header is displayed\")\r\n    public void verifyTextInHeaderIsDisplayed(String headerText) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));\r\n    }\r\n\r\n    @Then(\"Verify {string} text under header is displayed\")\r\n    public void verifyTextUnderHeaderIsDisplayed(String text) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));\r\n    }\r\n\r\n    @Then(\"Verify pictures are displayed\")\r\n    public void verifyPicturesAreDisplayed() throws InterruptedException {\r\n\r\n        for (WebElement each : page.pictureTitles) {\r\n            BrowserUtils.assertTrue(each.isDisplayed());\r\n        }\r\n    }\r\n\r\n    @Then(\"Verify the texts under pictures are displayed\")\r\n    public void verifyTheTextsUnderPicturesAreDisplayed() {\r\n        for (WebElement element : page.textUnderPictures) {\r\n            BrowserUtils.assertTrue(element.isDisplayed());\r\n            System.out.println(element.getText());\r\n        }\r\n    }\r\n\r\n    @Then(\"Verify Learn more buttons are displayed\")\r\n    public void verifyLearnMoreButtonsAreDisplayed() {\r\n        for (WebElement element : page.learnMoreBtns) {\r\n            BrowserUtils.isDisplayed(element);\r\n            System.out.println(element.getText());\r\n        }\r\n    }\r\n\r\n    @Then(\"I verify the title of the page {string}\")\r\n    public void iVerifyTheTitleOfThePage(String title) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\r\n    }\r\n\r\n    @And(\"Verify  all {string} are displayed\")\r\n    public void verifyAllAreDisplayed(String links) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/SmallBusinessSteps.java b/src/test/java/step_definitions/SmallBusinessSteps.java
+--- a/src/test/java/step_definitions/SmallBusinessSteps.java	
++++ b/src/test/java/step_definitions/SmallBusinessSteps.java	
+@@ -15,14 +15,11 @@
+ 
+     public SmallBusinessSteps() {
+         page = new SmallBusinessPage();
+-
+     }
+ 
+     @When("I click on Home & Personal button")
+     public void iClickOnHomePersonalButton() throws InterruptedException {
+-
+         BrowserUtils.click(page.homeAndPersonalBtn);
+-
+     }
+ 
+     @And("I click on Small Business button")

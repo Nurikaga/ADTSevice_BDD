@@ -18,16 +18,67 @@ Feature: Home Page Related Scenarios
     When I open url of homepage
     Then Verify ADT logo button is displayed
 
+  @US-07
+  Scenario: Verify drop down menu is present
+    When I click on Home & Personal button
+    And Verify the drop down menu should be visible
+
+  @US-08
+  Scenario Outline: Verify Home & Personal drop down menu text links are displayed & clickable
+    When I click on Home & Personal button
+    Then Verify "<links>" are displayed
+    And Verify "<buttons>" are enable
+    Examples:
+      | links                  | buttons                |
+      | Home & Personal        | Home & Personal        |
+      | Small Business         | Small Business         |
+      | Health & Senior Safety | Health & Senior Safety |
+      | Commercial             | Commercial             |
+      | Solar                  | Solar                  |
+
   @US-09
   Scenario Outline: Verify top menu text links are displayed & enable to click
     When I open url of homepage
     Then Verify "<links>" are displayed
-    And Verify "<buttons>" are enabled
+    Then Verify "<buttons>" are enabled
+    Then Verify "Shop Now" button is displayed
+    And Verify "Shop Now" button is enabled
     Examples:
       | links          | buttons        |
       | Products       | Products       |
       | Packages       | Packages       |
       | Build Your own | Build Your own |
       | Deals          | Deals          |
-      | Shop Now       | Shop Now       |
+
+  @US-12.1
+  Scenario: Verify the phone number pops up
+    When I open url of homepage
+    Then I click on "Call Button" hovered-over button
+    And Verify "(800) 510-9061" under icon is displayed
+
+  @US-12
+  Scenario: Verify the phone number pops up
+    When I open url of homepage
+    Then I hover over call button
+    And Verify the texts under pictures are displayed
+
+  @US-13
+  Scenario: Verify the Customer Login page title
+    When I open url of homepage
+    Then I click on Customer Login icon
+    And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+
+  @US-17
+  Scenario: Verify the Small Business header
+    When I click on Home & Personal button
+    Then I click on Small Business button
+    And Verify "Customize a business security system today " text in header is displayed
+
+
+
+
+
+
+
+
 
