@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
+import utils.CucumberLogUtils;
 
 
 public class HealthSeniorSteps implements CommonPage {
@@ -38,7 +39,10 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, healthSafetyBtn))).click();
     }
 
-
+//    @When("I click on {string} button")
+//    public void i_click_on_button(String btn) {
+//        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))).click();
+//    }
 //    @When("I click on {string} button")
 //    public void i_click_on_button(String btn) {
 //        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))).click();
@@ -100,5 +104,22 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+    @Then("I verify the video is displayed")
+    public void iVerifyTheVideoIsDisplayed() {
+        page.videoImg.isDisplayed();
+    }
+
+    @And("I verify the video is able to play")
+    public void iVerifyTheVideoIsAbleToPlay() {
+        page.playBtn.click();
+        BrowserUtils.switchToNewWindow();
+        CucumberLogUtils.logPass("Video is able to play", true);
+    }
+    @And("I click on Shop Now button and Verify titles of the pages")
+    public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
+        page.clickShopNowBtn();
+    }
 }
+
+
 

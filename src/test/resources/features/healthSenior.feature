@@ -62,3 +62,21 @@ Feature: Home Page Related Scenarios
       | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
       | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |
 
+
+  @US27
+  Scenario: verify the buttons take to the following pages by checking their titles
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
+    And I click on Shop Now button and Verify titles of the pages
+
+
+  @US29
+  Scenario: Verify a header and a video is displayed and able to play
+    When I click "Home & Personal" hovered-over button
+    And  I click on "Health & Senior Safety" button
+    And I verify the header "See how ADT Medical Alert Systems work" in the page
+    Then I verify the video is displayed
+    And I verify the video is able to play
+
+
