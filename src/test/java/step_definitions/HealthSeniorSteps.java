@@ -38,10 +38,7 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, healthSafetyBtn))).click();
     }
 
-//    @When("I click on {string} button")
-//    public void i_click_on_button(String btn) {
-//        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))).click();
-//    }
+
 //    @When("I click on {string} button")
 //    public void i_click_on_button(String btn) {
 //        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))).click();
