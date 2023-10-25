@@ -42,7 +42,7 @@ Feature: Home Page Related Scenarios
     Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
     Then Verify pictures are displayed under header above
     Then Verify text under name is displayed
-    Then Verify "<description>" is displayed
+#    Then Verify "<description>" is displayed
     Then Verify "<description>" is displayed
     Then Verify "<textUnderDesk1>" is displayed
     Then Verify "<textUnderDesk2>" is displayed

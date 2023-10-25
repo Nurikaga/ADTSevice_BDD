@@ -86,11 +86,17 @@ public class HealthSeniorSteps implements CommonPage {
     }
 
     @When("I scroll up")
-    public void iScrollUp() {
+    public void iScrollUp() throws InterruptedException {
 
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
+//        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+//        // Scroll up by a certain pixel amount (you can adjust the value as needed)
+//        js.executeScript("window.scrollBy(0, -250);");
+
+
     }
+
 
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
