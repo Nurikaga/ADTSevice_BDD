@@ -117,7 +117,19 @@ public class HealthSeniorSteps implements CommonPage {
     }
     @And("I click on Shop Now button and Verify titles of the pages")
     public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
-        page.clickShopNowBtn();
+        page.shopNowBtn2.click();
+        String title1 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title1);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn3.click();
+        String title2 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title2);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn4.click();
+        String title3 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title3);
     }
 }
 

@@ -1,15 +1,17 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
-import utils.CucumberLogUtils;
+
 
 import java.util.List;
+
+
 
 public class HealthSeniorPage {
     @FindBy(css = ".dropdown-menu.show")
@@ -32,7 +34,12 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "(//span[@class='btn-cta-text'])[1]")
     public WebElement shopNowBtn;
-
+    @FindBy(xpath = "(//span[@class='btn-cta-text'])[2]")
+    public WebElement shopNowBtn2;
+    @FindBy(xpath = "(//span[@class='btn-cta-text'])[3]")
+    public WebElement shopNowBtn3;
+    @FindBy(xpath = "(//span[@class='btn-cta-text'])[4]")
+    public WebElement shopNowBtn4;
     @FindBy(xpath = "//u[normalize-space()='Click here.']")
     public WebElement clickHereBtn;
 
@@ -42,25 +49,11 @@ public class HealthSeniorPage {
     @FindBy(xpath = "//span[@class='btn-video-icon video-blue-btn']")
     public WebElement playBtn;
 
-    @FindBy(xpath = "//div[@id='parent-padding-795230662']//span[@class='btn-cta-text']")
-    public List<WebElement> shopNowBtns;
-
-    public void clickShopNowBtn() {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        for (WebElement shopBtn : shopNowBtns) {
-            shopBtn.click();
-            BrowserUtils.getDriver().navigate().back();
-
-          // String title= BrowserUtils.getDriver().getTitle();
-          // System.out.println(title);
-           //CucumberLogUtils.logPass("Title is: "+title, true);;
-           // BrowserUtils.getDriver().findElement(By.xpath("//a[@class='backButton']")).click();
-            BrowserUtils.sleep(2000);
 
 
 
-        }
-    }
+
+
 }
 
 
