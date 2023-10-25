@@ -78,3 +78,12 @@ Feature: Home Page Related Scenarios
       | Fall Detection pendant*      | ADT can automatically be alerted after a fall even if you can’t press the button on the Fall Detection pendant yourself. Available with Medical Alert Plus and On-the-Go systems.                                                              | *Fall Detection pendant does not detect 100% of falls. |
       | Lockbox                      | If there’s an emergency, keeping a spare key in an ADT Lockbox can give friends, family or first responders a quick and easy way into the house without the need for forced entry.                                                             |                                                        |
       | Waterproof Wall-Mount Button | With our emergency button in a set location, you know exactly where to go to press for help in an emergency. Easily mounts to the wall or can be placed on a table or nightstand. Available with the Medical Alert Plus and On-the-Go systems. |                                                        |
+
+  @US30
+  Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Fast, reliable 24/7 help in an emergency " text in header is displayed
+    Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
+    Then Verify three buttons are displayed
+    Then Verify three buttons are enabled

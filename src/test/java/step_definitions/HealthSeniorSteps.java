@@ -111,9 +111,33 @@ public class HealthSeniorSteps implements CommonPage {
 
     @Then("Verify images are displayed")
     public void verifyImagesAreDisplayed() {
-        for(WebElement each: page.images){
+        for (WebElement each : page.images) {
             BrowserUtils.assertTrue(each.isDisplayed());
         }
     }
+
+    @Then("Verify {string} text under the header is displayed")
+    public void verifyTextUnderTheHeaderIsDisplayed(String textUndHeader) {
+        BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
+    }
+
+    @Then("Verify three buttons are displayed")
+    public void verifyThreeButtonsAreDisplayed() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isDisplayed());
+
+        }
+    }
+
+    @Then("Verify three buttons are enabled")
+    public void verifyThreeButtonsAreEnabled() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isEnabled());
+        }
+    }
 }
+
+
+
+
 
