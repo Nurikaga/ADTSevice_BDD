@@ -30,5 +30,9 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//u[normalize-space()='Click here.']")
     public WebElement clickHereBtn;
+
+    @FindBy(xpath = "//div[@id='myCardModal']//div[@class='aem-Grid aem-Grid--12 aem-Grid--default--12 ']//img")
+    public List<WebElement> images;
 }
+
 

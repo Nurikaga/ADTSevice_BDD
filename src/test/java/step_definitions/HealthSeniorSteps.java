@@ -109,5 +109,11 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+    @Then("Verify images are displayed")
+    public void verifyImagesAreDisplayed() {
+        for(WebElement each: page.images){
+            BrowserUtils.assertTrue(each.isDisplayed());
+        }
+    }
 }
 
