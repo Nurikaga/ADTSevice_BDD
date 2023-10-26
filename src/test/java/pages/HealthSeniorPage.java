@@ -61,6 +61,7 @@ public class HealthSeniorPage {
     @FindBy(xpath = "//div[@class='feature-container']")
     public List<WebElement> threeButtons;
 
+
 }
 
 
