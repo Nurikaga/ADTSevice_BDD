@@ -122,6 +122,7 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("Video is able to play", true);
     }
+
     @And("I click on Shop Now button and Verify titles of the pages")
     public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
         page.shopNowBtn2.click();
@@ -165,6 +166,11 @@ public class HealthSeniorSteps implements CommonPage {
             BrowserUtils.assertTrue(each.isEnabled());
         }
 
+    }
+
+    @Then("Verify title of the Health & Senior Safety is {string}")
+    public void verifyTitleOfTheHealthSeniorSafetyIs(String TiTle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), TiTle);
     }
 }
 

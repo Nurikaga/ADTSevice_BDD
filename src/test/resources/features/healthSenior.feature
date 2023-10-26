@@ -4,6 +4,13 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
+  @US21
+  Scenario: Click on the Home & Personal drop-down button on the Home page. Click on the Health & Senior option button that takes you to the Health & Senior page and verify the title of the page.
+    When I click  "Home & Personal" button
+    When I click on "Health & Senior Safety" button
+    Then Verify title of the Health & Senior Safety is "Medical Alert Systems | Health & Senior Safety Resources by ADT"
+
+
   @US-22
   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
     When I click  "Home & Personal" button
@@ -44,7 +51,7 @@ Feature: Home Page Related Scenarios
     Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
     Then Verify pictures are displayed under header above
     Then Verify text under name is displayed
-   Then Verify "<description>" is displayed
+    Then Verify "<description>" is displayed
     Then Verify "<description>" is displayed
     Then Verify "<textUnderDesk1>" is displayed
     Then Verify "<textUnderDesk2>" is displayed
@@ -65,7 +72,6 @@ Feature: Home Page Related Scenarios
       | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |
 
 
-
   @US27
   Scenario: verify the buttons take to the following pages by checking their titles
     When I click on Home & Personal button
@@ -81,7 +87,6 @@ Feature: Home Page Related Scenarios
     And I verify the header "See how ADT Medical Alert Systems work" in the page
     Then I verify the video is displayed
     And I verify the video is able to play
-
 
 
   @US28
