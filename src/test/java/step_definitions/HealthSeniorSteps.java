@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
+import utils.CucumberLogUtils;
 
 
 public class HealthSeniorSteps implements CommonPage {
@@ -109,11 +110,88 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+
+    @Then("I verify the video is displayed")
+    public void iVerifyTheVideoIsDisplayed() {
+        page.videoImg.isDisplayed();
+    }
+
+    @And("I verify the video is able to play")
+    public void iVerifyTheVideoIsAbleToPlay() {
+        page.playBtn.click();
+        BrowserUtils.switchToNewWindow();
+        CucumberLogUtils.logPass("Video is able to play", true);
+    }
+
+    @And("I click on Shop Now button and Verify titles of the pages")
+    public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
+        page.shopNowBtn2.click();
+        String title1 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title1);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn3.click();
+        String title2 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title2);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn4.click();
+        String title3 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title3);
+    }
+
     @Then("Verify images are displayed")
     public void verifyImagesAreDisplayed() {
-        for(WebElement each: page.images){
+        for (WebElement each : page.images) {
             BrowserUtils.assertTrue(each.isDisplayed());
         }
     }
+
+    @Then("Verify {string} text under the header is displayed")
+    public void verifyTextUnderTheHeaderIsDisplayed(String textUndHeader) {
+        BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
+    }
+
+    @Then("Verify three buttons are displayed")
+    public void verifyThreeButtonsAreDisplayed() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isDisplayed());
+
+        }
+    }
+
+    @Then("Verify three buttons are enabled")
+    public void verifyThreeButtonsAreEnabled() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isEnabled());
+        }
+
+    }
+
+    @Then("Verify title of the Health & Senior Safety is {string}")
+    public void verifyTitleOfTheHealthSeniorSafetyIs(String TiTle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), TiTle);
+    }
+
+    @And("I hover over phone symbol button")
+    public void iHoverOverPhoneSymbolButton() throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.moveToElement(page.phoneIcon).perform();
+        Thread.sleep(3000);
+        CucumberLogUtils.logPass("Image is displayed", true);
+    }
+
+    @When("I click customer symbol button")
+    public void iClickCustomerSymbolButton() {
+        BrowserUtils.click(page.customerIcon);
+    }
+
+    @Then("Verify the url is {string}")
+    public void verifyTheUrlIs(String url) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
+    }
 }
+
+
+
 

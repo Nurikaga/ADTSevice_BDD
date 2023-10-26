@@ -6,7 +6,7 @@ public interface CommonPage {
     String XPATH_TEMPLATE_TEXT = "//*[text()='%s']";
     String XPATH_TEMPLATE_TEXT_SPAN = "//span[@class='ha6'][text()='%s']";
 
-    String XPATH_TEMPLATE_TEXT_P = "//p[text()='%s']";
+    String XPATH_TEMPLATE_TEXT_ShopNow = "//div[@class='col-12 ']//span[@class='btn-cta-text'][normalize-space()='%s']";
     String XPATH_TEMPLATE_TEXT_CONTAINS = "//*[contains(text(), '%s')]";
     String XPATH_TEMPLATE_INPUT_FIELD = "//input[@placeholder='%s']";
     String XPATH_TEMPLATE_INPUT_FIELD2 = "//input[@name='%s']";
