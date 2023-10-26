@@ -4,16 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
-
-import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
@@ -152,20 +143,25 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
     }
 
-    @Then("Verify three buttons are displayed")
-    public void verifyThreeButtonsAreDisplayed() {
-        for (WebElement each : page.threeButtons) {
-            BrowserUtils.assertTrue(each.isDisplayed());
-
-        }
-    }
-
+        
     @Then("Verify three buttons are enabled")
     public void verifyThreeButtonsAreEnabled() {
         for (WebElement each : page.threeButtons) {
             BrowserUtils.assertTrue(each.isEnabled());
         }
 
+    }
+
+
+
+    @Then("I verify the picture is displayed")
+    public void iVerifyThePictureIsDisplayed() {
+        page.bigImg.isDisplayed();
+
+    }
+
+    @Then("Verify three buttons are displayed")
+    public void verifyThreeButtonsAreDisplayed() {
     }
 
     @Then("Verify title of the Health & Senior Safety is {string}")
@@ -190,6 +186,7 @@ public class HealthSeniorSteps implements CommonPage {
     public void verifyTheUrlIs(String url) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
+
 
 
 }

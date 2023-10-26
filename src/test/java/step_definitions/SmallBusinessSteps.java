@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
@@ -126,7 +127,22 @@ public class SmallBusinessSteps implements CommonPage {
         CucumberLogUtils.logPass("Image is displayed", true);
 
     }
+
+
+    @Then("Verify pop-up window with Accessibility menu buttons is display on the right top of the page")
+    public void verifyPopUpWindowWithAccessibilityMenuButtonsIsDisplayOnTheRightTopOfThePage() {
+        BrowserUtils.sleep(5000);
+        CucumberLogUtils.logPass("Accessibility menu buttons is display on the right top of the page", true);
+    }
+    @Then("I navigate to Accessibility button in the footer and click it")
+    public void iNavigateToAccessibilityButtonInTheFooterAndClickIt() {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0,350)", page.accessabilityBtn);
+        BrowserUtils.click(page.accessabilityBtn);
+
+    }
 }
+
 
 
 

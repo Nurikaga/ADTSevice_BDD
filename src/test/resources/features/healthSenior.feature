@@ -4,6 +4,7 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
+
   @US21
   Scenario: Click on the Home & Personal drop-down button on the Home page. Click on the Health & Senior option button that takes you to the Health & Senior page and verify the title of the page.
     When I click  "Home & Personal" button
@@ -42,6 +43,27 @@ Feature: Home Page Related Scenarios
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
+
+  @US-22
+  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
+    When I click  "Home & Personal" button
+    Then I click on "Health & Senior Safety" button
+    Then I change Window to the new tab
+    And Verify "<links>" are displayed
+    Examples:
+      | links            |
+      | Products         |
+      | Compare Packages |
+      | Why ADT          |
+      | FAQS             |
+      | Testimonials     |
+
+    @US25
+  Scenario: Verify Picture under the main menu Health & Senior Safety Page
+      When I click on Home & Personal button
+      And  I click on "Health & Senior Safety" button
+      Then I verify the picture is displayed
+
   @US24
   Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.
     When I click on Home & Personal button
@@ -50,6 +72,7 @@ Feature: Home Page Related Scenarios
     Then Verify "(800) 588-0023" is displayed
     When I click customer symbol button
     Then Verify the url is "https://www.adt.com/customer/login"
+
 
 
   @US26
@@ -98,6 +121,9 @@ Feature: Home Page Related Scenarios
     And I verify the video is able to play
 
 
+
+
+
   @US28
   Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
     When I click on Home & Personal button
@@ -121,4 +147,5 @@ Feature: Home Page Related Scenarios
     Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
+
 
