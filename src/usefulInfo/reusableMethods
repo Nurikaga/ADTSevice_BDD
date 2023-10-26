@@ -7,3 +7,8 @@ actions.sendKeys(Keys.PAGE_UP).build().perform();
 
 Actions actions = new Actions(BrowserUtils.getDriver());
 actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+## HOVER OVER ##
+
+  Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.moveToElement(page.phoneIcon).perform();
