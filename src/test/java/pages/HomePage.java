@@ -23,6 +23,5 @@ public class HomePage {
     @FindBy(css = ".right-container > .icon > img[alt='customer icon']")
     public WebElement customerIcon;
 
-
     }
 

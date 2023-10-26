@@ -91,6 +91,10 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.customerIcon);
 
     }
+    @When("I click on Shopping cart icon")
+    public void iClickOnShoppingCartIcon() {
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='right-container']//img[@alt='cart icon']")).click();
+    }
 
 }
 
