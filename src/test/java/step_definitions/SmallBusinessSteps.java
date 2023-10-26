@@ -5,10 +5,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 public class SmallBusinessSteps implements CommonPage {
@@ -126,7 +130,21 @@ public class SmallBusinessSteps implements CommonPage {
         CucumberLogUtils.logPass("Image is displayed", true);
 
     }
-}
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
 
 
 
