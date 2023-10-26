@@ -43,6 +43,7 @@ public class HealthSeniorPage {
     @FindBy(xpath = "//u[normalize-space()='Click here.']")
     public WebElement clickHereBtn;
 
+
     @FindBy(xpath = "//div[@class='vid-img-overlay row no-gutters d-flex align-items-center align-self-center']")
     public WebElement videoImg;
 
@@ -53,6 +54,17 @@ public class HealthSeniorPage {
 
 
 
+
+
+    @FindBy(xpath = "//div[@id='myCardModal']//div[@class='aem-Grid aem-Grid--12 aem-Grid--default--12 ']//img")
+    public List<WebElement> images;
+
+    @FindBy(xpath = "//p[contains(text(),'When you need help quickly, ADT is there for you. ')]")
+    public WebElement descriptionUnderHeaderText;
+
+
+    @FindBy(xpath = "//div[@class='feature-container']")
+    public List<WebElement> threeButtons;
 
 }
 

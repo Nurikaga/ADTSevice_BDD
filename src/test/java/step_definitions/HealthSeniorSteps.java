@@ -87,11 +87,17 @@ public class HealthSeniorSteps implements CommonPage {
     }
 
     @When("I scroll up")
-    public void iScrollUp() {
+    public void iScrollUp() throws InterruptedException {
 
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
+//        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+//        // Scroll up by a certain pixel amount (you can adjust the value as needed)
+//        js.executeScript("window.scrollBy(0, -250);");
+
+
     }
+
 
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
@@ -103,6 +109,7 @@ public class HealthSeniorSteps implements CommonPage {
     public void verifyTitleIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
+
 
     @Then("I verify the video is displayed")
     public void iVerifyTheVideoIsDisplayed() {
@@ -130,8 +137,36 @@ public class HealthSeniorSteps implements CommonPage {
         page.shopNowBtn4.click();
         String title3 = BrowserUtils.getDriver().getTitle();
         System.out.println(title3);
+
+    @Then("Verify images are displayed")
+    public void verifyImagesAreDisplayed() {
+        for (WebElement each : page.images) {
+            BrowserUtils.assertTrue(each.isDisplayed());
+        }
+    }
+
+    @Then("Verify {string} text under the header is displayed")
+    public void verifyTextUnderTheHeaderIsDisplayed(String textUndHeader) {
+        BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
+    }
+
+    @Then("Verify three buttons are displayed")
+    public void verifyThreeButtonsAreDisplayed() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isDisplayed());
+
+        }
+    }
+
+    @Then("Verify three buttons are enabled")
+    public void verifyThreeButtonsAreEnabled() {
+        for (WebElement each : page.threeButtons) {
+            BrowserUtils.assertTrue(each.isEnabled());
+        }
+
     }
 }
+
 
 
 

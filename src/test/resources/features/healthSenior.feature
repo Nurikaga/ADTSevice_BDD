@@ -4,6 +4,21 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
+  @US-22
+  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
+    When I click  "Home & Personal" button
+    Then I click on "Health & Senior Safety" button
+    Then I change Window to the new tab
+    And Verify "<links>" are displayed
+    Examples:
+      | links            |
+      | Products         |
+      | Compare Packages |
+      | Why ADT          |
+      | FAQS             |
+      | Testimonials     |
+
+
   @US23
   Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable
     When I click on Home & Personal button
@@ -20,19 +35,6 @@ Feature: Home Page Related Scenarios
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
-  @US-22
-  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
-    When I click  "Home & Personal" button
-    Then I click on "Health & Senior Safety" button
-    Then I change Window to the new tab
-    And Verify "<links>" are displayed
-    Examples:
-      | links            |
-      | Products         |
-      | Compare Packages |
-      | Why ADT          |
-      | FAQS             |
-      | Testimonials     |
 
   @US26
   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
@@ -42,7 +44,7 @@ Feature: Home Page Related Scenarios
     Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
     Then Verify pictures are displayed under header above
     Then Verify text under name is displayed
-    Then Verify "<description>" is displayed
+   Then Verify "<description>" is displayed
     Then Verify "<description>" is displayed
     Then Verify "<textUnderDesk1>" is displayed
     Then Verify "<textUnderDesk2>" is displayed
@@ -63,6 +65,7 @@ Feature: Home Page Related Scenarios
       | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |
 
 
+
   @US27
   Scenario: verify the buttons take to the following pages by checking their titles
     When I click on Home & Personal button
@@ -79,4 +82,29 @@ Feature: Home Page Related Scenarios
     Then I verify the video is displayed
     And I verify the video is able to play
 
+
+
+  @US28
+  Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Add even more wellbeing to your ADT Medical Alert System " text in header is displayed
+    Then Verify images are displayed
+    Then Verify "<imageText>" is displayed
+    Then Verify "<imageTextDescription>" is displayed
+    Then Verify "<smallText>" is displayed
+    Examples:
+      | imageText                    | imageTextDescription                                                                                                                                                                                                                           | smallText                                              |
+      | Fall Detection pendant*      | ADT can automatically be alerted after a fall even if you can’t press the button on the Fall Detection pendant yourself. Available with Medical Alert Plus and On-the-Go systems.                                                              | *Fall Detection pendant does not detect 100% of falls. |
+      | Lockbox                      | If there’s an emergency, keeping a spare key in an ADT Lockbox can give friends, family or first responders a quick and easy way into the house without the need for forced entry.                                                             |                                                        |
+      | Waterproof Wall-Mount Button | With our emergency button in a set location, you know exactly where to go to press for help in an emergency. Easily mounts to the wall or can be placed on a table or nightstand. Available with the Medical Alert Plus and On-the-Go systems. |                                                        |
+
+  @US30
+  Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Fast, reliable 24/7 help in an emergency " text in header is displayed
+    Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
+    Then Verify three buttons are displayed
+    Then Verify three buttons are enabled
 
