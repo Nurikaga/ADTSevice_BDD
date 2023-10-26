@@ -44,7 +44,7 @@ Feature: Home Page Related Scenarios
     Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
     Then Verify pictures are displayed under header above
     Then Verify text under name is displayed
-#    Then Verify "<description>" is displayed
+   Then Verify "<description>" is displayed
     Then Verify "<description>" is displayed
     Then Verify "<textUnderDesk1>" is displayed
     Then Verify "<textUnderDesk2>" is displayed
@@ -63,6 +63,26 @@ Feature: Home Page Related Scenarios
       | Provides freedom and peace of mind while at home or miles from it.                                    | Mobile base unit   | No landline required | Fall Detection (optional)   | GPS location capabilities   | Pendant options available | $39.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
       | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |
       | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |
+
+
+
+  @US27
+  Scenario: verify the buttons take to the following pages by checking their titles
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
+    And I click on Shop Now button and Verify titles of the pages
+
+
+  @US29
+  Scenario: Verify a header and a video is displayed and able to play
+    When I click "Home & Personal" hovered-over button
+    And  I click on "Health & Senior Safety" button
+    And I verify the header "See how ADT Medical Alert Systems work" in the page
+    Then I verify the video is displayed
+    And I verify the video is able to play
+
+
 
   @US28
   Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
@@ -87,3 +107,4 @@ Feature: Home Page Related Scenarios
     Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
+

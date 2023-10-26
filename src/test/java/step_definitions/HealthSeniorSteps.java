@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
+import utils.CucumberLogUtils;
 
 
 public class HealthSeniorSteps implements CommonPage {
@@ -109,6 +110,34 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+
+    @Then("I verify the video is displayed")
+    public void iVerifyTheVideoIsDisplayed() {
+        page.videoImg.isDisplayed();
+    }
+
+    @And("I verify the video is able to play")
+    public void iVerifyTheVideoIsAbleToPlay() {
+        page.playBtn.click();
+        BrowserUtils.switchToNewWindow();
+        CucumberLogUtils.logPass("Video is able to play", true);
+    }
+    @And("I click on Shop Now button and Verify titles of the pages")
+    public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
+        page.shopNowBtn2.click();
+        String title1 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title1);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn3.click();
+        String title2 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title2);
+        CucumberLogUtils.logPass("Title is displayed", true);
+        BrowserUtils.getDriver().navigate().back();
+        page.shopNowBtn4.click();
+        String title3 = BrowserUtils.getDriver().getTitle();
+        System.out.println(title3);
+
     @Then("Verify images are displayed")
     public void verifyImagesAreDisplayed() {
         for (WebElement each : page.images) {
@@ -134,9 +163,9 @@ public class HealthSeniorSteps implements CommonPage {
         for (WebElement each : page.threeButtons) {
             BrowserUtils.assertTrue(each.isEnabled());
         }
+
     }
 }
-
 
 
 
