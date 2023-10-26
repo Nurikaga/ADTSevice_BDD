@@ -122,6 +122,7 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("Video is able to play", true);
     }
+
     @And("I click on Shop Now button and Verify titles of the pages")
     public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
         page.shopNowBtn2.click();
@@ -137,6 +138,7 @@ public class HealthSeniorSteps implements CommonPage {
         page.shopNowBtn4.click();
         String title3 = BrowserUtils.getDriver().getTitle();
         System.out.println(title3);
+    }
 
     @Then("Verify images are displayed")
     public void verifyImagesAreDisplayed() {
@@ -164,6 +166,29 @@ public class HealthSeniorSteps implements CommonPage {
             BrowserUtils.assertTrue(each.isEnabled());
         }
 
+    }
+
+    @Then("Verify title of the Health & Senior Safety is {string}")
+    public void verifyTitleOfTheHealthSeniorSafetyIs(String TiTle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), TiTle);
+    }
+
+    @And("I hover over phone symbol button")
+    public void iHoverOverPhoneSymbolButton() throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.moveToElement(page.phoneIcon).perform();
+        Thread.sleep(3000);
+        CucumberLogUtils.logPass("Image is displayed", true);
+    }
+
+    @When("I click customer symbol button")
+    public void iClickCustomerSymbolButton() {
+        BrowserUtils.click(page.customerIcon);
+    }
+
+    @Then("Verify the url is {string}")
+    public void verifyTheUrlIs(String url) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
 }
 
