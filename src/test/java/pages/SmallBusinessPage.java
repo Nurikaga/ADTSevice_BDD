@@ -30,6 +30,8 @@ public class SmallBusinessPage {
     public List<WebElement> learnMoreBtns;
     @FindBy(xpath = "//div[@class='mainc-69392292']/div/div")
     public List<WebElement> imageList4;
+    @FindBy(xpath = "//span[@class='btn-equal-web-icon']")
+    public WebElement accessabilityBtn;
 
 
 }
