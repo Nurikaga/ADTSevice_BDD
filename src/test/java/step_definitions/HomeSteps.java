@@ -91,6 +91,17 @@ public class HomeSteps implements CommonPage {
 
     }
 
+    @Then("I click on Get a free quote button")
+    public void iClickOnGetAFreeQuoteButton() {
+        BrowserUtils.click(page.getFreeQuoteBtn);
+
+    }
+
+    @And("Verify the window is displayed")
+    public void verifyTheWindowIsDisplayed() {
+        BrowserUtils.sleep(1000);
+        BrowserUtils.isDisplayed(page.getFreeQuoteWindow);
+    }
 }
 
 

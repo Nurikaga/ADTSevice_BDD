@@ -4,16 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
-
-import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
@@ -130,6 +121,11 @@ public class HealthSeniorSteps implements CommonPage {
         page.shopNowBtn4.click();
         String title3 = BrowserUtils.getDriver().getTitle();
         System.out.println(title3);
+    }
+
+    @Then("I verify the picture is displayed")
+    public void iVerifyThePictureIsDisplayed() {
+        page.bigImg.isDisplayed();
     }
 }
 

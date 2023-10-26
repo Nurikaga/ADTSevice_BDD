@@ -68,6 +68,13 @@ Feature: Home Page Related Scenarios
     Then I click on Customer Login icon
     And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
 
+  @US15
+  Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
+   // When I open url of homepage
+    Then I click on Get a free quote button
+    And Verify the window is displayed
+
+
   @US-17
   Scenario: Verify the Small Business header
     When I click on Home & Personal button

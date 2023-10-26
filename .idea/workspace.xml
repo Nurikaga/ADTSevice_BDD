@@ -5,15 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0695ab31-aa45-42a7-8f88-c0c463c5fe98" name="Changes" comment="US-09 test is fixed">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -52,6 +70,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="fjyugd93" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -60,73 +81,36 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2XBbcNNKnmDHyZNn0HSDMEAxEk3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "julia",
-    "last_opened_file_path": "/Users/juliaumar/Desktop/Selenium/ADTSevice_BDD",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;julia&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/juliaumar/Desktop/Selenium/ADTSevice_BDD&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.CukesRunner">
-    <configuration name="Scenario: Verify a header,pictures, titles and texts on the page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" />
-      <option name="GLUE" value="step_definitions" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="ADTSevice_BDD" />
-      <option name="NAME_FILTER" value="^Verify a header\,pictures\, titles and texts on the page$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify a header\,pictures\, titles and texts on the page$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify a header,pictures, titles and texts on the page" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" />
-      <option name="GLUE" value="step_definitions" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="ADTSevice_BDD" />
-      <option name="NAME_FILTER" value="^Verify header text and text under is displayed\. 6 pictures with texts an Learn more buttons are displayed$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify header text and text under is displayed\. 6 pictures with texts an Learn more buttons are displayed$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verify the Health &amp; Senior Page has header and texts, descriptions under are displayed" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify Picture under the main menu Health &amp; Senior Safety Page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" />
       <option name="GLUE" value="step_definitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="ADTSevice_BDD" />
-      <option name="NAME_FILTER" value="^Verify the Health \&amp; Senior Page has header and texts\, descriptions under are displayed$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the Health \&amp; Senior Page has header and texts\, descriptions under are displayed$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify the Health &amp; Senior Page has header and texts, descriptions under are displayed" />
+      <option name="NAME_FILTER" value="^Verify Picture under the main menu Health \&amp; Senior Safety Page$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify Picture under the main menu Health \&amp; Senior Safety Page$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify Picture under the main menu Health &amp; Senior Safety Page" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -138,15 +122,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify the phone number pops up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify a user able to fill out a form and specialist will contact back" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" />
+      <option name="GLUE" value="step_definitions" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="ADTSevice_BDD" />
+      <option name="NAME_FILTER" value="^Verify a user able to fill out a form and specialist will contact back$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify a user able to fill out a form and specialist will contact back$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify a user able to fill out a form and specialist will contact back" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify that user is able to see the a header of the page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" />
+      <option name="GLUE" value="step_definitions" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="ADTSevice_BDD" />
+      <option name="NAME_FILTER" value="^Verify that user is able to see the a header of the page$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify that user is able to see the a header of the page$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify that user is able to see the a header of the page" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify the Get a free quote and ADT offers window appeared after clicking on the button" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/home.feature" />
       <option name="GLUE" value="step_definitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="ADTSevice_BDD" />
-      <option name="NAME_FILTER" value="^Verify the phone number pops up$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the phone number pops up$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify the phone number pops up" />
+      <option name="NAME_FILTER" value="^Verify the Get a free quote and ADT offers window appeared after clicking on the button$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the Get a free quote and ADT offers window appeared after clicking on the button$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify the Get a free quote and ADT offers window appeared after clicking on the button" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -176,10 +200,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CukesRunner" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the phone number pops up" />
-        <item itemvalue="Cucumber Java.Scenario: Verify a header,pictures, titles and texts on the page" />
-        <item itemvalue="Cucumber Java.Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the Health &amp; Senior Page has header and texts, descriptions under are displayed" />
+        <item itemvalue="Cucumber Java.Scenario: Verify the Get a free quote and ADT offers window appeared after clicking on the button" />
+        <item itemvalue="Cucumber Java.Scenario: Verify a user able to fill out a form and specialist will contact back" />
+        <item itemvalue="Cucumber Java.Scenario: Verify that user is able to see the a header of the page" />
+        <item itemvalue="Cucumber Java.Scenario: Verify Picture under the main menu Health &amp; Senior Safety Page" />
       </list>
     </recent_temporary>
   </component>
@@ -206,5 +230,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="US-09 test is fixed" />
     <option name="LAST_COMMIT_MESSAGE" value="US-09 test is fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

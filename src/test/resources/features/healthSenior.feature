@@ -34,6 +34,13 @@ Feature: Home Page Related Scenarios
       | FAQS             |
       | Testimonials     |
 
+    @US25
+  Scenario: Verify Picture under the main menu Health & Senior Safety Page
+      When I click on Home & Personal button
+      And  I click on "Health & Senior Safety" button
+      Then I verify the picture is displayed
+
+
   @US26
   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
     When I click on Home & Personal button
@@ -78,5 +85,7 @@ Feature: Home Page Related Scenarios
     And I verify the header "See how ADT Medical Alert Systems work" in the page
     Then I verify the video is displayed
     And I verify the video is able to play
+
+
 
 
