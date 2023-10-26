@@ -42,6 +42,15 @@ Feature: Home Page Related Scenarios
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
+  @US24
+  Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.
+    When I click on Home & Personal button
+    And  I click on "Health & Senior Safety" button
+    And I hover over phone symbol button
+    Then Verify "(800) 588-0023" is displayed
+    When I click customer symbol button
+    Then Verify the url is "https://www.adt.com/customer/login"
+
 
   @US26
   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed

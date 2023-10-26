@@ -42,26 +42,21 @@ public class HealthSeniorPage {
     public WebElement shopNowBtn4;
     @FindBy(xpath = "//u[normalize-space()='Click here.']")
     public WebElement clickHereBtn;
-
-
     @FindBy(xpath = "//div[@class='vid-img-overlay row no-gutters d-flex align-items-center align-self-center']")
     public WebElement videoImg;
 
     @FindBy(xpath = "//span[@class='btn-video-icon video-blue-btn']")
     public WebElement playBtn;
+    @FindBy(xpath = "//div[@class='tfn-wrapper']")
+    public WebElement phoneIcon;
 
-
-
-
-
-
-
+    @FindBy(xpath = "//div[@class='nav-end']//a[@href='/customer/login']")
+    public WebElement customerIcon;
     @FindBy(xpath = "//div[@id='myCardModal']//div[@class='aem-Grid aem-Grid--12 aem-Grid--default--12 ']//img")
     public List<WebElement> images;
 
     @FindBy(xpath = "//p[contains(text(),'When you need help quickly, ADT is there for you. ')]")
     public WebElement descriptionUnderHeaderText;
-
 
     @FindBy(xpath = "//div[@class='feature-container']")
     public List<WebElement> threeButtons;
