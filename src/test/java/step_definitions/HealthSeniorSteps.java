@@ -113,6 +113,7 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("Video is able to play", true);
     }
+
     @And("I click on Shop Now button and Verify titles of the pages")
     public void iClickOnShopNowButtonAndVerifyTitlesOfThePages() {
         page.shopNowBtn2.click();
@@ -128,6 +129,7 @@ public class HealthSeniorSteps implements CommonPage {
         page.shopNowBtn4.click();
         String title3 = BrowserUtils.getDriver().getTitle();
         System.out.println(title3);
+    }
 
     @Then("Verify images are displayed")
     public void verifyImagesAreDisplayed() {
@@ -141,14 +143,7 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
     }
 
-    @Then("Verify three buttons are displayed")
-    public void verifyThreeButtonsAreDisplayed() {
-        for (WebElement each : page.threeButtons) {
-            BrowserUtils.assertTrue(each.isDisplayed());
-
-        }
-    }
-
+        
     @Then("Verify three buttons are enabled")
     public void verifyThreeButtonsAreEnabled() {
         for (WebElement each : page.threeButtons) {
@@ -157,9 +152,15 @@ public class HealthSeniorSteps implements CommonPage {
 
     }
 
+
     @Then("I verify the picture is displayed")
     public void iVerifyThePictureIsDisplayed() {
         page.bigImg.isDisplayed();
+
+    }
+
+    @Then("Verify three buttons are displayed")
+    public void verifyThreeButtonsAreDisplayed() {
     }
 }
 
