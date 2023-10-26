@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 
 import io.cucumber.java.en.When;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import pages.CommonPage;
 import pages.HomePage;
@@ -67,13 +68,13 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();
     }
 
-//    @Then("I click on {string} hovered-over button")
-//    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
-//        BrowserUtils.click(page.callBtn);
-//        Thread.sleep(5000);
-//        Alert alert = BrowserUtils.getDriver().switchTo().alert();
-//        alert.dismiss();
-//    }
+    @Then("I click on {string} hovered-over button")
+    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
+        BrowserUtils.click(page.callBtn);
+        Thread.sleep(5000);
+        Alert alert = BrowserUtils.getDriver().switchTo().alert();
+        alert.dismiss();
+    }
 
     @And("Verify {string} under icon is displayed")
     public void verifyUnderIconIsDisplayed() {
