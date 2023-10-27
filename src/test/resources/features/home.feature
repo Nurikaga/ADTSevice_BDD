@@ -71,14 +71,14 @@ Feature: Home Page Related Scenarios
 
   @US15
   Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
-   // When I open url of homepage
+  // When I open url of homepage
     Then I click on Get a free quote button
     And Verify the window is displayed
 
 
-    @US14
-      Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
-      When I click on Shopping cart icon
+  @US14
+  Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
+    When I click on Shopping cart icon
     Then Verify title is "Cart | ADT® Self Setup | DIY"
 
 
@@ -88,7 +88,29 @@ Feature: Home Page Related Scenarios
     Then I click on Small Business button
     And Verify "Customize a business security system today " text in header is displayed
 
-
+  @US-19
+  Scenario: Verify the footer menu icons: FaceBook, Twitter, Pinterest, Unstagram, & Youtube
+    When I scroll down
+    Then Verify the "FaceBook" button is displayed
+    Then Verify the "FaceBook" button is enabled
+    And I click on "FaceBook" icon and change Window to the new tab
+    Then Verify the title of the FaceBook page is "ADT | Facebook"
+    Then Verify Twitter button "Twitter"  is displayed
+    Then Verify Twitter "Twitter"  is enabled
+    And I click on button "Twitter" icon and change Window to the new tab
+    Then Verify the title of the Twitter page is "ADT (@ADT) / X"
+    Then Verify Pinterest button "Pinterest"  is displayed
+    Then Verify Pinterest "Pinterest"  is enabled
+    And I click Pinterest button "Pinterest" icon and change Window to the new tab
+    Then Verify the title of the Pinterest page is "ADT (adtstaysafe) - Profile | Pinterest"
+    Then Verify Instagram button "Instagram"  is displayed
+    Then Verify Instagram "Instagram"  is enabled
+    And I click Instagram button "Instagram" icon and change Window to the new tab
+    Then Verify the title of theInstagram page is "ADT (@adtsecurity) • Instagram photos and videos"
+    Then Verify YouTube button "YouTube"  is displayed
+    Then Verify YouTube "YouTube"  is enabled
+    And I click YouTube button "YouTube" icon and change Window to the new tab
+    Then Verify the title of YouTube page is "ADT - YouTube"
 
 
 

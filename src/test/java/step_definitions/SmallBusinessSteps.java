@@ -34,8 +34,6 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath("(//span[text()='Small Business'])[1]")).click();
         Thread.sleep(5000);
     }
-
-
     @Then("Verify {string} are displayed")
     public void verifyAreDisplayed(String btns) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));
@@ -118,30 +116,31 @@ public class SmallBusinessSteps implements CommonPage {
     @And("Verify  all {string} are displayed")
     public void verifyAllAreDisplayed(String links) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();
-
     }
+
     @And("I verify the image,title,text is displayed")
     public void iVerifyTheImageTitleTextIsDisplayed() {
         for (WebElement each : page.imageList4) {
             BrowserUtils.isDisplayed(each);
         }
     }
+
     @And("I take screenshot of test")
     public void iTakeScreenshotOfTest() {
         CucumberLogUtils.logPass("Image is displayed", true);
-
     }
+
     @Then("Verify pop-up window with Accessibility menu buttons is display on the right top of the page")
     public void verifyPopUpWindowWithAccessibilityMenuButtonsIsDisplayOnTheRightTopOfThePage() {
         BrowserUtils.sleep(5000);
         CucumberLogUtils.logPass("Accessibility menu buttons is display on the right top of the page", true);
     }
+
     @Then("I navigate to Accessibility button in the footer and click it")
     public void iNavigateToAccessibilityButtonInTheFooterAndClickIt() {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0,350)", page.accessabilityBtn);
         BrowserUtils.click(page.accessabilityBtn);
-
     }
 }
 
