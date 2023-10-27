@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,14 +22,54 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;Nurik&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="Irina" />
+                    <option name="lastUsedInstant" value="1698427485" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1698427466" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2XM83ZHDReBdiZ2E1CQoqK9Icc8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Irina",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.CukesRunner">
     <configuration name="Scenario: Verify the phone number pops up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
@@ -69,7 +113,15 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="" />
+      <created>1698427402892</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698427402892</updated>
+    </task>
     <servers />
   </component>
 </project>
