@@ -7,21 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
-
-
 import java.util.List;
 
-
-
 public class HealthSeniorPage {
-    @FindBy(css = ".dropdown-menu.show")
-    public WebElement dropDownMenu;
-    @FindBy(xpath = "/html//header[@id='nav-menu']//div[@class='dropdown-menu show']/a[@href='/health']")
-    public WebElement healthSeniorSafetyBtn;
+
 
     public HealthSeniorPage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
+    @FindBy(css = ".dropdown-menu.show")
+    public WebElement dropDownMenu;
+    @FindBy(xpath = "/html//header[@id='nav-menu']//div[@class='dropdown-menu show']/a[@href='/health']")
+    public WebElement healthSeniorSafetyBtn;
 
     @FindBy(xpath = "//div[@id='parent-padding-654710006']//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']")
     public List<WebElement> pictures;
@@ -44,12 +41,14 @@ public class HealthSeniorPage {
     public WebElement clickHereBtn;
     @FindBy(xpath = "//div[@class='vid-img-overlay row no-gutters d-flex align-items-center align-self-center']")
     public WebElement videoImg;
+    @FindBy(xpath = "//*[@class='img-fluid split-container-img']")
+    public WebElement bigImg;
 
     @FindBy(xpath = "//span[@class='btn-video-icon video-blue-btn']")
     public WebElement playBtn;
     @FindBy(xpath = "//div[@class='tfn-wrapper']")
     public WebElement phoneIcon;
-
+  
     @FindBy(xpath = "//div[@class='nav-end']//a[@href='/customer/login']")
     public WebElement customerIcon;
     @FindBy(xpath = "//div[@id='myCardModal']//div[@class='aem-Grid aem-Grid--12 aem-Grid--default--12 ']//img")
@@ -60,6 +59,8 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//div[@class='feature-container']")
     public List<WebElement> threeButtons;
+
+
 
 }
 

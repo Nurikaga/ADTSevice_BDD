@@ -22,7 +22,10 @@ public class HomePage {
     public WebElement phoneNumber;
     @FindBy(css = ".right-container > .icon > img[alt='customer icon']")
     public WebElement customerIcon;
-
+    @FindBy(xpath = "//a[@class='btn-cta btn-cta-blue btn-cta-sm d-flex align-items-center js-open-adt-form-header']//span[@class='btn-cta-text'][normalize-space()='Get Free Quote']")
+    public WebElement getFreeQuoteBtn;
+    @FindBy(xpath = "//div[@class='coreheader-adt-form-header hidden-sm-down']")
+            public WebElement getFreeQuoteWindow;
 
     }
 

@@ -91,7 +91,22 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.customerIcon);
 
     }
+    @When("I click on Shopping cart icon")
+    public void iClickOnShoppingCartIcon() {
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='right-container']//img[@alt='cart icon']")).click();
+    }
 
+    @Then("I click on Get a free quote button")
+    public void iClickOnGetAFreeQuoteButton() {
+        BrowserUtils.click(page.getFreeQuoteBtn);
+
+    }
+
+    @And("Verify the window is displayed")
+    public void verifyTheWindowIsDisplayed() {
+        BrowserUtils.sleep(1000);
+        BrowserUtils.isDisplayed(page.getFreeQuoteWindow);
+    }
 }
 
 

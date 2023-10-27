@@ -18,8 +18,8 @@ public class SmallBusinessPage {
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
 
-    @FindBy(css = "(.dropdown-menu.show > a:nth-of-type(3) > span")
-    public WebElement smallBusinessBtn;
+    @FindBy(css = "//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']")
+    public WebElement freeRiskAssessmentBtn;
 
 
     @FindBy(xpath = "//div[@class='card-main-content']")
@@ -30,6 +30,9 @@ public class SmallBusinessPage {
     public List<WebElement> learnMoreBtns;
     @FindBy(xpath = "//div[@class='mainc-69392292']/div/div")
     public List<WebElement> imageList4;
+    @FindBy(xpath = "//span[@class='btn-equal-web-icon']")
+    public WebElement accessabilityBtn;
+
 
 }
 

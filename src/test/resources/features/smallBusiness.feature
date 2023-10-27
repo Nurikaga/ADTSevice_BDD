@@ -55,6 +55,13 @@ Feature: Home Page Related Scenarios
       | Security Cameras   |
       | Lighting Control   |
 
+    @US18
+      Scenario: Verify that user is able to see the a header of the page
+    When I click "Home & Personal" hovered-over button
+    Then I click on "Small Business" link button that forwarding to the Small Business page
+    Then I navigate to Accessibility button in the footer and click it
+    Then Verify pop-up window with Accessibility menu buttons is display on the right top of the page
+
 
   @US20
   Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed
