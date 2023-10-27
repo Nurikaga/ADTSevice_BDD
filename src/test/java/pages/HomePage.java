@@ -8,8 +8,8 @@ import utils.BrowserUtils;
 public class HomePage {
     public HomePage() {
 
-        PageFactory.initElements(BrowserUtils.getDriver(), this);}
-
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
     @FindBy(css = ".logo > img[alt='ADT LOGO']")
     public WebElement adtLogoBtn;
     @FindBy(css = ".dropdown-menu.show")
@@ -24,8 +24,8 @@ public class HomePage {
     public WebElement customerIcon;
     @FindBy(xpath = "//a[@class='btn-cta btn-cta-blue btn-cta-sm d-flex align-items-center js-open-adt-form-header']//span[@class='btn-cta-text'][normalize-space()='Get Free Quote']")
     public WebElement getFreeQuoteBtn;
-
     @FindBy(xpath = "//div[@class='coreheader-adt-form-header hidden-sm-down']")
             public WebElement getFreeQuoteWindow;
+
     }
 
