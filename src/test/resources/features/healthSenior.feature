@@ -55,7 +55,7 @@ Feature: Home Page Related Scenarios
   Scenario: Verify Picture under the main menu Health & Senior Safety Page
     Then I verify the picture is displayed
 
-  @US24
+  @US24 @smoke
   Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.
     And I hover over phone symbol button
     Then Verify "(800) 588-0023" is displayed

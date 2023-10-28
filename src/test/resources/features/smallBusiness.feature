@@ -6,7 +6,7 @@ Feature: Home Page Related Scenarios
     When I click "Home & Personal" hovered-over button
     Then I click on "Small Business" link button that forwarding to the Small Business page
 
-  @US01
+  @US01 @smoke
   Scenario:Verify title of the Small Business page
     Then I verify the title of the page "Business Security Systems & Services | ADT®"
 
