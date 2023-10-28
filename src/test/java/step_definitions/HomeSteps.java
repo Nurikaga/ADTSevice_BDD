@@ -3,9 +3,7 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import io.cucumber.java.en.When;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import pages.CommonPage;
@@ -14,6 +12,7 @@ import utils.BrowserUtils;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
+    String mainWindowHandle;
 
     public HomeSteps() {
         page = new HomePage();
@@ -91,6 +90,7 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.customerIcon);
 
     }
+
     @When("I click on Shopping cart icon")
     public void iClickOnShoppingCartIcon() {
         BrowserUtils.getDriver().findElement(By.xpath("//div[@class='right-container']//img[@alt='cart icon']")).click();
@@ -107,7 +107,128 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.sleep(1000);
         BrowserUtils.isDisplayed(page.getFreeQuoteWindow);
     }
+
+    @When("I scroll down")
+    public void iScrollDown() {
+        BrowserUtils.moveIntoView(page.footerSocialMediaIcons);
+    }
+
+    @Then("Verify the {string} button is displayed")
+    public void verifyTheButtonIsDisplayed(String facebookIcon) {
+        BrowserUtils.isDisplayed(page.facebookIcon);
+    }
+
+    @Then("Verify the {string} button is enabled")
+    public void verifyTheButtonIsEnabled(String facebookIcon) {
+        BrowserUtils.isEnabled(page.facebookIcon);
+    }
+
+    @And("I click on {string} icon and change Window to the new tab")
+    public void iClickOnIconAndChangeWindowToTheNewTab(String facebookIcon) throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.click(page.facebookIcon);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the title of the FaceBook page is {string}")
+    public void verifyTheTitleOfTheFaceBookPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @Then("Verify Twitter button {string}  is displayed")
+    public void verifyTwitterButtonIsDisplayed(String twitterIcon) {
+        BrowserUtils.isDisplayed(page.twitterIcon);
+    }
+
+    @Then("Verify Twitter {string}  is enabled")
+    public void verifyTwitterIsEnabled(String twitterIcon) {
+        BrowserUtils.isEnabled(page.twitterIcon);
+    }
+
+    @And("I click on button {string} icon and change Window to the new tab")
+    public void iClickOnButtonIconAndChangeWindowToTheNewTab(String twitterIcon) throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.click(page.twitterIcon);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the title of the Twitter page is {string}")
+    public void verifyTheTitleOfTheTwitterPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @Then("Verify Pinterest button {string}  is displayed")
+    public void verifyPinterestButtonIsDisplayed(String pinterestIcon) {
+        BrowserUtils.isDisplayed(page.pinterestIcon);
+    }
+
+    @Then("Verify Pinterest {string}  is enabled")
+    public void verifyPinterestIsEnabled(String pinterestIcon) {
+        BrowserUtils.isEnabled(page.pinterestIcon);
+    }
+
+    @And("I click Pinterest button {string} icon and change Window to the new tab")
+    public void iClickPinterestButtonIconAndChangeWindowToTheNewTab(String pinterestIcon) throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.click(page.pinterestIcon);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the title of the Pinterest page is {string}")
+    public void verifyTheTitleOfThePinterestPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @Then("Verify Instagram button {string}  is displayed")
+    public void verifyInstagramButtonIsDisplayed(String instagramIcon) {
+        BrowserUtils.isDisplayed(page.instagramIcon);
+    }
+
+    @Then("Verify Instagram {string}  is enabled")
+    public void verifyInstagramIsEnabled(String instagramIcon) {
+        BrowserUtils.isEnabled(page.instagramIcon);
+    }
+
+    @And("I click Instagram button {string} icon and change Window to the new tab")
+    public void iClickInstagramButtonIconAndChangeWindowToTheNewTab(String instagramIcon) throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.click(page.instagramIcon);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
 }
+    @Then("Verify the title of theInstagram page is {string}")
+    public void verifyTheTitleOfTheInstagramPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
 
+    @Then("Verify YouTube button {string}  is displayed")
+    public void verifyYouTubeButtonIsDisplayed(String youtubeIcon) {
+        BrowserUtils.isDisplayed(page.youtubeIcon);
+    }
 
+    @Then("Verify YouTube {string}  is enabled")
+    public void verifyYouTubeIsEnabled(String youtubeIcon) {
+        BrowserUtils.isEnabled(page.youtubeIcon);
+    }
+
+    @And("I click YouTube button {string} icon and change Window to the new tab")
+    public void iClickYouTubeButtonIconAndChangeWindowToTheNewTab(String youtubeIcon) throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.click(page.youtubeIcon);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the title of YouTube page is {string}")
+    public void verifyTheTitleOfYouTubePageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+}
 

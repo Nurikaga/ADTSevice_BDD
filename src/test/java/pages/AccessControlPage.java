@@ -10,13 +10,13 @@ public class AccessControlPage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
-    @FindBy(xpath = "//button[@id='submit_banner_form_437']")
+    @FindBy(xpath = "//form[@id='adt-banner-form-id']//button[@name='submit_banner_form']")
     public WebElement callMeBtn;
     @FindBy(xpath = "//div[@id='container-form-banner-id']")
     public WebElement callMeMessage;
-    @FindBy(xpath = "//button[@id='Btn_Industry_437']")
+    @FindBy(xpath = "//div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/button[1]")
     public WebElement industryBtn;
-    @FindBy(xpath = "//button[@id='Btn_Company_Size_437']//span[@class='flabel'][normalize-space()='Company Size']")
+    @FindBy(xpath = "//div[1]/form[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/button[1]")
     public WebElement companySizeBtn;
     @FindBy(xpath = "//ul[@class='dropdown-menu show']//a[contains(text(),'Other')]")
     public WebElement Other;

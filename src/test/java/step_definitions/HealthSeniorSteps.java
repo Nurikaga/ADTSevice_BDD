@@ -151,9 +151,6 @@ public class HealthSeniorSteps implements CommonPage {
         }
 
     }
-
-
-
     @Then("I verify the picture is displayed")
     public void iVerifyThePictureIsDisplayed() {
         page.bigImg.isDisplayed();
