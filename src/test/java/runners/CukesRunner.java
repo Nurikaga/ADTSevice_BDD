@@ -17,9 +17,11 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
 
-        ,tags = "@US18"
+        ,tags = "@US10"
 
-        ,tags = "@US-06"
+
+       
+
 
         //keywords
         //"and not" - 'x and not y' to exclude scenarios with that tag
