@@ -142,7 +142,20 @@ public class SmallBusinessSteps implements CommonPage {
         js.executeScript("window.scrollBy(0,350)", page.accessabilityBtn);
         BrowserUtils.click(page.accessabilityBtn);
     }
+
+    @When("user clicks on {string} link's header button")
+    public void userClicksOnLinkSHeaderButton(String linkHeader) {
+       BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();
+    }
+
+    @Then("verify the linkHeader is {string}")
+    public void verifyTheLinkHeaderIs(String header) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, header))).getText(), header);
+    }
+
 }
+
+
 
 
 
