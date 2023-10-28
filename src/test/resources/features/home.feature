@@ -15,7 +15,6 @@ Feature: Home Page Related Scenarios
 
   @US-06
   Scenario: Verify ADT logo button
-    When I open url of homepage
     Then Verify ADT logo button is displayed
 
   @US-07
@@ -38,7 +37,6 @@ Feature: Home Page Related Scenarios
 
   @US-09
   Scenario Outline: Verify top menu text links are displayed & enable to click
-    When I open url of homepage
     Then Verify "<links>" are displayed
     Then Verify "<buttons>" are enabled
     Then Verify "Shop Now" button is displayed
@@ -52,35 +50,30 @@ Feature: Home Page Related Scenarios
 
   @US-12.1
   Scenario: Verify the phone number pops up
-    When I open url of homepage
-    Then I click on "Call Button" hovered-over button
-    And Verify "(800) 510-9061" under icon is displayed
+    When I click on "Call Button" hovered-over button
+    Then Verify "(800) 510-9061" under icon is displayed
 
   @US-12
   Scenario: Verify the phone number pops up
-    When I open url of homepage
-    Then I hover over call button
-    And Verify the texts under pictures are displayed
+    When I hover over call button
+    Then Verify the texts under pictures are displayed
 
   @US-13
   Scenario: Verify the Customer Login page title
-    When I open url of homepage
-    Then I click on Customer Login icon
-    And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+    When I click on Customer Login icon
+    Then I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
 
 
   @US15
   Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
-  // When I open url of homepage
-    Then I click on Get a free quote button
-    And Verify the window is displayed
+    When I click on Get a free quote button
+    Then Verify the window is displayed
 
 
   @US14
   Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
     When I click on Shopping cart icon
     Then Verify title is "Cart | ADT® Self Setup | DIY"
-
 
   @US-17
   Scenario: Verify the Small Business header
