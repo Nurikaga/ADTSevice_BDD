@@ -4,11 +4,11 @@ Feature: Home Page Related Scenarios
   Background: Navigate to page
     Given I open url of homepage
 
-  @AD-1
+  @US-01 @smoke
   Scenario: Verify the Title of the page
     Then Verify Title of Home page is "ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider"
 
-  @US-05
+  @US-05 @smoke
   Scenario: Verify the Title of Home & Personal page
     When I click on Home & Personal button
     Then Verify the Title of Home & Personal page is "ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider"
@@ -35,7 +35,7 @@ Feature: Home Page Related Scenarios
       | Commercial             | Commercial             |
       | Solar                  | Solar                  |
 
-  @US-09
+  @US-09 @smoke
   Scenario Outline: Verify top menu text links are displayed & enable to click
     Then Verify "<links>" are displayed
     Then Verify "<buttons>" are enabled
@@ -48,10 +48,6 @@ Feature: Home Page Related Scenarios
       | Build Your own | Build Your own |
       | Deals          | Deals          |
 
-  @US-12.1
-  Scenario: Verify the phone number pops up
-    When I click on "Call Button" hovered-over button
-    Then Verify "(800) 510-9061" under icon is displayed
 
   @US-12
   Scenario: Verify the phone number pops up

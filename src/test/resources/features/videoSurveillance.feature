@@ -10,7 +10,7 @@ Feature: Home Page Related Scenarios
     Then I navigate to "Video Surveillance" drop down menu
     Then I change Window to the new tab
 
-  @US16
+  @US16 @smoke
   Scenario: Verify a header,pictures, titles and texts on the page
     Then I verify the header "A high-tech window into your business" in the page
     And I verify the image,title,text is displayed
