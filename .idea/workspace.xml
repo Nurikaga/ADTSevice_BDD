@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="">
-
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+ <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
@@ -15,23 +15,21 @@
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" afterDir="false" />
-
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2023_7_53_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2023_7_53_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2023_8_09_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2023_8_09_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +44,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-
-
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -72,7 +68,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-
   <component name="GitToolBoxStore">
     <option name="recentBranches">
       <RecentBranches>
@@ -163,6 +158,10 @@
       <option name="GLUE" value="step_definitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="ADTSevice_BDD" />
+      <option name="NAME_FILTER" value="^Fill out Get a FREE Security Assessment and click on CALL ME BACK button$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Fill out Get a FREE Security Assessment and click on CALL ME BACK button$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Fill out Get a FREE Security Assessment and click on CALL ME BACK button" />
+
       <option name="NAME_FILTER" value="^Verify Solutions\, Industries\, Products\, Packages\, Risk Assessment\, and Resources buttons in the header are displayed\, \&amp; enable to click$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify Solutions\, Industries\, Products\, Packages\, Risk Assessment\, and Resources buttons in the header are displayed\, \&amp; enable to click$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Verify Solutions, Industries, Products, Packages, Risk Assessment, and Resources buttons in the header are displayed, &amp; enable to click" />
@@ -235,7 +234,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CukesRunner" />
-
         <item itemvalue="Cucumber Java.Scenario: Verify that user is able to see the a header of the page" />
         <item itemvalue="Cucumber Java.Scenario: Verify Solutions, Industries, Products, Packages, Risk Assessment, and Resources buttons in the header are displayed, &amp; enable to click" />
         <item itemvalue="Cucumber Java.Scenario: Verify title of the Small Business page" />
@@ -246,8 +244,8 @@
         <item itemvalue="Cucumber Java.Scenario: Verify the phone number pops up" />
         <item itemvalue="Cucumber Java.Scenario: Fill out Get a FREE Security Assessment and click on CALL ME BACK button" />
         <item itemvalue="JUnit.CukesRunner" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the phone number pops up" />
 
+        <item itemvalue="Cucumber Java.Scenario: Verify the phone number pops up" />
       </list>
     </recent_temporary>
   </component>
