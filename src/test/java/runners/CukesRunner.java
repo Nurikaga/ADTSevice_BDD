@@ -19,10 +19,6 @@ import org.junit.runner.RunWith;
 
         ,tags = "@US10"
 
-
-       
-
-
         //keywords
         //"and not" - 'x and not y' to exclude scenarios with that tag
         //"and" - 'x and y' to run scenarios with both tags
