@@ -42,7 +42,6 @@ Feature: Home Page Related Scenarios
 
   @US-22
   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
-    Then I change Window to the new tab
     And Verify "<links>" are displayed
     Examples:
       | links            |
