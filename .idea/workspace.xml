@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="" />
-=======
     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" afterDir="false" />
@@ -24,21 +22,18 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
 
     </list>
->>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-<<<<<<< HEAD
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2XJyKsHucgD0jAzbwlekeUN4zt7" />
-=======
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -74,12 +69,10 @@
   "associatedIndex": 7
 }]]></component>
   <component name="ProjectId" id="2XM83ZHDReBdiZ2E1CQoqK9Icc8" />
->>>>>>> main
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -88,14 +81,12 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "Irina",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
->>>>>>> main
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.CukesRunner">
@@ -166,17 +157,14 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="" />
-<<<<<<< HEAD
       <created>1698361416565</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698361416565</updated>
-=======
       <created>1698427402892</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698427402892</updated>
->>>>>>> main
     </task>
     <servers />
   </component>
