@@ -1,0 +1,459 @@
+Index: src/test/java/runners/CukesRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\r\n\r\nimport io.cucumber.junit.Cucumber;\r\nimport io.cucumber.junit.CucumberOptions;\r\nimport org.junit.runner.RunWith;\r\n\r\n@RunWith(Cucumber.class)\r\n@CucumberOptions(\r\n        plugin = {\r\n                \"pretty\",\r\n                \"html:target/report.html\", //will create report\r\n                \"json:target/cucumber-reports/cucumber.json\",\r\n                \"rerun:target/rerun.txt\", //will create a report containing any failed scenarios\r\n        },\r\n        features = \"src/test/resources/features\", //if you want to run failed scenarios from rerun do \"@target/rerun.txt\" for features\r\n        glue = \"step_definitions\",\r\n        stepNotifications = true,\r\n        dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/\r\n        ,tags = \"@US14\"\r\n        //keywords\r\n        //\"and not\" - 'x and not y' to exclude scenarios with that tag\r\n        //\"and\" - 'x and y' to run scenarios with both tags\r\n)\r\npublic class CukesRunner {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/CukesRunner.java b/src/test/java/runners/CukesRunner.java
+--- a/src/test/java/runners/CukesRunner.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/runners/CukesRunner.java	(date 1698370812061)
+@@ -16,7 +16,7 @@
+         glue = "step_definitions",
+         stepNotifications = true,
+         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
+-        ,tags = "@US14"
++        ,tags = "@US-19"
+         //keywords
+         //"and not" - 'x and not y' to exclude scenarios with that tag
+         //"and" - 'x and y' to run scenarios with both tags
+Index: src/test/resources/features/home.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@homeScenarios\r\nFeature: Home Page Related Scenarios\r\n\r\n  Background: Navigate to page\r\n    Given I open url of homepage\r\n\r\n  @AD-1\r\n  Scenario: Verify the Title of the page\r\n    Then Verify Title of Home page is \"ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider\"\r\n\r\n  @US-05\r\n  Scenario: Verify the Title of Home & Personal page\r\n    When I click on Home & Personal button\r\n    Then Verify the Title of Home & Personal page is \"ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider\"\r\n\r\n  @US-06\r\n  Scenario: Verify ADT logo button\r\n    When I open url of homepage\r\n    Then Verify ADT logo button is displayed\r\n\r\n  @US-07\r\n  Scenario: Verify drop down menu is present\r\n    When I click on Home & Personal button\r\n    And Verify the drop down menu should be visible\r\n\r\n  @US-08\r\n  Scenario Outline: Verify Home & Personal drop down menu text links are displayed & clickable\r\n    When I click on Home & Personal button\r\n    Then Verify \"<links>\" are displayed\r\n    And Verify \"<buttons>\" are enable\r\n    Examples:\r\n      | links                  | buttons                |\r\n      | Home & Personal        | Home & Personal        |\r\n      | Small Business         | Small Business         |\r\n      | Health & Senior Safety | Health & Senior Safety |\r\n      | Commercial             | Commercial             |\r\n      | Solar                  | Solar                  |\r\n\r\n  @US-09\r\n  Scenario Outline: Verify top menu text links are displayed & enable to click\r\n    When I open url of homepage\r\n    Then Verify \"<links>\" are displayed\r\n    Then Verify \"<buttons>\" are enabled\r\n    Then Verify \"Shop Now\" button is displayed\r\n    And Verify \"Shop Now\" button is enabled\r\n    Examples:\r\n      | links          | buttons        |\r\n      | Products       | Products       |\r\n      | Packages       | Packages       |\r\n      | Build Your own | Build Your own |\r\n      | Deals          | Deals          |\r\n\r\n  @US-12.1\r\n  Scenario: Verify the phone number pops up\r\n    When I open url of homepage\r\n    Then I click on \"Call Button\" hovered-over button\r\n    And Verify \"(800) 510-9061\" under icon is displayed\r\n\r\n  @US-12\r\n  Scenario: Verify the phone number pops up\r\n    When I open url of homepage\r\n    Then I hover over call button\r\n    And Verify the texts under pictures are displayed\r\n\r\n  @US-13\r\n  Scenario: Verify the Customer Login page title\r\n    When I open url of homepage\r\n    Then I click on Customer Login icon\r\n    And I verify the title of the page \"ADT® Customer Login: Manage Your Active ADT Account\"\r\n\r\n\r\n  @US15\r\n  Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button\r\n   // When I open url of homepage\r\n    Then I click on Get a free quote button\r\n    And Verify the window is displayed\r\n\r\n\r\n    @US14\r\n      Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’\r\n      When I click on Shopping cart icon\r\n    Then Verify title is \"Cart | ADT® Self Setup | DIY\"\r\n\r\n\r\n  @US-17\r\n  Scenario: Verify the Small Business header\r\n    When I click on Home & Personal button\r\n    Then I click on Small Business button\r\n    And Verify \"Customize a business security system today \" text in header is displayed\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/home.feature b/src/test/resources/features/home.feature
+--- a/src/test/resources/features/home.feature	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/resources/features/home.feature	(date 1698373834561)
+@@ -15,7 +15,6 @@
+ 
+   @US-06
+   Scenario: Verify ADT logo button
+-    When I open url of homepage
+     Then Verify ADT logo button is displayed
+ 
+   @US-07
+@@ -38,8 +37,7 @@
+ 
+   @US-09
+   Scenario Outline: Verify top menu text links are displayed & enable to click
+-    When I open url of homepage
+-    Then Verify "<links>" are displayed
++    When Verify "<links>" are displayed
+     Then Verify "<buttons>" are enabled
+     Then Verify "Shop Now" button is displayed
+     And Verify "Shop Now" button is enabled
+@@ -50,44 +48,49 @@
+       | Build Your own | Build Your own |
+       | Deals          | Deals          |
+ 
+-  @US-12.1
+-  Scenario: Verify the phone number pops up
+-    When I open url of homepage
+-    Then I click on "Call Button" hovered-over button
+-    And Verify "(800) 510-9061" under icon is displayed
+-
+   @US-12
+   Scenario: Verify the phone number pops up
+-    When I open url of homepage
+-    Then I hover over call button
+-    And Verify the texts under pictures are displayed
++    When I hover over phone symbol button
++    Then Verify the phone number "(800) 510-9061" is displayed
+ 
+   @US-13
+   Scenario: Verify the Customer Login page title
+-    When I open url of homepage
+-    Then I click on Customer Login icon
+-    And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+-
++    When I click on Customer Login icon
++    Then I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+ 
+   @US15
+   Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
+-   // When I open url of homepage
+-    Then I click on Get a free quote button
+-    And Verify the window is displayed
+-
++    When I click on Get a free quote button
++    Then Verify the window is displayed
+ 
+-    @US14
+-      Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
+-      When I click on Shopping cart icon
++  @US14
++  Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
++    When I click on Shopping cart icon
+     Then Verify title is "Cart | ADT® Self Setup | DIY"
+ 
+-
+   @US-17
+   Scenario: Verify the Small Business header
+     When I click on Home & Personal button
+     Then I click on Small Business button
+     And Verify "Customize a business security system today " text in header is displayed
+ 
++  @US-19
++  Scenario Outline: Verify Follow Us footer has icons: FaceBook, Twitter, Pinterest, Instagram, & YouTube
++    When I navigate to the Follow Us footer
++    Then Verify the "<links>" is displayed
++    Then Verify "<button>" is enabled
++    Then I change Window to the new tab
++    Then Verify "<title>" of the current
++    And I navigate back
++    Examples:
++      | links     | button    | title                                            |
++      | FaceBook  | FaceBook  | ADT \| Facebook                                  |
++      | Twitter   | Twitter   | ADT (@ADT) / X                                   |
++      | Pinterest | Pinterest | ADT (adtstaysafe) - Profile \| Pinterest         |
++      | Instagram | Instagram | ADT (@adtsecurity) • Instagram photos and videos |
++      | Youtube   | Youtube   | ADT - YouTube                                    |
++
++
+ 
+ 
+ 
+Index: src/test/java/step_definitions/SmallBusinessSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\r\n\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.JavascriptExecutor;\r\nimport org.openqa.selenium.WebElement;\r\nimport pages.CommonPage;\r\nimport pages.SmallBusinessPage;\r\nimport utils.BrowserUtils;\r\nimport utils.CucumberLogUtils;\r\n\r\n\r\npublic class SmallBusinessSteps implements CommonPage {\r\n    SmallBusinessPage page;\r\n\r\n    public SmallBusinessSteps() {\r\n        page = new SmallBusinessPage();\r\n\r\n    }\r\n\r\n    @When(\"I click on Home & Personal button\")\r\n    public void iClickOnHomePersonalButton() throws InterruptedException {\r\n        BrowserUtils.click(page.homeAndPersonalBtn);\r\n    }\r\n\r\n    @And(\"I click on Small Business button\")\r\n    public void iClickOnSmallBusinessButton() throws InterruptedException {\r\n        BrowserUtils.getDriver().findElement(By.xpath(\"(//span[text()='Small Business'])[1]\")).click();\r\n        Thread.sleep(5000);\r\n    }\r\n\r\n\r\n    @Then(\"Verify {string} are displayed\")\r\n    public void verifyAreDisplayed(String btns) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));\r\n    }\r\n\r\n    @Then(\"Verify {string} are enabled\")\r\n    public void verifyAreEnabled(String Buttons) {\r\n        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));\r\n    }\r\n\r\n    @When(\"I click {string} hovered-over button\")\r\n    public void iClickHoveredOverButton(String homePersonalBtn) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();\r\n    }\r\n\r\n    @Then(\"I click on {string} link button that forwarding to the Small Business page\")\r\n    public void iClickOnLinkButtonThatForwardingToTheSmallBusinessPage(String smallBusinessBtn) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, smallBusinessBtn))).click();\r\n    }\r\n\r\n    @And(\"I change Window to the new tab\")\r\n    public void iChangeWindowToTheNewTab() {\r\n        BrowserUtils.switchToNewWindow();\r\n    }\r\n\r\n    @Then(\"I navigate to {string} drop down menu\")\r\n    public void iNavigateToDropDownMenu(String solutionLink) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, solutionLink))).click();\r\n    }\r\n\r\n    @And(\"I click on {string} link button that takes to the Intrusion Detection page\")\r\n    public void iClickOnLinkButtonThatTakesToTheIntrusionDetectionPage(String intrusionDetectionLink) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, intrusionDetectionLink))).click();\r\n    }\r\n\r\n    @And(\"I verify the header {string} in the page\")\r\n    public void iVerifyTheHeaderInThePage(String header) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, header))).getText(), header);\r\n    }\r\n\r\n    @Then(\"Verify {string} text in header is displayed\")\r\n    public void verifyTextInHeaderIsDisplayed(String headerText) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));\r\n    }\r\n\r\n    @Then(\"Verify {string} text under header is displayed\")\r\n    public void verifyTextUnderHeaderIsDisplayed(String text) {\r\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));\r\n    }\r\n\r\n    @Then(\"Verify pictures are displayed\")\r\n    public void verifyPicturesAreDisplayed() throws InterruptedException {\r\n\r\n        for (WebElement each : page.pictureTitles) {\r\n            BrowserUtils.assertTrue(each.isDisplayed());\r\n        }\r\n    }\r\n\r\n    @Then(\"Verify the texts under pictures are displayed\")\r\n    public void verifyTheTextsUnderPicturesAreDisplayed() {\r\n        for (WebElement element : page.textUnderPictures) {\r\n            BrowserUtils.assertTrue(element.isDisplayed());\r\n            System.out.println(element.getText());\r\n        }\r\n    }\r\n\r\n    @Then(\"Verify Learn more buttons are displayed\")\r\n    public void verifyLearnMoreButtonsAreDisplayed() {\r\n        for (WebElement element : page.learnMoreBtns) {\r\n            BrowserUtils.isDisplayed(element);\r\n            System.out.println(element.getText());\r\n        }\r\n    }\r\n\r\n    @Then(\"I verify the title of the page {string}\")\r\n    public void iVerifyTheTitleOfThePage(String title) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\r\n    }\r\n\r\n    @And(\"Verify  all {string} are displayed\")\r\n    public void verifyAllAreDisplayed(String links) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();\r\n\r\n    }\r\n    @And(\"I verify the image,title,text is displayed\")\r\n    public void iVerifyTheImageTitleTextIsDisplayed() {\r\n        for (WebElement each : page.imageList4) {\r\n            BrowserUtils.isDisplayed(each);\r\n        }\r\n    }\r\n    @And(\"I take screenshot of test\")\r\n    public void iTakeScreenshotOfTest() {\r\n        CucumberLogUtils.logPass(\"Image is displayed\", true);\r\n\r\n    }\r\n\r\n\r\n    @Then(\"Verify pop-up window with Accessibility menu buttons is display on the right top of the page\")\r\n    public void verifyPopUpWindowWithAccessibilityMenuButtonsIsDisplayOnTheRightTopOfThePage() {\r\n        BrowserUtils.sleep(5000);\r\n        CucumberLogUtils.logPass(\"Accessibility menu buttons is display on the right top of the page\", true);\r\n    }\r\n    @Then(\"I navigate to Accessibility button in the footer and click it\")\r\n    public void iNavigateToAccessibilityButtonInTheFooterAndClickIt() {\r\n        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();\r\n        js.executeScript(\"window.scrollBy(0,350)\", page.accessabilityBtn);\r\n        BrowserUtils.click(page.accessabilityBtn);\r\n\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/SmallBusinessSteps.java b/src/test/java/step_definitions/SmallBusinessSteps.java
+--- a/src/test/java/step_definitions/SmallBusinessSteps.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/step_definitions/SmallBusinessSteps.java	(date 1698361176849)
+@@ -128,7 +128,6 @@
+ 
+     }
+ 
+-
+     @Then("Verify pop-up window with Accessibility menu buttons is display on the right top of the page")
+     public void verifyPopUpWindowWithAccessibilityMenuButtonsIsDisplayOnTheRightTopOfThePage() {
+         BrowserUtils.sleep(5000);
+Index: src/test/java/step_definitions/HomeSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\r\n\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\n\r\nimport io.cucumber.java.en.When;\r\n\r\nimport org.openqa.selenium.Alert;\r\nimport org.openqa.selenium.By;\r\nimport pages.CommonPage;\r\nimport pages.HomePage;\r\nimport utils.BrowserUtils;\r\n\r\npublic class HomeSteps implements CommonPage {\r\n    HomePage page;\r\n\r\n    public HomeSteps() {\r\n        page = new HomePage();\r\n\r\n    }\r\n\r\n    @Given(\"I open url of homepage\")\r\n    public void i_open_url_of_homepage() {\r\n        BrowserUtils.getDriver();\r\n    }\r\n\r\n    @Then(\"Verify Title of Home page is {string}\")\r\n    public void verifyTitleOfHomePageIs(String title) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\r\n    }\r\n\r\n    @Then(\"Verify the Title of Home & Personal page is {string}\")\r\n    public void verifyTheTitleOfHomePersonalPageIs(String title) {\r\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\r\n    }\r\n\r\n    @Then(\"Verify ADT logo button is displayed\")\r\n    public void verifyADTLogoButtonIsDisplayed() throws InterruptedException {\r\n        BrowserUtils.isDisplayed(page.adtLogoBtn);\r\n        Thread.sleep(3000);\r\n    }\r\n\r\n    @And(\"Verify the drop down menu should be visible\")\r\n    public void verifyTheDropDownMenuShouldBeVisible() {\r\n        BrowserUtils.isDisplayed(page.dropDownMenu);\r\n    }\r\n\r\n    @And(\"Verify {string} are enable\")\r\n    public void verifyAreEnable(String buttons) {\r\n        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement\r\n                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, buttons))));\r\n    }\r\n\r\n    @Then(\"Verify {string} button is displayed\")\r\n    public void verifyButtonIsDisplayed(String shopNowBtn) {\r\n        BrowserUtils.isDisplayed(page.shopNowBtn);\r\n    }\r\n\r\n    @And(\"Verify {string} button is enabled\")\r\n    public void verifyButtonIsEnabled(String shopNowBtn) {\r\n        BrowserUtils.isEnabled(page.shopNowBtn);\r\n    }\r\n\r\n\r\n    @And(\"I verify the {string} is displayed\")\r\n    public void iVerifyTheIsDisplayed(String image) {\r\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();\r\n    }\r\n\r\n    @Then(\"I click on {string} hovered-over button\")\r\n    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {\r\n        BrowserUtils.click(page.callBtn);\r\n        Thread.sleep(5000);\r\n        Alert alert = BrowserUtils.getDriver().switchTo().alert();\r\n        alert.dismiss();\r\n    }\r\n\r\n    @And(\"Verify {string} under icon is displayed\")\r\n    public void verifyUnderIconIsDisplayed() {\r\n        BrowserUtils.isDisplayed(page.phoneNumber);\r\n    }\r\n\r\n    @Then(\"I hover over call button\")\r\n    public void iHoverOverCallButton() {\r\n        BrowserUtils.moveIntoView(page.callBtn);\r\n    }\r\n\r\n    @Then(\"I click on Customer Login icon\")\r\n    public void iClickOnCustomerLoginIcon() {\r\n        BrowserUtils.click(page.customerIcon);\r\n\r\n    }\r\n    @When(\"I click on Shopping cart icon\")\r\n    public void iClickOnShoppingCartIcon() {\r\n        BrowserUtils.getDriver().findElement(By.xpath(\"//div[@class='right-container']//img[@alt='cart icon']\")).click();\r\n    }\r\n\r\n    @Then(\"I click on Get a free quote button\")\r\n    public void iClickOnGetAFreeQuoteButton() {\r\n        BrowserUtils.click(page.getFreeQuoteBtn);\r\n\r\n    }\r\n\r\n    @And(\"Verify the window is displayed\")\r\n    public void verifyTheWindowIsDisplayed() {\r\n        BrowserUtils.sleep(1000);\r\n        BrowserUtils.isDisplayed(page.getFreeQuoteWindow);\r\n    }\r\n}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/HomeSteps.java b/src/test/java/step_definitions/HomeSteps.java
+--- a/src/test/java/step_definitions/HomeSteps.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/step_definitions/HomeSteps.java	(date 1698373723919)
+@@ -3,9 +3,7 @@
+ import io.cucumber.java.en.And;
+ import io.cucumber.java.en.Given;
+ import io.cucumber.java.en.Then;
+-
+ import io.cucumber.java.en.When;
+-
+ import org.openqa.selenium.Alert;
+ import org.openqa.selenium.By;
+ import pages.CommonPage;
+@@ -62,7 +60,6 @@
+         BrowserUtils.isEnabled(page.shopNowBtn);
+     }
+ 
+-
+     @And("I verify the {string} is displayed")
+     public void iVerifyTheIsDisplayed(String image) {
+         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();
+@@ -86,11 +83,16 @@
+         BrowserUtils.moveIntoView(page.callBtn);
+     }
+ 
++    @Then("Verify the phone number {string} is displayed")
++    public void verifyThePhoneNumberIsDisplayed(String phoneNumber) {
++        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, phoneNumber))).isDisplayed();
++    }
++
+     @Then("I click on Customer Login icon")
+     public void iClickOnCustomerLoginIcon() {
+         BrowserUtils.click(page.customerIcon);
+-
+     }
++
+     @When("I click on Shopping cart icon")
+     public void iClickOnShoppingCartIcon() {
+         BrowserUtils.getDriver().findElement(By.xpath("//div[@class='right-container']//img[@alt='cart icon']")).click();
+@@ -99,7 +101,6 @@
+     @Then("I click on Get a free quote button")
+     public void iClickOnGetAFreeQuoteButton() {
+         BrowserUtils.click(page.getFreeQuoteBtn);
+-
+     }
+ 
+     @And("Verify the window is displayed")
+@@ -107,6 +108,31 @@
+         BrowserUtils.sleep(1000);
+         BrowserUtils.isDisplayed(page.getFreeQuoteWindow);
+     }
++
++    @When("I navigate to the Follow Us footer")
++    public void iNavigateToTheFollowUsFooter() {
++        BrowserUtils.moveIntoView(page.footerSocialMediaIcons);
++    }
++
++    @Then("Verify the {string} is displayed")
++    public void verifyTheIsDisplayed(String mediaIcon) {
++        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='footer-social-container d-none d-lg-block']//div[@class='social-links text-center text-lg-left text-nowrap']"));
++       }
++
++    @Then("Verify {string} is enabled")
++    public void verifyIsEnabled(String mediaIcon) throws InterruptedException {
++        BrowserUtils.getDriver().findElement(By.xpath("(//div[@class='social-links text-center text-lg-left text-nowrap'])[2]")).click();
++    Thread.sleep(5000);
++    }
++    @Then("Verify {string} of the current")
++    public void verifyOfTheCurrent(String title) {
++        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
++    }
++
++    @And("I navigate back")
++    public void iNavigateBack() {
++        BrowserUtils.getDriver().navigate().back();
++    }
+ }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c750d56f-cb63-494a-a65e-14b5e8328b06\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/HomePage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/HomePage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;git-widget-placeholder&quot;: &quot;Nurik&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.CukesRunner\">\r\n    <configuration name=\"Scenario: Verify the phone number pops up\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" />\r\n      <option name=\"GLUE\" value=\"step_definitions\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ADTSevice_BDD\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify the phone number pops up$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the phone number pops up$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify the phone number pops up\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"CukesRunner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ADTSevice_BDD\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"runners.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.CukesRunner\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.CukesRunner\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify the phone number pops up\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/.idea/workspace.xml	(date 1698370812137)
+@@ -5,12 +5,19 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -18,15 +25,75 @@
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;git-widget-placeholder&quot;: &quot;Nurik&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "git-widget-placeholder": "Irina",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager" selected="JUnit.CukesRunner">
++    <configuration name="Scenario: Verify FaceBook button" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/home.feature" />
++      <option name="GLUE" value="step_definitions" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="ADTSevice_BDD" />
++      <option name="NAME_FILTER" value="^Verify FaceBook button$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify FaceBook button$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify FaceBook button" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Scenario: Verify Follow Us footer has icons: FaceBook" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/home.feature" />
++      <option name="GLUE" value="step_definitions" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="ADTSevice_BDD" />
++      <option name="NAME_FILTER" value="^Verify Follow Us footer has icons\: FaceBook$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify Follow Us footer has icons\: FaceBook$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify Follow Us footer has icons: FaceBook" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Scenario: Verify Follow Us footer has icons: FaceBook, Twitter, Pinterest, Instagram, &amp; YouTube" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/home.feature" />
++      <option name="GLUE" value="step_definitions" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="ADTSevice_BDD" />
++      <option name="NAME_FILTER" value="^Verify Follow Us footer has icons\: FaceBook\, Twitter\, Pinterest\, Instagram\, \&amp; YouTube$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify Follow Us footer has icons\: FaceBook\, Twitter\, Pinterest\, Instagram\, \&amp; YouTube$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify Follow Us footer has icons: FaceBook, Twitter, Pinterest, Instagram, &amp; YouTube" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="Scenario: Verify the phone number pops up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/home.feature" />
+@@ -65,6 +132,9 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.CukesRunner" />
++        <item itemvalue="Cucumber Java.Scenario: Verify FaceBook button" />
++        <item itemvalue="Cucumber Java.Scenario: Verify Follow Us footer has icons: FaceBook, Twitter, Pinterest, Instagram, &amp; YouTube" />
++        <item itemvalue="Cucumber Java.Scenario: Verify Follow Us footer has icons: FaceBook" />
+         <item itemvalue="Cucumber Java.Scenario: Verify the phone number pops up" />
+       </list>
+     </recent_temporary>
+Index: src/test/java/pages/SmallBusinessPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport org.openqa.selenium.support.PageFactory;\r\nimport utils.BrowserUtils;\r\n\r\nimport java.util.List;\r\n\r\npublic class SmallBusinessPage {\r\n\r\n\r\n    public SmallBusinessPage() {\r\n\r\n        PageFactory.initElements(BrowserUtils.getDriver(), this);\r\n    }\r\n\r\n    @FindBy(xpath = \"//button[@id='mainNav']\")\r\n    public WebElement homeAndPersonalBtn;\r\n\r\n    @FindBy(css = \"(.dropdown-menu.show > a:nth-of-type(3) > span\")\r\n    public WebElement smallBusinessBtn;\r\n\r\n\r\n    @FindBy(xpath = \"//div[@class='card-main-content']\")\r\n    public List<WebElement> pictureTitles;\r\n    @FindBy(xpath = \"//div[@class='card-text c-bl-text']\")\r\n    public List<WebElement> textUnderPictures;\r\n    @FindBy(xpath = \"//div[@class='card-main-content']//div[@class='tertiary-link-text']\")\r\n    public List<WebElement> learnMoreBtns;\r\n    @FindBy(xpath = \"//div[@class='mainc-69392292']/div/div\")\r\n    public List<WebElement> imageList4;\r\n    @FindBy(xpath = \"//span[@class='btn-equal-web-icon']\")\r\n    public WebElement accessabilityBtn;\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/SmallBusinessPage.java b/src/test/java/pages/SmallBusinessPage.java
+--- a/src/test/java/pages/SmallBusinessPage.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/pages/SmallBusinessPage.java	(date 1698361245687)
+@@ -17,11 +17,8 @@
+ 
+     @FindBy(xpath = "//button[@id='mainNav']")
+     public WebElement homeAndPersonalBtn;
+-
+     @FindBy(css = "(.dropdown-menu.show > a:nth-of-type(3) > span")
+     public WebElement smallBusinessBtn;
+-
+-
+     @FindBy(xpath = "//div[@class='card-main-content']")
+     public List<WebElement> pictureTitles;
+     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
+Index: src/test/java/pages/HomePage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport org.openqa.selenium.support.PageFactory;\r\nimport utils.BrowserUtils;\r\n\r\npublic class HomePage {\r\n    public HomePage() {\r\n\r\n        PageFactory.initElements(BrowserUtils.getDriver(), this);\r\n    }\r\n    @FindBy(css = \".logo > img[alt='ADT LOGO']\")\r\n    public WebElement adtLogoBtn;\r\n    @FindBy(css = \".dropdown-menu.show\")\r\n    public WebElement dropDownMenu;\r\n    @FindBy(xpath = \"//span[contains(text(),'Shop Now')]\")\r\n    public WebElement shopNowBtn;\r\n    @FindBy(css = \".tfn-wrapper > a[title='Call'] > img[alt='Call icon']\")\r\n    public WebElement callBtn;\r\n    @FindBy(xpath = \"//b//span[contains(@class,'phn-clr campaign-tfn-number')][normalize-space()='(800) 510-9061']\")\r\n    public WebElement phoneNumber;\r\n    @FindBy(css = \".right-container > .icon > img[alt='customer icon']\")\r\n    public WebElement customerIcon;\r\n    @FindBy(xpath = \"//a[@class='btn-cta btn-cta-blue btn-cta-sm d-flex align-items-center js-open-adt-form-header']//span[@class='btn-cta-text'][normalize-space()='Get Free Quote']\")\r\n    public WebElement getFreeQuoteBtn;\r\n    @FindBy(xpath = \"//div[@class='coreheader-adt-form-header hidden-sm-down']\")\r\n            public WebElement getFreeQuoteWindow;\r\n\r\n    }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/HomePage.java b/src/test/java/pages/HomePage.java
+--- a/src/test/java/pages/HomePage.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/pages/HomePage.java	(date 1698369707115)
+@@ -6,10 +6,6 @@
+ import utils.BrowserUtils;
+ 
+ public class HomePage {
+-    public HomePage() {
+-
+-        PageFactory.initElements(BrowserUtils.getDriver(), this);
+-    }
+     @FindBy(css = ".logo > img[alt='ADT LOGO']")
+     public WebElement adtLogoBtn;
+     @FindBy(css = ".dropdown-menu.show")
+@@ -25,7 +21,18 @@
+     @FindBy(xpath = "//a[@class='btn-cta btn-cta-blue btn-cta-sm d-flex align-items-center js-open-adt-form-header']//span[@class='btn-cta-text'][normalize-space()='Get Free Quote']")
+     public WebElement getFreeQuoteBtn;
+     @FindBy(xpath = "//div[@class='coreheader-adt-form-header hidden-sm-down']")
+-            public WebElement getFreeQuoteWindow;
++    public WebElement getFreeQuoteWindow;
++    @FindBy(xpath = "/html//div[@id='adt-footer']/div/div[1]/div[7]/div[@class='social-links text-center text-lg-left text-nowrap']")
++    public WebElement footerSocialMediaIcons;
++    @FindBy (xpath = "/html//div[@id='adt-footer']/div/div[1]/div[7]")
++    public WebElement socialMediaIcons;
++
++    @FindBy (css = "div[class='footer-social-container d-none d-lg-block'] a[title='FaceBook']")
++    public WebElement faceBook;
++    public HomePage() {
++
++        PageFactory.initElements(BrowserUtils.getDriver(), this);
++    }
+ 
+-    }
++}
+ 
+Index: src/test/java/pages/CommonPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\npublic interface CommonPage {\r\n    String XPATH_TEMPLATE_BUTTON = \"//button[text()='%s']\";\r\n    String XPATH_TEMPLATE_LINKTEXT = \"//a[text()='%s']\";\r\n    String XPATH_TEMPLATE_TEXT = \"//*[text()='%s']\";\r\n    String XPATH_TEMPLATE_TEXT_SPAN = \"//span[@class='ha6'][text()='%s']\";\r\n    String XPATH_TEMPLATE_INPUT_FIELD = \"//input[@placeholder='%s']\";\r\n    String XPATH_TEMPLATE_INPUT_FIELD2 = \"//input[@id='%s']\";\r\n    String XPATH_TEMPLATE_TEXT_ShopNow = \"//div[@class='col-12 ']//span[@class='btn-cta-text'][normalize-space()='%s']\";\r\n    String XPATH_TEMPLATE_TEXT_CONTAINS = \"//*[contains(text(), '%s')]\";\r\n    String XPATH_TEMPLATE_TEXT2_CONTAINS = \"(//a[contains(text(), '%s')])[2]\";\r\n    String XPATH_TEMPLATE_CLASS = \"//*[@class='%s']\";\r\n    String XPATH_TEMPLATE_CLASS_DIV = \"//div[@class='%s']\";\r\n    String XPATH_TEMPLATE_TEXT2 = \"//div[@class='menu-bg']//a[contains(@href,'%s')]\";\r\n    String XPATH_TEMPLATE_LINKTEXT_HREF = \"//a[@href='%s']\";\r\n    String XPATH_TEMPLATE_IMG= \"//img[@id='%s')]\";\r\n    String XPATH_TEMPLATE_NUR = \"//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']\";\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/CommonPage.java b/src/test/java/pages/CommonPage.java
+--- a/src/test/java/pages/CommonPage.java	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/java/pages/CommonPage.java	(date 1698370887709)
+@@ -17,6 +17,7 @@
+     String XPATH_TEMPLATE_IMG= "//img[@id='%s')]";
+     String XPATH_TEMPLATE_NUR = "//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']";
+ 
++    String XPATH_TEMPLATE_FOLLOWUS = "//div[@class='footer-social-container d-none d-lg-block']//div[@class='social-links text-center text-lg-left text-nowrap']";
+ 
+ 
+ }
+\ No newline at end of file
+Index: src/test/resources/features/healthSenior.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@healthSenioreScenarios\r\nFeature: Home Page Related Scenarios\r\n\r\n  Background: Navigate to page\r\n    Given I open url of homepage\r\n\r\n\r\n  @US21\r\n  Scenario: Click on the Home & Personal drop-down button on the Home page. Click on the Health & Senior option button that takes you to the Health & Senior page and verify the title of the page.\r\n    When I click  \"Home & Personal\" button\r\n    When I click on \"Health & Senior Safety\" button\r\n    Then Verify title of the Health & Senior Safety is \"Medical Alert Systems | Health & Senior Safety Resources by ADT\"\r\n\r\n\r\n  @US-22\r\n  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed\r\n    When I click  \"Home & Personal\" button\r\n    Then I click on \"Health & Senior Safety\" button\r\n    Then I change Window to the new tab\r\n    And Verify \"<links>\" are displayed\r\n    Examples:\r\n      | links            |\r\n      | Products         |\r\n      | Compare Packages |\r\n      | Why ADT          |\r\n      | FAQS             |\r\n      | Testimonials     |\r\n\r\n\r\n  @US23\r\n  Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"SPECIAL MEDICAL ALERT OFFER\" is displayed\r\n    Then Verify \"Plus\" is displayed\r\n    Then Verify \" get free 2-day shipping and activation\" is displayed\r\n    Then Verify \"Use\" is displayed\r\n    Then Verify \"promo code\" is displayed\r\n    Then Verify \": SAFETY\" is displayed\r\n    Then Verify SHOP NOW button is enabled\r\n    Then Verify \"*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, \" is displayed\r\n    When I scroll up\r\n    And I click \"Click here.\" button\r\n    Then Verify title is \"ADT Terms & Conditions for Medical Alert Systems by ADT\"\r\n\r\n\r\n  @US-22\r\n  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed\r\n    When I click  \"Home & Personal\" button\r\n    Then I click on \"Health & Senior Safety\" button\r\n    Then I change Window to the new tab\r\n    And Verify \"<links>\" are displayed\r\n    Examples:\r\n      | links            |\r\n      | Products         |\r\n      | Compare Packages |\r\n      | Why ADT          |\r\n      | FAQS             |\r\n      | Testimonials     |\r\n\r\n    @US25\r\n  Scenario: Verify Picture under the main menu Health & Senior Safety Page\r\n      When I click on Home & Personal button\r\n      And  I click on \"Health & Senior Safety\" button\r\n      Then I verify the picture is displayed\r\n\r\n  @US24\r\n  Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    And I hover over phone symbol button\r\n    Then Verify \"(800) 588-0023\" is displayed\r\n    When I click customer symbol button\r\n    Then Verify the url is \"https://www.adt.com/customer/login\"\r\n\r\n\r\n\r\n  @US26\r\n  Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Have no worries with medical alert systems for every lifestyle \" text in header is displayed\r\n    Then Verify \"Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. \" text under header is displayed\r\n    Then Verify pictures are displayed under header above\r\n    Then Verify text under name is displayed\r\n    Then Verify \"<description>\" is displayed\r\n    Then Verify \"<description>\" is displayed\r\n    Then Verify \"<textUnderDesk1>\" is displayed\r\n    Then Verify \"<textUnderDesk2>\" is displayed\r\n    Then Verify \"<textUnderDesk3>\" is displayed\r\n    Then Verify \"<textUnderDesk4>\" is displayed\r\n    Then Verify \"<textUnderDesk5>\" is displayed\r\n    Then Verify \"<textUnderDesk6>\" is displayed\r\n    Then Verify \"<textUnderDesk7>\" is displayed\r\n    Then Verify Online special buttons are displayed\r\n    Then Verify \"<textUnderDesk8>\" is displayed\r\n    Then Verify \"<textUnderDesk9>\" is displayed\r\n    Then Verify \"<textUnderDesk10>\" is displayed\r\n    Then Verify \"<shopNowButton>\" is displayed\r\n    Examples:\r\n      | description                                                                                           | textUnderDesk1     | textUnderDesk2       | textUnderDesk3              | textUnderDesk4              | textUnderDesk5            | textUnderDesk6 | textUnderDesk8                        | textUnderDesk9  | textUnderDesk10 | shopNowButton |\r\n      | Provides freedom and peace of mind while at home or miles from it.                                    | Mobile base unit   | No landline required | Fall Detection (optional)   | GPS location capabilities   | Pendant options available | $39.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |\r\n      | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |\r\n      | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |\r\n\r\n\r\n  @US27\r\n  Scenario: verify the buttons take to the following pages by checking their titles\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Have no worries with medical alert systems for every lifestyle \" text in header is displayed\r\n    And I click on Shop Now button and Verify titles of the pages\r\n\r\n\r\n  @US29\r\n  Scenario: Verify a header and a video is displayed and able to play\r\n    When I click \"Home & Personal\" hovered-over button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    And I verify the header \"See how ADT Medical Alert Systems work\" in the page\r\n    Then I verify the video is displayed\r\n    And I verify the video is able to play\r\n\r\n\r\n\r\n\r\n\r\n  @US28\r\n  Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Add even more wellbeing to your ADT Medical Alert System \" text in header is displayed\r\n    Then Verify images are displayed\r\n    Then Verify \"<imageText>\" is displayed\r\n    Then Verify \"<imageTextDescription>\" is displayed\r\n    Then Verify \"<smallText>\" is displayed\r\n    Examples:\r\n      | imageText                    | imageTextDescription                                                                                                                                                                                                                           | smallText                                              |\r\n      | Fall Detection pendant*      | ADT can automatically be alerted after a fall even if you can’t press the button on the Fall Detection pendant yourself. Available with Medical Alert Plus and On-the-Go systems.                                                              | *Fall Detection pendant does not detect 100% of falls. |\r\n      | Lockbox                      | If there’s an emergency, keeping a spare key in an ADT Lockbox can give friends, family or first responders a quick and easy way into the house without the need for forced entry.                                                             |                                                        |\r\n      | Waterproof Wall-Mount Button | With our emergency button in a set location, you know exactly where to go to press for help in an emergency. Easily mounts to the wall or can be placed on a table or nightstand. Available with the Medical Alert Plus and On-the-Go systems. |                                                        |\r\n\r\n  @US30\r\n  Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Fast, reliable 24/7 help in an emergency \" text in header is displayed\r\n    Then Verify \"When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. \" text under the header is displayed\r\n    Then Verify three buttons are displayed\r\n    Then Verify three buttons are enabled\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/healthSenior.feature b/src/test/resources/features/healthSenior.feature
+--- a/src/test/resources/features/healthSenior.feature	(revision e3351f799669be93e7b8754e181a0fcecd81eafd)
++++ b/src/test/resources/features/healthSenior.feature	(date 1698368724643)
+@@ -74,7 +74,6 @@
+     Then Verify the url is "https://www.adt.com/customer/login"
+ 
+ 
+-
+   @US26
+   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
+     When I click on Home & Personal button
+@@ -120,10 +119,6 @@
+     Then I verify the video is displayed
+     And I verify the video is able to play
+ 
+-
+-
+-
+-
+   @US28
+   Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
+     When I click on Home & Personal button

@@ -1,0 +1,206 @@
+Index: src/test/resources/features/home.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@homeScenarios\r\nFeature: Home Page Related Scenarios\r\n\r\n  Background: Navigate to page\r\n    Given I open url of homepage\r\n\r\n  @AD-1\r\n  Scenario: Verify the Title of the page\r\n    Then Verify Title of Home page is \"ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider\"\r\n\r\n  @US-05\r\n  Scenario: Verify the Title of Home & Personal page\r\n    When I click on Home & Personal button\r\n    Then Verify the Title of Home & Personal page is \"ADT® Home Alarm Systems | #1 Smart Alarm Systems Provider\"\r\n\r\n  @US-06\r\n  Scenario: Verify ADT logo button\r\n    When I open url of homepage\r\n    Then Verify ADT logo button is displayed\r\n\r\n  @US-07\r\n  Scenario: Verify drop down menu is present\r\n    When I click on Home & Personal button\r\n    And Verify the drop down menu should be visible\r\n\r\n  @US-08\r\n  Scenario Outline: Verify Home & Personal drop down menu text links are displayed & clickable\r\n    When I click on Home & Personal button\r\n    Then Verify \"<links>\" are displayed\r\n    And Verify \"<buttons>\" are enable\r\n    Examples:\r\n      | links                  | buttons                |\r\n      | Home & Personal        | Home & Personal        |\r\n      | Small Business         | Small Business         |\r\n      | Health & Senior Safety | Health & Senior Safety |\r\n      | Commercial             | Commercial             |\r\n      | Solar                  | Solar                  |\r\n\r\n  @US-09\r\n  Scenario Outline: Verify top menu text links are displayed & enable to click\r\n    When I open url of homepage\r\n    Then Verify \"<links>\" are displayed\r\n    Then Verify \"<buttons>\" are enabled\r\n    Then Verify \"Shop Now\" button is displayed\r\n    And Verify \"Shop Now\" button is enabled\r\n    Examples:\r\n      | links          | buttons        |\r\n      | Products       | Products       |\r\n      | Packages       | Packages       |\r\n      | Build Your own | Build Your own |\r\n      | Deals          | Deals          |\r\n\r\n  @US-12.1\r\n  Scenario: Verify the phone number pops up\r\n    When I open url of homepage\r\n    Then I click on \"Call Button\" hovered-over button\r\n    And Verify \"(800) 510-9061\" under icon is displayed\r\n\r\n  @US-12\r\n  Scenario: Verify the phone number pops up\r\n    When I open url of homepage\r\n    Then I hover over call button\r\n    And Verify the texts under pictures are displayed\r\n\r\n  @US-13\r\n  Scenario: Verify the Customer Login page title\r\n    When I open url of homepage\r\n    Then I click on Customer Login icon\r\n    And I verify the title of the page \"ADT® Customer Login: Manage Your Active ADT Account\"\r\n\r\n\r\n  @US15\r\n  Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button\r\n  // When I open url of homepage\r\n    Then I click on Get a free quote button\r\n    And Verify the window is displayed\r\n\r\n\r\n  @US14\r\n  Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’\r\n    When I click on Shopping cart icon\r\n    Then Verify title is \"Cart | ADT® Self Setup | DIY\"\r\n\r\n\r\n  @US-17\r\n  Scenario: Verify the Small Business header\r\n    When I click on Home & Personal button\r\n    Then I click on Small Business button\r\n    And Verify \"Customize a business security system today \" text in header is displayed\r\n\r\n  @US-19\r\n  Scenario: Verify the footer menu icons: FaceBook, Twitter, Pinterest, Unstagram, & Youtube\r\n    When I scroll down\r\n    Then Verify the \"FaceBook\" button is displayed\r\n    Then Verify the \"FaceBook\" button is enabled\r\n    And I click on \"FaceBook\" icon and change Window to the new tab\r\n    Then Verify the title of the FaceBook page is \"ADT | Facebook\"\r\n    Then Verify Twitter button \"Twitter\"  is displayed\r\n    Then Verify Twitter \"Twitter\"  is enabled\r\n    And I click on button \"Twitter\" icon and change Window to the new tab\r\n    Then Verify the title of the Twitter page is \"ADT (@ADT) / X\"\r\n    Then Verify Pinterest button \"Pinterest\"  is displayed\r\n    Then Verify Pinterest \"Pinterest\"  is enabled\r\n    And I click Pinterest button \"Pinterest\" icon and change Window to the new tab\r\n    Then Verify the title of the Pinterest page is \"ADT (adtstaysafe) - Profile | Pinterest\"\r\n    Then Verify Instagram button \"Instagram\"  is displayed\r\n    Then Verify Instagram \"Instagram\"  is enabled\r\n    And I click Instagram button \"Instagram\" icon and change Window to the new tab\r\n    Then Verify the title of theInstagram page is \"ADT (@adtsecurity) • Instagram photos and videos\"\r\n    Then Verify YouTube button \"YouTube\"  is displayed\r\n    Then Verify YouTube \"YouTube\"  is enabled\r\n    And I click YouTube button \"YouTube\" icon and change Window to the new tab\r\n    Then Verify the title of YouTube page is \"ADT - YouTube\"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/home.feature b/src/test/resources/features/home.feature
+--- a/src/test/resources/features/home.feature	(revision cbfc18f1d020b1a0ae5e73d7870d7c73db373f49)
++++ b/src/test/resources/features/home.feature	(date 1698437297715)
+@@ -15,7 +15,6 @@
+ 
+   @US-06
+   Scenario: Verify ADT logo button
+-    When I open url of homepage
+     Then Verify ADT logo button is displayed
+ 
+   @US-07
+@@ -38,7 +37,6 @@
+ 
+   @US-09
+   Scenario Outline: Verify top menu text links are displayed & enable to click
+-    When I open url of homepage
+     Then Verify "<links>" are displayed
+     Then Verify "<buttons>" are enabled
+     Then Verify "Shop Now" button is displayed
+@@ -52,28 +50,24 @@
+ 
+   @US-12.1
+   Scenario: Verify the phone number pops up
+-    When I open url of homepage
+-    Then I click on "Call Button" hovered-over button
+-    And Verify "(800) 510-9061" under icon is displayed
++    When I click on "Call Button" hovered-over button
++    Then Verify "(800) 510-9061" under icon is displayed
+ 
+   @US-12
+   Scenario: Verify the phone number pops up
+-    When I open url of homepage
+-    Then I hover over call button
+-    And Verify the texts under pictures are displayed
++    When I hover over call button
++    Then Verify the texts under pictures are displayed
+ 
+   @US-13
+   Scenario: Verify the Customer Login page title
+-    When I open url of homepage
+-    Then I click on Customer Login icon
+-    And I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
++    When I click on Customer Login icon
++    Then I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
+ 
+ 
+   @US15
+   Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
+-  // When I open url of homepage
+-    Then I click on Get a free quote button
+-    And Verify the window is displayed
++    When I click on Get a free quote button
++    Then Verify the window is displayed
+ 
+ 
+   @US14
+@@ -81,7 +75,6 @@
+     When I click on Shopping cart icon
+     Then Verify title is "Cart | ADT® Self Setup | DIY"
+ 
+-
+   @US-17
+   Scenario: Verify the Small Business header
+     When I click on Home & Personal button
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c750d56f-cb63-494a-a65e-14b5e8328b06\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/HomePage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/HomePage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/healthSenior.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/healthSenior.feature\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"recentBranches\">\r\n      <RecentBranches>\r\n        <option name=\"branchesForRepo\">\r\n          <list>\r\n            <RecentBranchesForRepo>\r\n              <option name=\"branches\">\r\n                <list>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"Irina\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1698427485\" />\r\n                  </RecentBranch>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"main\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1698427466\" />\r\n                  </RecentBranch>\r\n                </list>\r\n              </option>\r\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\r\n            </RecentBranchesForRepo>\r\n          </list>\r\n        </option>\r\n      </RecentBranches>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 7\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2XM83ZHDReBdiZ2E1CQoqK9Icc8\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"git-widget-placeholder\": \"Irina\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"JUnit.CukesRunner\">\r\n    <configuration name=\"Scenario: Verify the phone number pops up\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/home.feature\" />\r\n      <option name=\"GLUE\" value=\"step_definitions\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ADTSevice_BDD\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify the phone number pops up$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the phone number pops up$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify the phone number pops up\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"CukesRunner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ADTSevice_BDD\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"runners.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.CukesRunner\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.CukesRunner\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify the phone number pops up\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c750d56f-cb63-494a-a65e-14b5e8328b06\" name=\"Changes\" comment=\"\" />\r\n      <created>1698427402892</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1698427402892</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cbfc18f1d020b1a0ae5e73d7870d7c73db373f49)
++++ b/.idea/workspace.xml	(date 1698437388488)
+@@ -5,15 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c750d56f-cb63-494a-a65e-14b5e8328b06" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_7_59_PM__Changes_1.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_23_2023_8_00_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_25_23__2_50_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_23__11_10_AM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/features/home.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/home.feature" afterDir="false" />
+     </list>
+Index: src/test/resources/features/healthSenior.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@healthSenioreScenarios\r\nFeature: Home Page Related Scenarios\r\n\r\n  Background: Navigate to page\r\n    Given I open url of homepage\r\n\r\n  @US21\r\n  Scenario: Click on the Home & Personal drop-down button on the Home page. Click on the Health & Senior option button that takes you to the Health & Senior page and verify the title of the page.\r\n    When I click  \"Home & Personal\" button\r\n    When I click on \"Health & Senior Safety\" button\r\n    Then Verify title of the Health & Senior Safety is \"Medical Alert Systems | Health & Senior Safety Resources by ADT\"\r\n\r\n  @US-22\r\n  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed\r\n    When I click  \"Home & Personal\" button\r\n    Then I click on \"Health & Senior Safety\" button\r\n    Then I change Window to the new tab\r\n    And Verify \"<links>\" are displayed\r\n    Examples:\r\n      | links            |\r\n      | Products         |\r\n      | Compare Packages |\r\n      | Why ADT          |\r\n      | FAQS             |\r\n      | Testimonials     |\r\n\r\n  @US23\r\n  Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"SPECIAL MEDICAL ALERT OFFER\" is displayed\r\n    Then Verify \"Plus\" is displayed\r\n    Then Verify \" get free 2-day shipping and activation\" is displayed\r\n    Then Verify \"Use\" is displayed\r\n    Then Verify \"promo code\" is displayed\r\n    Then Verify \": SAFETY\" is displayed\r\n    Then Verify SHOP NOW button is enabled\r\n    Then Verify \"*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, \" is displayed\r\n    When I scroll up\r\n    And I click \"Click here.\" button\r\n    Then Verify title is \"ADT Terms & Conditions for Medical Alert Systems by ADT\"\r\n\r\n  @US-22\r\n  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed\r\n    When I click  \"Home & Personal\" button\r\n    Then I click on \"Health & Senior Safety\" button\r\n    Then I change Window to the new tab\r\n    And Verify \"<links>\" are displayed\r\n    Examples:\r\n      | links            |\r\n      | Products         |\r\n      | Compare Packages |\r\n      | Why ADT          |\r\n      | FAQS             |\r\n      | Testimonials     |\r\n\r\n    @US25\r\n  Scenario: Verify Picture under the main menu Health & Senior Safety Page\r\n      When I click on Home & Personal button\r\n      And  I click on \"Health & Senior Safety\" button\r\n      Then I verify the picture is displayed\r\n\r\n  @US24\r\n  Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    And I hover over phone symbol button\r\n    Then Verify \"(800) 588-0023\" is displayed\r\n    When I click customer symbol button\r\n    Then Verify the url is \"https://www.adt.com/customer/login\"\r\n\r\n  @US26\r\n  Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Have no worries with medical alert systems for every lifestyle \" text in header is displayed\r\n    Then Verify \"Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. \" text under header is displayed\r\n    Then Verify pictures are displayed under header above\r\n    Then Verify text under name is displayed\r\n    Then Verify \"<description>\" is displayed\r\n    Then Verify \"<description>\" is displayed\r\n    Then Verify \"<textUnderDesk1>\" is displayed\r\n    Then Verify \"<textUnderDesk2>\" is displayed\r\n    Then Verify \"<textUnderDesk3>\" is displayed\r\n    Then Verify \"<textUnderDesk4>\" is displayed\r\n    Then Verify \"<textUnderDesk5>\" is displayed\r\n    Then Verify \"<textUnderDesk6>\" is displayed\r\n    Then Verify \"<textUnderDesk7>\" is displayed\r\n    Then Verify Online special buttons are displayed\r\n    Then Verify \"<textUnderDesk8>\" is displayed\r\n    Then Verify \"<textUnderDesk9>\" is displayed\r\n    Then Verify \"<textUnderDesk10>\" is displayed\r\n    Then Verify \"<shopNowButton>\" is displayed\r\n    Examples:\r\n      | description                                                                                           | textUnderDesk1     | textUnderDesk2       | textUnderDesk3              | textUnderDesk4              | textUnderDesk5            | textUnderDesk6 | textUnderDesk8                        | textUnderDesk9  | textUnderDesk10 | shopNowButton |\r\n      | Provides freedom and peace of mind while at home or miles from it.                                    | Mobile base unit   | No landline required | Fall Detection (optional)   | GPS location capabilities   | Pendant options available | $39.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |\r\n      | Extended in-home range grants independence to those who love to garden or relax in the yard.          | In-home operations | No landline required | Fall Detection (optional)   | Home temperature monitoring | Pendant options available | $37.99/month   | Get 50% off Fall Detection monitoring | Use promo code: | SAFETY          | Shop now      |\r\n      | Gives you or your loved ones the confidence needed to live alone and maintain independence when home. | In-home operations | Landline required    | Home temperature monitoring |                             |                           | $29.99/month   |                                       |                 |                 | Shop now      |\r\n\r\n  @US27\r\n  Scenario: verify the buttons take to the following pages by checking their titles\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Have no worries with medical alert systems for every lifestyle \" text in header is displayed\r\n    And I click on Shop Now button and Verify titles of the pages\r\n\r\n  @US29\r\n  Scenario: Verify a header and a video is displayed and able to play\r\n    When I click \"Home & Personal\" hovered-over button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    And I verify the header \"See how ADT Medical Alert Systems work\" in the page\r\n    Then I verify the video is displayed\r\n    And I verify the video is able to play\r\n\r\n  @US28\r\n  Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Add even more wellbeing to your ADT Medical Alert System \" text in header is displayed\r\n    Then Verify images are displayed\r\n    Then Verify \"<imageText>\" is displayed\r\n    Then Verify \"<imageTextDescription>\" is displayed\r\n    Then Verify \"<smallText>\" is displayed\r\n    Examples:\r\n      | imageText                    | imageTextDescription                                                                                                                                                                                                                           | smallText                                              |\r\n      | Fall Detection pendant*      | ADT can automatically be alerted after a fall even if you can’t press the button on the Fall Detection pendant yourself. Available with Medical Alert Plus and On-the-Go systems.                                                              | *Fall Detection pendant does not detect 100% of falls. |\r\n      | Lockbox                      | If there’s an emergency, keeping a spare key in an ADT Lockbox can give friends, family or first responders a quick and easy way into the house without the need for forced entry.                                                             |                                                        |\r\n      | Waterproof Wall-Mount Button | With our emergency button in a set location, you know exactly where to go to press for help in an emergency. Easily mounts to the wall or can be placed on a table or nightstand. Available with the Medical Alert Plus and On-the-Go systems. |                                                        |\r\n\r\n  @US30\r\n  Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.\r\n    When I click on Home & Personal button\r\n    And  I click on \"Health & Senior Safety\" button\r\n    Then Verify \"Fast, reliable 24/7 help in an emergency \" text in header is displayed\r\n    Then Verify \"When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. \" text under the header is displayed\r\n    Then Verify three buttons are displayed\r\n    Then Verify three buttons are enabled\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/healthSenior.feature b/src/test/resources/features/healthSenior.feature
+--- a/src/test/resources/features/healthSenior.feature	(revision cbfc18f1d020b1a0ae5e73d7870d7c73db373f49)
++++ b/src/test/resources/features/healthSenior.feature	(date 1698437388443)
+@@ -3,17 +3,15 @@
+ 
+   Background: Navigate to page
+     Given I open url of homepage
++    When I click  "Home & Personal" button
++    And I click on "Health & Senior Safety" button
+ 
+   @US21
+   Scenario: Click on the Home & Personal drop-down button on the Home page. Click on the Health & Senior option button that takes you to the Health & Senior page and verify the title of the page.
+-    When I click  "Home & Personal" button
+-    When I click on "Health & Senior Safety" button
+     Then Verify title of the Health & Senior Safety is "Medical Alert Systems | Health & Senior Safety Resources by ADT"
+ 
+   @US-22
+   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
+-    When I click  "Home & Personal" button
+-    Then I click on "Health & Senior Safety" button
+     Then I change Window to the new tab
+     And Verify "<links>" are displayed
+     Examples:
+@@ -26,8 +24,6 @@
+ 
+   @US23
+   Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     Then Verify "SPECIAL MEDICAL ALERT OFFER" is displayed
+     Then Verify "Plus" is displayed
+     Then Verify " get free 2-day shipping and activation" is displayed
+@@ -42,8 +38,6 @@
+ 
+   @US-22
+   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
+-    When I click  "Home & Personal" button
+-    Then I click on "Health & Senior Safety" button
+     Then I change Window to the new tab
+     And Verify "<links>" are displayed
+     Examples:
+@@ -54,16 +48,12 @@
+       | FAQS             |
+       | Testimonials     |
+ 
+-    @US25
++  @US25
+   Scenario: Verify Picture under the main menu Health & Senior Safety Page
+-      When I click on Home & Personal button
+-      And  I click on "Health & Senior Safety" button
+-      Then I verify the picture is displayed
++    Then I verify the picture is displayed
+ 
+   @US24
+   Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     And I hover over phone symbol button
+     Then Verify "(800) 588-0023" is displayed
+     When I click customer symbol button
+@@ -71,8 +61,6 @@
+ 
+   @US26
+   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
+     Then Verify "Get protection while you’re at home, or wherever you go. Add features to your medical alert system like Fall Detection*, which can get you help even if you can’t push the button. " text under header is displayed
+     Then Verify pictures are displayed under header above
+@@ -99,23 +87,17 @@
+ 
+   @US27
+   Scenario: verify the buttons take to the following pages by checking their titles
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
+     And I click on Shop Now button and Verify titles of the pages
+ 
+   @US29
+   Scenario: Verify a header and a video is displayed and able to play
+-    When I click "Home & Personal" hovered-over button
+-    And  I click on "Health & Senior Safety" button
+     And I verify the header "See how ADT Medical Alert Systems work" in the page
+     Then I verify the video is displayed
+     And I verify the video is able to play
+ 
+   @US28
+   Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     Then Verify "Add even more wellbeing to your ADT Medical Alert System " text in header is displayed
+     Then Verify images are displayed
+     Then Verify "<imageText>" is displayed
+@@ -129,8 +111,6 @@
+ 
+   @US30
+   Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.
+-    When I click on Home & Personal button
+-    And  I click on "Health & Senior Safety" button
+     Then Verify "Fast, reliable 24/7 help in an emergency " text in header is displayed
+     Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
+     Then Verify three buttons are displayed
