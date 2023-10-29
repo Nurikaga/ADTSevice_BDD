@@ -18,10 +18,6 @@ public class SmallBusinessPage {
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
 
-    @FindBy(css = "//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']")
-    public WebElement freeRiskAssessmentBtn;
-
-
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
@@ -33,7 +29,13 @@ public class SmallBusinessPage {
     @FindBy(xpath = "//span[@class='btn-equal-web-icon']")
     public WebElement accessabilityBtn;
 
+    @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'res-form-sbtl-p2')][normalize-space()='Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.']")
+    public WebElement fillOutThisF;
+    @FindBy(xpath = "(//div[@class='res-form-title-h3 ha3'])[1]")
+    public WebElement weWillCallYou;
 
+    @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'card-title sb ha2')][normalize-space()='Thank You, we will reach out shortly.']")
+    public WebElement thankYouText;
 }
 
 

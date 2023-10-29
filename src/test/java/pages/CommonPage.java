@@ -17,7 +17,7 @@ public interface CommonPage {
     String XPATH_TEMPLATE_LINKTEXT_HREF = "//a[@href='%s']";
     String XPATH_TEMPLATE_IMG= "//img[@id='%s')]";
     String XPATH_TEMPLATE_NUR = "//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']";
-
+    String XPATH_TEMPLATE_INPUT_FIELD3 = "//*[@id='%s']";
 
 
 }

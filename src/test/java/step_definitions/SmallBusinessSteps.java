@@ -1,11 +1,14 @@
 package step_definitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
@@ -13,6 +16,7 @@ import utils.BrowserUtils;
 import utils.CucumberLogUtils;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,6 +38,7 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath("(//span[text()='Small Business'])[1]")).click();
         Thread.sleep(5000);
     }
+
     @Then("Verify {string} are displayed")
     public void verifyAreDisplayed(String btns) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));
@@ -145,7 +150,7 @@ public class SmallBusinessSteps implements CommonPage {
 
     @When("user clicks on {string} link's header button")
     public void userClicksOnLinkSHeaderButton(String linkHeader) {
-       BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();
     }
 
     @Then("verify the linkHeader is {string}")
@@ -153,8 +158,63 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, header))).getText(), header);
     }
 
-}
+    @When("I scroll down until i see We'll Call You test")
+    public void iScrollDownUntilISeeWeLlCallYouTest() throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        Thread.sleep(3000);
+    }
 
+    @Then("Verify the {string} text under header is displayed")
+    public void verifyTheTextUnderHeaderIsDisplayed(String weWillCallYou) {
+        BrowserUtils.isDisplayed(page.weWillCallYou);
+    }
+
+    @Then("Verify {string} text under We'll Call You is displayed")
+    public void verifyTextUnderWeLlCallYouIsDisplayed(String fillOutThisF) {
+
+        BrowserUtils.isDisplayed(page.fillOutThisF);
+    }
+
+    @When("I scroll table to the view")
+    public void iScrollTableToTheView() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    }
+
+    @When("I fill out the form")
+    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
+//        Actions actions = new Actions(BrowserUtils.getDriver());
+//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+
+        List<Map<String, String>> asMaps = dataTable.asMaps();
+        for (Map<String, String> each : asMaps) {
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
+                    , each.get("Value"));
+
+            CucumberLogUtils.logPass("fill out form", true);
+            Thread.sleep(1000);
+        }
+    }
+    @And("I click on the Call Me Back button")
+    public void iClickOnTheCallMeBackButton() {
+
+        BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")).click();
+        BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")));
+        CucumberLogUtils.logPass("clicked the button", true);
+
+    }
+    @Then("Verify Thank You, we will reach out shortly. header text is visible")
+    public void verifyThankYouWeWillReachOutShortlyHeaderTextIsVisible() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        BrowserUtils.isDisplayed(page.thankYouText);
+        BrowserUtils.highlightElement(page.thankYouText);
+    }
+
+
+}
 
 
 
