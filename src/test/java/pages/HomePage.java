@@ -6,6 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
 public class HomePage {
+    public HomePage() {
+
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
     @FindBy(css = ".logo > img[alt='ADT LOGO']")
     public WebElement adtLogoBtn;
     @FindBy(css = ".dropdown-menu.show")
@@ -34,12 +38,6 @@ public class HomePage {
     public WebElement instagramIcon;
     @FindBy(css = ".d-lg-block [title='Youtube']")
     public WebElement youtubeIcon;
-
-    public HomePage() {
-
-        PageFactory.initElements(BrowserUtils.getDriver(), this);
-    }
-
 
 }
 
