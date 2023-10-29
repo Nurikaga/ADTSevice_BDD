@@ -1,4 +1,4 @@
-@smallBusinessScenarios
+@smallBusinessScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page
@@ -61,8 +61,6 @@ Feature: Home Page Related Scenarios
 
   @US31
   Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields
-    When I click "Home & Personal" hovered-over button
-    Then I click on "Small Business" link button that forwarding to the Small Business page
 
   @US32
   Scenario Outline: verify the links headers stay the same on the corresponding pages

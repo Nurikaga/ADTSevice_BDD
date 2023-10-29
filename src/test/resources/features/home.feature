@@ -1,4 +1,4 @@
-@homeScenarios
+@homeScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page
