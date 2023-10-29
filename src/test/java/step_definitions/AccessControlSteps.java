@@ -33,7 +33,6 @@ public class AccessControlSteps<V> implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, accessControlBtn))).click();
     }
 
-
     @Then("I verify a text {string} in the page")
     public void iVerifyATextInThePage(String text) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))).click();
@@ -41,7 +40,6 @@ public class AccessControlSteps<V> implements CommonPage {
 
     @And("I verify the button {string} in the page clickable and takes to the new page")
     public void iVerifyTheButtonInThePageClickableAndTakesToTheNewPage(String callMeBtn) {
-
         page.callMeBtn.click();
     }
 
@@ -52,7 +50,6 @@ public class AccessControlSteps<V> implements CommonPage {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD2, each.get("Field"))))
                     , each.get("Value"));
             BrowserUtils.sleep(1000);
-
         }
     }
 
@@ -71,8 +68,6 @@ public class AccessControlSteps<V> implements CommonPage {
         WebElement radioButton1 = page.companySizeBtn;
         radioButton1.click();
         page.companySize.click();
-
-
     }
 }
 

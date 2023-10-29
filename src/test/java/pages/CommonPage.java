@@ -3,7 +3,7 @@ package pages;
 public interface CommonPage {
     String XPATH_TEMPLATE_BUTTON = "//button[text()='%s']";
     String XPATH_TEMPLATE_LINKTEXT = "//a[text()='%s']";
-    String XPATH_TEMPLATE_LINKTEXT2="//h5[normalize-space()='%s']";
+    String XPATH_TEMPLATE_LINKTEXT2 = "//h5[normalize-space()='%s']";
     String XPATH_TEMPLATE_TEXT = "//*[text()='%s']";
     String XPATH_TEMPLATE_TEXT_SPAN = "//span[@class='ha6'][text()='%s']";
     String XPATH_TEMPLATE_INPUT_FIELD = "//input[@placeholder='%s']";
@@ -15,9 +15,8 @@ public interface CommonPage {
     String XPATH_TEMPLATE_CLASS_DIV = "//div[@class='%s']";
     String XPATH_TEMPLATE_TEXT2 = "//div[@class='menu-bg']//a[contains(@href,'%s')]";
     String XPATH_TEMPLATE_LINKTEXT_HREF = "//a[@href='%s']";
-    String XPATH_TEMPLATE_IMG= "//img[@id='%s')]";
+    String XPATH_TEMPLATE_IMG = "//img[@id='%s')]";
     String XPATH_TEMPLATE_NUR = "//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']";
-
-
+    String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
 
 }

@@ -6,14 +6,10 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 
 public class SmallBusinessSteps implements CommonPage {
@@ -34,6 +30,7 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath("(//span[text()='Small Business'])[1]")).click();
         Thread.sleep(5000);
     }
+
     @Then("Verify {string} are displayed")
     public void verifyAreDisplayed(String btns) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));
@@ -145,7 +142,7 @@ public class SmallBusinessSteps implements CommonPage {
 
     @When("user clicks on {string} link's header button")
     public void userClicksOnLinkSHeaderButton(String linkHeader) {
-       BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();
     }
 
     @Then("verify the linkHeader is {string}")
@@ -153,7 +150,18 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, header))).getText(), header);
     }
 
+    @Then("Verify {string} link buttons are enabled")
+    public void verifyLinkButtonsAreEnabled(String productLinks) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CLASS, productLinks))).click();
+    }
+
+    @Then("Verify {string} of each page")
+    public void verifyOfEachPage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
 }
+
 
 
 
