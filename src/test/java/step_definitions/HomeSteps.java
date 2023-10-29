@@ -6,9 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+import utils.CucumberLogUtils;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
@@ -67,12 +69,24 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();
     }
 
-    @Then("I click on {string} hovered-over button")
-    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
-        BrowserUtils.click(page.callBtn);
-        Thread.sleep(5000);
-        Alert alert = BrowserUtils.getDriver().switchTo().alert();
-        alert.dismiss();
+//    @Then("I click on {string} hovered-over button")
+//    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {
+//        BrowserUtils.click(page.callBtn);
+//        Thread.sleep(5000);
+//        Alert alert = BrowserUtils.getDriver().switchTo().alert();
+//        alert.dismiss();
+//    }
+
+    @Then("I hover over call button")
+    public void iHoverOverCallButton() throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.moveToElement(page.callBtn).perform();
+        Thread.sleep(3000);
+        CucumberLogUtils.logPass("Image is displayed", true);
+    }
+    @And("Verify phone number under icon is {string}")
+    public void verifyPhoneNumberUnderIconIs(String phoneNumber) throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, phoneNumber))).click();
     }
 
     @And("Verify {string} under icon is displayed")
@@ -80,15 +94,9 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.phoneNumber);
     }
 
-    @Then("I hover over call button")
-    public void iHoverOverCallButton() {
-        BrowserUtils.moveIntoView(page.callBtn);
-    }
-
     @Then("I click on Customer Login icon")
     public void iClickOnCustomerLoginIcon() {
         BrowserUtils.click(page.customerIcon);
-
     }
 
     @When("I click on Shopping cart icon")
@@ -99,7 +107,6 @@ public class HomeSteps implements CommonPage {
     @Then("I click on Get a free quote button")
     public void iClickOnGetAFreeQuoteButton() {
         BrowserUtils.click(page.getFreeQuoteBtn);
-
     }
 
     @And("Verify the window is displayed")
@@ -201,7 +208,8 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.instagramIcon);
         BrowserUtils.switchToNewWindow();
         Thread.sleep(3000);
-}
+    }
+
     @Then("Verify the title of theInstagram page is {string}")
     public void verifyTheTitleOfTheInstagramPageIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
@@ -230,5 +238,6 @@ public class HomeSteps implements CommonPage {
     public void verifyTheTitleOfYouTubePageIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-}
+    }
+
 

@@ -72,27 +72,20 @@ public class HealthSeniorSteps implements CommonPage {
 
     @Then("Verify SHOP NOW button is enabled")
     public void verifySHOPNOWButtonIsEnabled() {
-
         BrowserUtils.assertTrue(page.shopNowBtn.isEnabled());
-
     }
 
     @When("I scroll up")
     public void iScrollUp() throws InterruptedException {
-
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
 //        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
 //        // Scroll up by a certain pixel amount (you can adjust the value as needed)
 //        js.executeScript("window.scrollBy(0, -250);");
-
-
     }
-
 
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
-
         BrowserUtils.click(page.clickHereBtn);
     }
 
@@ -100,7 +93,6 @@ public class HealthSeniorSteps implements CommonPage {
     public void verifyTitleIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-
 
     @Then("I verify the video is displayed")
     public void iVerifyTheVideoIsDisplayed() {
@@ -143,18 +135,15 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertTrue(page.descriptionUnderHeaderText.isDisplayed());
     }
 
-        
     @Then("Verify three buttons are enabled")
     public void verifyThreeButtonsAreEnabled() {
         for (WebElement each : page.threeButtons) {
             BrowserUtils.assertTrue(each.isEnabled());
         }
-
     }
     @Then("I verify the picture is displayed")
     public void iVerifyThePictureIsDisplayed() {
         page.bigImg.isDisplayed();
-
     }
 
     @Then("Verify three buttons are displayed")
@@ -183,8 +172,6 @@ public class HealthSeniorSteps implements CommonPage {
     public void verifyTheUrlIs(String url) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
-
-
 
 }
 

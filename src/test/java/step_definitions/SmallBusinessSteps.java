@@ -14,11 +14,9 @@ import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public class SmallBusinessSteps implements CommonPage {
     SmallBusinessPage page;
@@ -186,7 +184,17 @@ public class SmallBusinessSteps implements CommonPage {
     public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
 //        Actions actions = new Actions(BrowserUtils.getDriver());
 //        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    @Then("Verify {string} link buttons are enabled")
+    public void verifyLinkButtonsAreEnabled(String productLinks) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CLASS, productLinks))).click();
+    }
 
+    @Then("Verify {string} of each page")
+    public void verifyOfEachPage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
+}
 
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
@@ -215,6 +223,7 @@ public class SmallBusinessSteps implements CommonPage {
 
 
 }
+
 
 
 

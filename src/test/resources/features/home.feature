@@ -1,4 +1,4 @@
-@homeScenarios
+@homeScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page
@@ -48,23 +48,20 @@ Feature: Home Page Related Scenarios
       | Build Your own | Build Your own |
       | Deals          | Deals          |
 
-
   @US-12
   Scenario: Verify the phone number pops up
     When I hover over call button
-    Then Verify the texts under pictures are displayed
+    And Verify phone number under icon is "(800) 510-9061"
 
   @US-13
   Scenario: Verify the Customer Login page title
     When I click on Customer Login icon
     Then I verify the title of the page "ADT® Customer Login: Manage Your Active ADT Account"
 
-
   @US15
   Scenario:Verify the Get a free quote and ADT offers window appeared after clicking on the button
     When I click on Get a free quote button
     Then Verify the window is displayed
-
 
   @US14
   Scenario: Verify the shopping Cart page title is ‘Cart | ADT® Self Setup | DIY’
@@ -83,19 +80,23 @@ Feature: Home Page Related Scenarios
     Then Verify the "FaceBook" button is displayed
     Then Verify the "FaceBook" button is enabled
     And I click on "FaceBook" icon and change Window to the new tab
+    And I take screenshot of test
     Then Verify the title of the FaceBook page is "ADT | Facebook"
     Then Verify Twitter button "Twitter"  is displayed
     Then Verify Twitter "Twitter"  is enabled
     And I click on button "Twitter" icon and change Window to the new tab
     Then Verify the title of the Twitter page is "ADT (@ADT) / X"
+    And I take screenshot of test
     Then Verify Pinterest button "Pinterest"  is displayed
     Then Verify Pinterest "Pinterest"  is enabled
     And I click Pinterest button "Pinterest" icon and change Window to the new tab
     Then Verify the title of the Pinterest page is "ADT (adtstaysafe) - Profile | Pinterest"
+    And I take screenshot of test
     Then Verify Instagram button "Instagram"  is displayed
     Then Verify Instagram "Instagram"  is enabled
     And I click Instagram button "Instagram" icon and change Window to the new tab
     Then Verify the title of theInstagram page is "ADT (@adtsecurity) • Instagram photos and videos"
+    And I take screenshot of test
     Then Verify YouTube button "YouTube"  is displayed
     Then Verify YouTube "YouTube"  is enabled
     And I click YouTube button "YouTube" icon and change Window to the new tab

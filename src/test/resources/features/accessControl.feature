@@ -1,4 +1,4 @@
-@accessControlScenarios
+@accessControlScenarios @regression
 Feature: Access Control Page Related Scenarios
 
   Background: Navigate to page
