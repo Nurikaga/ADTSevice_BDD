@@ -1,0 +1,19 @@
+Index: src/test/java/runners/CukesRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\n\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/report.html\", //will create report\n                \"json:target/cucumber-reports/cucumber.json\",\n                \"rerun:target/rerun.txt\", //will create a report containing any failed scenarios\n        },\n        features = \"src/test/resources/features\", //if you want to run failed scenarios from rerun do \"@target/rerun.txt\" for features\n        glue = \"step_definitions\",\n        stepNotifications = true,\n        dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/\n\n        ,tags = \"@US32\"\n\n\n       \n////h5[normalize-space()='Automotive Repairs']\n\n        //keywords\n        //\"and not\" - 'x and not y' to exclude scenarios with that tag\n        //\"and\" - 'x and y' to run scenarios with both tags\n)\npublic class CukesRunner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/CukesRunner.java b/src/test/java/runners/CukesRunner.java
+--- a/src/test/java/runners/CukesRunner.java	
++++ b/src/test/java/runners/CukesRunner.java	
+@@ -21,7 +21,7 @@
+ 
+ 
+        
+-////h5[normalize-space()='Automotive Repairs']
++
+ 
+         //keywords
+         //"and not" - 'x and not y' to exclude scenarios with that tag
