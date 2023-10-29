@@ -9,19 +9,10 @@ import java.util.List;
 
 public class SmallBusinessPage {
 
-
-    public SmallBusinessPage() {
-
-        PageFactory.initElements(BrowserUtils.getDriver(), this);
-    }
-
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
-
     @FindBy(css = "//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']")
     public WebElement freeRiskAssessmentBtn;
-
-
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
@@ -32,6 +23,12 @@ public class SmallBusinessPage {
     public List<WebElement> imageList4;
     @FindBy(xpath = "//span[@class='btn-equal-web-icon']")
     public WebElement accessabilityBtn;
+    @FindBy(xpath = "/html//div[@id='productCategories']")
+    public WebElement footerProductCategories;
+    public SmallBusinessPage() {
+
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
 
 
 }

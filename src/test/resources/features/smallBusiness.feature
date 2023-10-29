@@ -23,7 +23,6 @@ Feature: Home Page Related Scenarios
       | Risk Assessment | Risk Assessment |
       | Resources       | Resources       |
 
-
   @US03
   Scenario: Verify that user is able to see the a header of the page
     Then I navigate to "Solutions" drop down menu
@@ -52,7 +51,6 @@ Feature: Home Page Related Scenarios
     Then I navigate to Accessibility button in the footer and click it
     Then Verify pop-up window with Accessibility menu buttons is display on the right top of the page
 
-
   @US20
   Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed
     Then Verify "Customize a business security system today " text in header is displayed
@@ -60,7 +58,6 @@ Feature: Home Page Related Scenarios
     Then Verify pictures are displayed
     Then Verify the texts under pictures are displayed
     Then Verify Learn more buttons are displayed
-
 
   @US31
   Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields
@@ -80,6 +77,20 @@ Feature: Home Page Related Scenarios
       | Manufacturing/Warehouses | Manufacturing         |
       | Health & Wellness        | Health & Wellness     |
 
+  @US-33
+  Scenario Outline: Verify the footer Product Categories menu
+    When I scroll down
+    Then Verify "<link>" link buttons are enabled
+    Then Verify "<title>" of each page
+    Examples:
+      | link                   | title                                                             |
+      | Home Security          | Best Home Security Systems by ADT® \| Home Security You Can Trust |
+      | Smart Home Automation  | Smart Home Automation Systems \| ADT®                             |
+      | Security Cameras       | Home Security Cameras & Wireless Camera Systems \| ADT®           |
+      | Business Security      | Business Security Systems & Services \| ADT®                      |
+      | Commercial             | Everon Security & Fire Monitoring                                 |
+      | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
+      | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
 
 
