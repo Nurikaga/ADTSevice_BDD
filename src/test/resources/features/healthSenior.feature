@@ -1,4 +1,4 @@
-@healthSenioreScenarios
+@healthSenioreScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page
