@@ -180,10 +180,8 @@ public class SmallBusinessSteps implements CommonPage {
         actions.sendKeys(Keys.PAGE_UP).build().perform();
     }
 
-    @When("I fill out the form")
-    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+
     @Then("Verify {string} link buttons are enabled")
     public void verifyLinkButtonsAreEnabled(String productLinks) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CLASS, productLinks))).click();
@@ -194,8 +192,11 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-}
 
+    @When("I fill out the form")
+    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
+//        Actions actions = new Actions(BrowserUtils.getDriver());
+//        actions.sendKeys(Keys.PAGE_UP).build().perform();
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
