@@ -34,6 +34,12 @@ public class SmallBusinessPage {
     public WebElement footerProductCategories;
 
 
+    @FindBy(xpath = "//p[@class='text-justify pb-2 pb-lg-0']")
+    public WebElement footerText;
+
+    @FindBy(xpath = "/html//a[@id='dropdownMenuLink']")
+    public WebElement dropdownTerms;
+
     @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'res-form-sbtl-p2')][normalize-space()='Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.']")
     public WebElement fillOutThisF;
     @FindBy(xpath = "(//div[@class='res-form-title-h3 ha3'])[1]")

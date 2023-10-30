@@ -193,6 +193,25 @@ public class SmallBusinessSteps implements CommonPage {
     }
 
 
+    @Then("verify text is displayed")
+    public void verifyTextIsDisplayed() {
+        page.footerText.isDisplayed();
+    }
+
+    @Then("Verify {string} link buttons are displayed and enabled")
+    public void verifyLinkButtonsAreDisplayedAndEnabled(String link) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isDisplayed();
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isEnabled();
+    }
+
+    @And("verify Terms drop down button is enabled")
+    public void verifyTermsDropDownButtonIsEnabled() {
+        page.dropdownTerms.isDisplayed();
+        page.dropdownTerms.isEnabled();
+    }
+}
+
+
     @When("I fill out the form")
     public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
 //        Actions actions = new Actions(BrowserUtils.getDriver());
