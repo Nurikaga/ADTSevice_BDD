@@ -107,4 +107,15 @@ Feature: Home Page Related Scenarios
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
 
-
+  @US37
+  Scenario Outline: Verify the footer text and links buttons
+    When I scroll down
+    Then verify text is displayed
+    And verify Terms drop down button is enabled
+    Then Verify "<link>" link buttons are displayed and enabled
+    Examples:
+      | link           |
+      | Privacy Policy |
+      | En Español     |
+      | Licenses       |
+      | Sitemap        |
