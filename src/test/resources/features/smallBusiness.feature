@@ -90,20 +90,20 @@ Feature: Home Page Related Scenarios
       | Business Security      | Business Security Systems & Services \| ADT®                      |
       | Commercial             | Everon Security & Fire Monitoring                                 |
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
-      | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT
+      | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
   @US35
-  Scenario Outline: Verify the footer Dealers & Service menu
+  Scenario: Verify the footer Dealers & Service menu
     When I scroll down
-    Then Verify "<link>" buttons are enabled
-    Then Verify "<title>" of the page
-    Examples:
-      | link                 | title                                  |
-      | Become an ADT Dealer | Official ADT Authorized Dealer Program |
-      | Dealer Lookup        | ADT Dealer License Lookup              |
-      | Local Service Areas  | ADT Local Service Areas                |
-
-
+    Then I click Local Service Areas button and change Window to the new tab
+    Then I verify title of the Local Service Areas page is "ADT Local Service Areas"
+    And I take screenshot of test
+    And I click on Become an ADT Dealer button and Window to the new tab
+    Then Verify title of the Become an ADT Dealer page is "Official ADT Authorized Dealer Program"
+    And I take screenshot of test
+    And I click on Dealer Lookup button and Window to the new tab
+    Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
+    And I take screenshot of test
 
 
 
