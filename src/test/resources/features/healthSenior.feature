@@ -32,7 +32,7 @@ Feature: Home Page Related Scenarios
     Then Verify ": SAFETY" is displayed
     Then Verify SHOP NOW button is enabled
     Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
-    When I scroll up
+#    When I scroll up
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
