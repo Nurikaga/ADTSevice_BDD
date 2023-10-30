@@ -18,11 +18,15 @@ import org.junit.runner.RunWith;
         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
 
 
+
       
 
 
-        ,tags = "@US37"
+      
 
+
+
+        ,tags = "@US31"
 
         //keywords
         //"and not" - 'x and not y' to exclude scenarios with that tag
