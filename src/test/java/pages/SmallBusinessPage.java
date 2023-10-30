@@ -25,6 +25,24 @@ public class SmallBusinessPage {
     public WebElement accessabilityBtn;
     @FindBy(xpath = "/html//div[@id='productCategories']")
     public WebElement footerProductCategories;
+
+    @FindBy(xpath = "//p[@class='text-justify pb-2 pb-lg-0']")
+    public WebElement footerText;
+
+    @FindBy(xpath = "/html//a[@id='dropdownMenuLink']")
+public WebElement dropdownTerms;
+
+
+
+
+
+
+
+
+
+
+
+
     public SmallBusinessPage() {
 
         PageFactory.initElements(BrowserUtils.getDriver(), this);

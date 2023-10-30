@@ -160,6 +160,22 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+    @Then("verify text is displayed")
+    public void verifyTextIsDisplayed() {
+        page.footerText.isDisplayed();
+    }
+
+    @Then("Verify {string} link buttons are displayed and enabled")
+    public void verifyLinkButtonsAreDisplayedAndEnabled(String link) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isDisplayed();
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isEnabled();
+    }
+
+    @And("verify Terms drop down button is enabled")
+    public void verifyTermsDropDownButtonIsEnabled() {
+        page.dropdownTerms.isDisplayed();
+        page.dropdownTerms.isEnabled();
+    }
 }
 
 
