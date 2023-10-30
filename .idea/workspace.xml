@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebc2adec-6b2e-4ff6-a0d3-4cbc3e5ff25f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
-    </list>
+    <list default="true" id="ebc2adec-6b2e-4ff6-a0d3-4cbc3e5ff25f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
