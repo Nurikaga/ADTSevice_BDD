@@ -61,6 +61,22 @@ Feature: Home Page Related Scenarios
 
   @US31
   Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields
+    When I scroll down until i see We'll Call You test
+    Then Verify the "We'll Call You" text under header is displayed
+    Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
+    When I fill out the form
+
+      | Key                          | Value                |
+      | Res_Customer_Full_Name_835   | Patric               |
+      | Res_Business_Name_835        | TOOSu                |
+      | Btn_Industry_835             | Retail               |
+      | Btn_Company_Size_835         | 1,000 - 5,000 sq. ft |
+      | Res_E_Mail_Address_835       | patric@gmail.com     |
+      | Res_Phone_Number_Primary_835 | 3355335544           |
+      | Res_Postal_Code_835          | 535333               |
+    And I click on the Call Me Back button
+    Then Verify Thank You, we will reach out shortly. header text is visible
+
 
   @US32
   Scenario Outline: verify the links headers stay the same on the corresponding pages
@@ -103,3 +119,10 @@ Feature: Home Page Related Scenarios
       | En Español     |
       | Licenses       |
       | Sitemap        |
+
+    @US38
+    Scenario: Verify the footer Terms button choice is enabled
+    When I scroll down
+      Then I click on Terms drop down button
+      Then I click on drop down choice Advertising Choice 
+      And I verify a title of the page "TrustArc Preference Manager"

@@ -1,16 +1,22 @@
 package step_definitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
-
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SmallBusinessSteps implements CommonPage {
     SmallBusinessPage page;
@@ -150,6 +156,32 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, header))).getText(), header);
     }
 
+    @When("I scroll down until i see We'll Call You test")
+    public void iScrollDownUntilISeeWeLlCallYouTest() throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the {string} text under header is displayed")
+    public void verifyTheTextUnderHeaderIsDisplayed(String weWillCallYou) {
+        BrowserUtils.isDisplayed(page.weWillCallYou);
+    }
+
+    @Then("Verify {string} text under We'll Call You is displayed")
+    public void verifyTextUnderWeLlCallYouIsDisplayed(String fillOutThisF) {
+
+        BrowserUtils.isDisplayed(page.fillOutThisF);
+    }
+
+    @When("I scroll table to the view")
+    public void iScrollTableToTheView() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    }
+
+
+
     @Then("Verify {string} link buttons are enabled")
     public void verifyLinkButtonsAreEnabled(String productLinks) {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CLASS, productLinks))).click();
@@ -159,6 +191,7 @@ public class SmallBusinessSteps implements CommonPage {
     public void verifyOfEachPage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
+
 
     @Then("verify text is displayed")
     public void verifyTextIsDisplayed() {
@@ -176,8 +209,55 @@ public class SmallBusinessSteps implements CommonPage {
         page.dropdownTerms.isDisplayed();
         page.dropdownTerms.isEnabled();
     }
-}
 
+
+
+    @When("I fill out the form")
+    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
+//        Actions actions = new Actions(BrowserUtils.getDriver());
+//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        List<Map<String, String>> asMaps = dataTable.asMaps();
+        for (Map<String, String> each : asMaps) {
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
+                    , each.get("Value"));
+
+            CucumberLogUtils.logPass("fill out form", true);
+            Thread.sleep(1000);
+        }
+    }
+    @And("I click on the Call Me Back button")
+    public void iClickOnTheCallMeBackButton() {
+
+        BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")).click();
+        BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")));
+        CucumberLogUtils.logPass("clicked the button", true);
+
+    }
+    @Then("Verify Thank You, we will reach out shortly. header text is visible")
+    public void verifyThankYouWeWillReachOutShortlyHeaderTextIsVisible() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        BrowserUtils.isDisplayed(page.thankYouText);
+        BrowserUtils.highlightElement(page.thankYouText);
+    }
+
+
+    @Then("I click on Terms drop down button")
+    public void iClickOnTermsDropDownButton() {
+        page.dropdownTerms.click();
+    }
+
+    @Then("I click on drop down choice Advertising Choice")
+    public void iClickOnDropDownChoiceAdvertisingChoice() {
+        page.advertisingChoiceTerms.click();
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @And("I verify a title of the page {string}")
+    public void iVerifyATitleOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+}
 
 
 
