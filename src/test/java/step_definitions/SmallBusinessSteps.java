@@ -209,7 +209,7 @@ public class SmallBusinessSteps implements CommonPage {
         page.dropdownTerms.isDisplayed();
         page.dropdownTerms.isEnabled();
     }
-}
+
 
 
     @When("I fill out the form")
@@ -242,6 +242,21 @@ public class SmallBusinessSteps implements CommonPage {
     }
 
 
+    @Then("I click on Terms drop down button")
+    public void iClickOnTermsDropDownButton() {
+        page.dropdownTerms.click();
+    }
+
+    @Then("I click on drop down choice Advertising Choice")
+    public void iClickOnDropDownChoiceAdvertisingChoice() {
+        page.advertisingChoiceTerms.click();
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @And("I verify a title of the page {string}")
+    public void iVerifyATitleOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
 }
 
 

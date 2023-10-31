@@ -59,7 +59,8 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//div[@class='feature-container']")
     public List<WebElement> threeButtons;
-
+   @FindBy(xpath = "//a[@href='/about-adt/legal/home-health-term-and-conditions'][@title='See terms and pricing']")
+    public WebElement clickHereBtn2;
 
 
 }

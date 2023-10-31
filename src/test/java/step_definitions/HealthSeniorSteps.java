@@ -86,9 +86,10 @@ public class HealthSeniorSteps implements CommonPage {
 
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        BrowserUtils.click(page.clickHereBtn);
+      BrowserUtils.actionPageUP(page.clickHereBtn);
+      BrowserUtils.click(page.clickHereBtn);
+
+
     }
 
     @Then("Verify title is {string}")
@@ -175,6 +176,13 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
 
+    @Then("I verify click_here button")
+    public void iVerifyClick_hereButton() {
+        page.clickHereBtn2.click();
+        BrowserUtils.switchToNewWindow();
+        BrowserUtils.getDriver().getTitle();
+        CucumberLogUtils.logPass("Button is enabled", true);
+    }
 }
 
 

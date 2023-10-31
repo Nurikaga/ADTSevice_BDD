@@ -119,3 +119,10 @@ Feature: Home Page Related Scenarios
       | En Español     |
       | Licenses       |
       | Sitemap        |
+
+    @US38
+    Scenario: Verify the footer Terms button choice is enabled
+    When I scroll down
+      Then I click on Terms drop down button
+      Then I click on drop down choice Advertising Choice 
+      And I verify a title of the page "TrustArc Preference Manager"

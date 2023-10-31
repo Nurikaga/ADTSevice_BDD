@@ -32,9 +32,22 @@ Feature: Home Page Related Scenarios
     Then Verify ": SAFETY" is displayed
     Then Verify SHOP NOW button is enabled
     Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
-#    When I scroll up
     And I click "Click here." button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
+
+  @US23a
+  Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable
+    Then Verify "SPECIAL MEDICAL ALERT OFFER" is displayed
+    Then Verify "Plus" is displayed
+    Then Verify " get free 2-day shipping and activation" is displayed
+    Then Verify "Use" is displayed
+    Then Verify "promo code" is displayed
+    Then Verify ": SAFETY" is displayed
+    Then Verify SHOP NOW button is enabled
+    Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
+    Then I verify click_here button
+    Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
+
 
 
   @US-22
