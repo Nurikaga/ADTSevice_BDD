@@ -47,5 +47,5 @@ src/test/java/runners/CukesRunner.java
  .idea/codeStyles/codeStyleConfig.xml
  .idea/misc.xml
 .idea/workspace.xml
-
+workspace.xml
 
