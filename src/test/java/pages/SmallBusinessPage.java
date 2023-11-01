@@ -14,12 +14,8 @@ public class SmallBusinessPage {
     }
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
-
-
-
     @FindBy(css = "//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']")
     public WebElement freeRiskAssessmentBtn;
-
     @FindBy(xpath = "//div[@class='card-main-content']")
     public List<WebElement> pictureTitles;
     @FindBy(xpath = "//div[@class='card-text c-bl-text']")
@@ -32,6 +28,8 @@ public class SmallBusinessPage {
     public WebElement accessabilityBtn;
     @FindBy(xpath = "/html//div[@id='productCategories']")
     public WebElement footerProductCategories;
+
+
 
     @FindBy(css = "div[class='adt-footer-links-section d-none d-lg-block'] a[title='Become an ADT Dealer']")
     public WebElement becomeDealerBtn;
@@ -46,12 +44,11 @@ public class SmallBusinessPage {
 
 
 
+
     @FindBy(xpath = "//p[@class='text-justify pb-2 pb-lg-0']")
     public WebElement footerText;
-
     @FindBy(xpath = "/html//a[@id='dropdownMenuLink']")
     public WebElement dropdownTerms;
-
     @FindBy(xpath = "//a[@title='Advertising Choice']")
     public WebElement advertisingChoiceTerms;
 

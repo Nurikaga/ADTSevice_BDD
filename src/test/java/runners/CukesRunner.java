@@ -18,9 +18,13 @@ import org.junit.runner.RunWith;
         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
 
 
-        ,tags = "@US35"
+        ,tags = "@US34"
+
+
+       
 
         ,tags = "@US38"
+
 
 
         //keywords
