@@ -80,8 +80,8 @@ Feature: Home Page Related Scenarios
     Then Verify the "FaceBook" button is displayed
     Then Verify the "FaceBook" button is enabled
     And I click on "FaceBook" icon and change Window to the new tab
-    And I take screenshot of test
     Then Verify the title of the FaceBook page is "ADT | Facebook"
+    And I take screenshot of test
     Then Verify Twitter button "Twitter"  is displayed
     Then Verify Twitter "Twitter"  is enabled
     And I click on button "Twitter" icon and change Window to the new tab

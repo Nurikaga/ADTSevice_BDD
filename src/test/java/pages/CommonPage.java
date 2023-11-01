@@ -24,4 +24,9 @@ public interface CommonPage {
     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
 
 
+
+
+
+
+
 }
