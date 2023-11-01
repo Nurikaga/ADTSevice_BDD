@@ -106,6 +106,20 @@ Feature: Home Page Related Scenarios
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
+  @US34
+  Scenario Outline: Verify links under About Section
+    When I scroll down
+    Then Verify "<link>" link buttons are enabled
+    And I change Window to the new tab
+    Then Verify "<title>" of each page
+    Then I take screenshot of test
+    Examples:
+      | link               | title                                                          |
+      | About Us           | About ADT Company History \| What is & Who Owns ADT            |
+      | ADT Reviews        | Why ADT has the Best Home Security and Customer Service \| ADT |
+      | Newsroom           | ADT - Newsroom & Stories                                       |
+      | Careers            | Working at ADT \| Jobs and Careers at ADT                      |
+      | Investor Relations | ADT Inc. - Investor Relations                                  |
 
   @US37
   Scenario Outline: Verify the footer text and links buttons
@@ -120,9 +134,9 @@ Feature: Home Page Related Scenarios
       | Licenses       |
       | Sitemap        |
 
-    @US38
-    Scenario: Verify the footer Terms button choice is enabled
+  @US38
+  Scenario: Verify the footer Terms button choice is enabled
     When I scroll down
-      Then I click on Terms drop down button
-      Then I click on drop down choice Advertising Choice 
-      And I verify a title of the page "TrustArc Preference Manager"
+    Then I click on Terms drop down button
+    Then I click on drop down choice Advertising Choice
+    And I verify a title of the page "TrustArc Preference Manager"
