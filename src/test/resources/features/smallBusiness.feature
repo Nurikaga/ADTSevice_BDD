@@ -106,6 +106,7 @@ Feature: Home Page Related Scenarios
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
+
   @US34
   Scenario Outline: Verify links under About Section
     When I scroll down
@@ -120,6 +121,21 @@ Feature: Home Page Related Scenarios
       | Newsroom           | ADT - Newsroom & Stories                                       |
       | Careers            | Working at ADT \| Jobs and Careers at ADT                      |
       | Investor Relations | ADT Inc. - Investor Relations                                  |
+
+  @US35
+  Scenario: Verify the footer Dealers & Service menu
+    When I scroll down
+    Then I click Local Service Areas button and change Window to the new tab
+    Then I verify title of the Local Service Areas page is "ADT Local Service Areas"
+    And I take screenshot of test
+    And I click on Become an ADT Dealer button and Window to the new tab
+    Then Verify title of the Become an ADT Dealer page is "Official ADT Authorized Dealer Program"
+    And I take screenshot of test
+    And I click on Dealer Lookup button and Window to the new tab
+    Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
+    And I take screenshot of test
+
+
 
   @US37
   Scenario Outline: Verify the footer text and links buttons

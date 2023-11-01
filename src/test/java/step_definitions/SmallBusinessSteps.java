@@ -20,6 +20,7 @@ import java.util.Map;
 
 public class SmallBusinessSteps implements CommonPage {
     SmallBusinessPage page;
+    String mainWindowHandle;
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
@@ -193,6 +194,51 @@ public class SmallBusinessSteps implements CommonPage {
     }
 
 
+
+    @And("I click on Become an ADT Dealer button and Window to the new tab")
+    public void iClickOnBecomeAnADTDealerButtonAndWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.becomeDealerBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify title of the Become an ADT Dealer page is {string}")
+    public void verifyTitleOfTheBecomeAnADTDealerPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @And("I click on Dealer Lookup button and Window to the new tab")
+    public void iClickOnDealerLookupButtonAndWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.dealerLookupBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify title of the Dealer Lookup page is {string}")
+    public void verifyTitleOfTheDealerLookupPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @Then("I click Local Service Areas button and change Window to the new tab")
+    public void iClickLocalServiceAreasButtonAndChangeWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.localServiceAreasBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("I verify title of the Local Service Areas page is {string}")
+    public void iVerifyTitleOfTheLocalServiceAreasPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+}
+
+
+
     @Then("verify text is displayed")
     public void verifyTextIsDisplayed() {
         page.footerText.isDisplayed();
@@ -258,6 +304,9 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 }
+
+
+
 
 
 
