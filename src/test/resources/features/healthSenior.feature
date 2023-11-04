@@ -32,8 +32,20 @@ Feature: Home Page Related Scenarios
     Then Verify ": SAFETY" is displayed
     Then Verify SHOP NOW button is enabled
     Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
-#    When I scroll up
     And I click "Click here." button
+    Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
+
+  @US23a
+  Scenario: Verify there is a SPECIAL MEDICAL ALERT OFFER on the left side of the Health & Senior Safety page and a SHOP NOW button with the small text under a CLICK HERE button. Verify the buttons are clickable
+    Then Verify "SPECIAL MEDICAL ALERT OFFER" is displayed
+    Then Verify "Plus" is displayed
+    Then Verify " get free 2-day shipping and activation" is displayed
+    Then Verify "Use" is displayed
+    Then Verify "promo code" is displayed
+    Then Verify ": SAFETY" is displayed
+    Then Verify SHOP NOW button is enabled
+    Then Verify "*Requires a month-to-month agreement. Excludes taxes. First month monitoring due at time of purchase. Limited to one discounted Fall Detection pendant only. For additional details, " is displayed
+    Then I verify click_here button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
 
@@ -119,17 +131,11 @@ Feature: Home Page Related Scenarios
   @US47
   Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
     When I scroll down to the footer
-   Then Verify "Customer Service" text in header is displayed
+    Then Verify "Customer Service" text in header is displayed
     When I click on Support button
     Then Verify title is "Home" on that page
     When I come back to home page
-  When I click on Contact Us button
-#       When I click on "<links>"
-#    Then Verify "<titles>" of the pages
-#Examples:
-# When I click on "Leave Website Feedback" link
-#    Then Verify text "Thank you for helping to improve ADT's online support center. If you require account support, please utilize Live Chat." is visible
-#      | links                  | titles                                                        |
-#      | Support                | Home                                                          |
-#      | Contact Us             | Contact Support                                               |
-#     | Leave Website Feedback | Medical Alert Systems Health & Senior Safety Resources by ADT |
+    When I click on Contact Us button
+    Then Verify title is "Contact Support" on that page
+    When I click on Leave Website Feedback button
+    Then Verify ADT emblem is displayed in pop up window

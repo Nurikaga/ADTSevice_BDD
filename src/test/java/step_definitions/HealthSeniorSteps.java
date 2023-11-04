@@ -1,6 +1,5 @@
 package step_definitions;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,13 +12,10 @@ import pages.HealthSeniorPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
-
+    String mainWindowHandle;
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
     }
@@ -90,9 +86,10 @@ public class HealthSeniorSteps implements CommonPage {
 
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        BrowserUtils.click(page.clickHereBtn);
+      BrowserUtils.actionPageUP(page.clickHereBtn);
+      BrowserUtils.click(page.clickHereBtn);
+
+
     }
 
     @Then("Verify title is {string}")
@@ -179,59 +176,57 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
 
-    @When("I click on {string}")
-    public void iClickOn(String lInks) throws InterruptedException {
-
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_NUR2, lInks))));
-        Thread.sleep(5000);
+    @Then("I verify click_here button")
+    public void iVerifyClick_hereButton() {
+        page.clickHereBtn2.click();
         BrowserUtils.switchToNewWindow();
-
-    }
-
-    @Then("Verify {string} of the pages")
-    public void verifyOfThePages(String tItles) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), tItles);
-    }
-
-    @When("I click on {string} link")
-    public void iClickOnLink(String leaveWebFeedBtn) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_NUR2, leaveWebFeedBtn))));
-    }
-
-    @Then("Verify text {string} is visible")
-    public void verifyTextIsVisible(String tXT) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, tXT))));
-    }
-
-    @When("I click on Support button")
-    public void iClickOnSupportButton() throws InterruptedException {
-        BrowserUtils.click(page.supportBtn);
-        BrowserUtils.switchToNewWindow();
-        // BrowserUtils.getDriver().close();
-    }
-
-    @When("I click on Contact Us button")
-    public void iClickOnContactUsButton() {
-
-BrowserUtils.click(page.contactUs);
+        BrowserUtils.getDriver().getTitle();
+        CucumberLogUtils.logPass("Button is enabled", true);
     }
 
     @When("I scroll down to the footer")
     public void iScrollDownToTheFooter() {
-BrowserUtils.moveIntoView(page.customerServiceHeader);
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+    }
+
+    @When("I click on Support button")
+    public void iClickOnSupportButton() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+
+        BrowserUtils.click(page.supportBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
     }
 
     @Then("Verify title is {string} on that page")
-    public void verifyTitleIsOnThatPage(String titLe) throws InterruptedException {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titLe);
-        Thread.sleep(2000);
-       BrowserUtils.getDriver().navigate().back();
-       Thread.sleep(2000);
+    public void verifyTitleIsOnThatPage(String titleOfSupportPage) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titleOfSupportPage);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
     }
 
     @When("I come back to home page")
     public void iComeBackToHomePage() {
-        BrowserUtils.getDriver().navigate().back();
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @When("I click on Contact Us button")
+    public void iClickOnContactUsButton() {
+        BrowserUtils.click(page.contactUsBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+    }
+    @When("I click on Leave Website Feedback button")
+    public void iClickOnLeaveWebsiteFeedbackButton() throws InterruptedException {
+       BrowserUtils.click(page.leaveWebFeedbackBtn);
+       Thread.sleep(3000);
+    }
+    @Then("Verify ADT emblem is displayed in pop up window")
+    public void verifyADTEmblemIsDisplayedInPopUpWindow() {
+        WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
+        BrowserUtils.getDriver().switchTo().frame(iframeElement);
+        BrowserUtils.isDisplayed(page.adtEmblem);
+        CucumberLogUtils.logPass("Image is displayed", true);
     }
 }
 

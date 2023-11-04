@@ -106,6 +106,36 @@ Feature: Home Page Related Scenarios
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
 
+  @US34
+  Scenario Outline: Verify links under About Section
+    When I scroll down
+    Then Verify "<link>" link buttons are enabled
+    And I change Window to the new tab
+    Then Verify "<title>" of each page
+    Then I take screenshot of test
+    Examples:
+      | link               | title                                                          |
+      | About Us           | About ADT Company History \| What is & Who Owns ADT            |
+      | ADT Reviews        | Why ADT has the Best Home Security and Customer Service \| ADT |
+      | Newsroom           | ADT - Newsroom & Stories                                       |
+      | Careers            | Working at ADT \| Jobs and Careers at ADT                      |
+      | Investor Relations | ADT Inc. - Investor Relations                                  |
+
+  @US35
+  Scenario: Verify the footer Dealers & Service menu
+    When I scroll down
+    Then I click Local Service Areas button and change Window to the new tab
+    Then I verify title of the Local Service Areas page is "ADT Local Service Areas"
+    And I take screenshot of test
+    And I click on Become an ADT Dealer button and Window to the new tab
+    Then Verify title of the Become an ADT Dealer page is "Official ADT Authorized Dealer Program"
+    And I take screenshot of test
+    And I click on Dealer Lookup button and Window to the new tab
+    Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
+    And I take screenshot of test
+
+
+
   @US37
   Scenario Outline: Verify the footer text and links buttons
     When I scroll down
@@ -118,3 +148,10 @@ Feature: Home Page Related Scenarios
       | En Español     |
       | Licenses       |
       | Sitemap        |
+
+  @US38
+  Scenario: Verify the footer Terms button choice is enabled
+    When I scroll down
+    Then I click on Terms drop down button
+    Then I click on drop down choice Advertising Choice
+    And I verify a title of the page "TrustArc Preference Manager"

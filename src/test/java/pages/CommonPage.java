@@ -19,9 +19,14 @@ public interface CommonPage {
     String XPATH_TEMPLATE_IMG = "//img[@id='%s')]";
     String XPATH_TEMPLATE_NUR = "//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']";
 
-    String XPATH_TEMPLATE_INPUT_FIELD3 = "//form[@id='adt-res-form-id-460']//div[@class='field-cont']//input[@id='%s']";
+    String XPATH_TEMPLATE_INPUT_FIELD3 = "//*[@id='%s']";
 
     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
 
-    String XPATH_TEMPLATE_NUR2 = "(//div[@class='adt-footer-links-section d-none d-lg-block'])[4]//a[@title='%s']";
-}//div[@class='res-form-field-collection']//input[@name='Customer_Full_Name']
+
+
+
+
+
+
+}
