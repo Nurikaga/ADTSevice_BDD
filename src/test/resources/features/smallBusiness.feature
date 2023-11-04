@@ -65,15 +65,14 @@ Feature: Home Page Related Scenarios
     Then Verify the "We'll Call You" text under header is displayed
     Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
     When I fill out the form
-
-      | Key                          | Value                |
-      | Res_Customer_Full_Name_835   | Patric               |
-      | Res_Business_Name_835        | TOOSu                |
-      | Btn_Industry_835             | Retail               |
-      | Btn_Company_Size_835         | 1,000 - 5,000 sq. ft |
-      | Res_E_Mail_Address_835       | patric@gmail.com     |
-      | Res_Phone_Number_Primary_835 | 3355335544           |
-      | Res_Postal_Code_835          | 535333               |
+      | Key                          | Value                 |
+      | Res_Customer_Full_Name_460   | Patric                |
+      | Res_Business_Name_460        | TOOSu                 |
+      | Btn_Industry_460             | Professional Services |
+      | Btn_Company_Size_460         | 1,000 - 5,000 sq. ft  |
+      | Res_E_Mail_Address_460       | patric@gmail.com      |
+      | Res_Phone_Number_Primary_460 | 3355335544            |
+      | Res_Postal_Code_460          | 53533                |
     And I click on the Call Me Back button
     Then Verify Thank You, we will reach out shortly. header text is visible
 
@@ -107,4 +106,15 @@ Feature: Home Page Related Scenarios
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
 
-
+  @US37
+  Scenario Outline: Verify the footer text and links buttons
+    When I scroll down
+    Then verify text is displayed
+    And verify Terms drop down button is enabled
+    Then Verify "<link>" link buttons are displayed and enabled
+    Examples:
+      | link           |
+      | Privacy Policy |
+      | En Español     |
+      | Licenses       |
+      | Sitemap        |

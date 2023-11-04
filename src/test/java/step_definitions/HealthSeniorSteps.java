@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,9 @@ import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HealthSeniorSteps implements CommonPage {
@@ -175,6 +179,60 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
 
+    @When("I click on {string}")
+    public void iClickOn(String lInks) throws InterruptedException {
+
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_NUR2, lInks))));
+        Thread.sleep(5000);
+        BrowserUtils.switchToNewWindow();
+
+    }
+
+    @Then("Verify {string} of the pages")
+    public void verifyOfThePages(String tItles) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), tItles);
+    }
+
+    @When("I click on {string} link")
+    public void iClickOnLink(String leaveWebFeedBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_NUR2, leaveWebFeedBtn))));
+    }
+
+    @Then("Verify text {string} is visible")
+    public void verifyTextIsVisible(String tXT) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, tXT))));
+    }
+
+    @When("I click on Support button")
+    public void iClickOnSupportButton() throws InterruptedException {
+        BrowserUtils.click(page.supportBtn);
+        BrowserUtils.switchToNewWindow();
+        // BrowserUtils.getDriver().close();
+    }
+
+    @When("I click on Contact Us button")
+    public void iClickOnContactUsButton() {
+
+BrowserUtils.click(page.contactUs);
+    }
+
+    @When("I scroll down to the footer")
+    public void iScrollDownToTheFooter() {
+BrowserUtils.moveIntoView(page.customerServiceHeader);
+    }
+
+    @Then("Verify title is {string} on that page")
+    public void verifyTitleIsOnThatPage(String titLe) throws InterruptedException {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titLe);
+        Thread.sleep(2000);
+       BrowserUtils.getDriver().navigate().back();
+       Thread.sleep(2000);
+    }
+
+    @When("I come back to home page")
+    public void iComeBackToHomePage() {
+        BrowserUtils.getDriver().navigate().back();
+    }
 }
 
 

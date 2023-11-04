@@ -116,4 +116,20 @@ Feature: Home Page Related Scenarios
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
 
-
+  @US47
+  Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
+    When I scroll down to the footer
+   Then Verify "Customer Service" text in header is displayed
+    When I click on Support button
+    Then Verify title is "Home" on that page
+    When I come back to home page
+  When I click on Contact Us button
+#       When I click on "<links>"
+#    Then Verify "<titles>" of the pages
+#Examples:
+# When I click on "Leave Website Feedback" link
+#    Then Verify text "Thank you for helping to improve ADT's online support center. If you require account support, please utilize Live Chat." is visible
+#      | links                  | titles                                                        |
+#      | Support                | Home                                                          |
+#      | Contact Us             | Contact Support                                               |
+#     | Leave Website Feedback | Medical Alert Systems Health & Senior Safety Resources by ADT |

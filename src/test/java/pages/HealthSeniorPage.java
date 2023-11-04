@@ -59,9 +59,16 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//div[@class='feature-container']")
     public List<WebElement> threeButtons;
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[contains(text(), 'Support')]")
+    public WebElement supportBtn;
 
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[contains(text(), 'Contact Us')]")
+    public WebElement contactUs;
 
+    //h3[text()='Customer Service']
 
+    @FindBy(xpath = " //h3[text()='Customer Service']")
+    public WebElement customerServiceHeader;
 }
 
 
