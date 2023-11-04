@@ -77,18 +77,21 @@ public class HealthSeniorSteps implements CommonPage {
 
     @When("I scroll up")
     public void iScrollUp() throws InterruptedException {
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
 //        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
 //        // Scroll up by a certain pixel amount (you can adjust the value as needed)
 //        js.executeScript("window.scrollBy(0, -250);");
     }
 
+
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
-      BrowserUtils.actionPageUP(page.clickHereBtn);
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
       BrowserUtils.click(page.clickHereBtn);
-
+        CucumberLogUtils.logPass("Clicked on button", true);
+BrowserUtils.switchToNewWindow();
 
     }
 
@@ -228,6 +231,8 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.adtEmblem);
         CucumberLogUtils.logPass("Image is displayed", true);
     }
+
+
 }
 
 
