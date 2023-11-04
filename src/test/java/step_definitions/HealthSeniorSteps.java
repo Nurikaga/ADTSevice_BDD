@@ -15,7 +15,7 @@ import utils.CucumberLogUtils;
 
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
-
+    String mainWindowHandle;
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
     }
@@ -182,6 +182,51 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.switchToNewWindow();
         BrowserUtils.getDriver().getTitle();
         CucumberLogUtils.logPass("Button is enabled", true);
+    }
+
+    @When("I scroll down to the footer")
+    public void iScrollDownToTheFooter() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+    }
+
+    @When("I click on Support button")
+    public void iClickOnSupportButton() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+
+        BrowserUtils.click(page.supportBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify title is {string} on that page")
+    public void verifyTitleIsOnThatPage(String titleOfSupportPage) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titleOfSupportPage);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @When("I come back to home page")
+    public void iComeBackToHomePage() {
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @When("I click on Contact Us button")
+    public void iClickOnContactUsButton() {
+        BrowserUtils.click(page.contactUsBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+    }
+    @When("I click on Leave Website Feedback button")
+    public void iClickOnLeaveWebsiteFeedbackButton() throws InterruptedException {
+       BrowserUtils.click(page.leaveWebFeedbackBtn);
+       Thread.sleep(3000);
+    }
+    @Then("Verify ADT emblem is displayed in pop up window")
+    public void verifyADTEmblemIsDisplayedInPopUpWindow() {
+        WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
+        BrowserUtils.getDriver().switchTo().frame(iframeElement);
+        BrowserUtils.isDisplayed(page.adtEmblem);
+        CucumberLogUtils.logPass("Image is displayed", true);
     }
 }
 

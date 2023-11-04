@@ -81,6 +81,7 @@ public class SmallBusinessSteps implements CommonPage {
     @Then("Verify {string} text in header is displayed")
     public void verifyTextInHeaderIsDisplayed(String headerText) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));
+        //BrowserUtils.getDriver().navigate().refresh();
     }
 
     @Then("Verify {string} text under header is displayed")
@@ -235,7 +236,6 @@ public class SmallBusinessSteps implements CommonPage {
     public void iVerifyTitleOfTheLocalServiceAreasPageIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-}
 
 
 
@@ -259,18 +259,20 @@ public class SmallBusinessSteps implements CommonPage {
 
 
     @When("I fill out the form")
-    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        // BrowserUtils.getDriver().findElement(By.xpath("//input[@id='Res_Customer_Full_Name_460']")).sendKeys("Patric");
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
                     , each.get("Value"));
-
-            CucumberLogUtils.logPass("fill out form", true);
-            Thread.sleep(1000);
+            BrowserUtils.sleep(1000);
         }
+
     }
+
     @And("I click on the Call Me Back button")
     public void iClickOnTheCallMeBackButton() {
 

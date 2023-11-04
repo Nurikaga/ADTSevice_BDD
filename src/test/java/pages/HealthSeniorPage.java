@@ -62,7 +62,17 @@ public class HealthSeniorPage {
    @FindBy(xpath = "//a[@href='/about-adt/legal/home-health-term-and-conditions'][@title='See terms and pricing']")
     public WebElement clickHereBtn2;
 
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[@title='Support']")
+    public WebElement supportBtn;
 
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[@title='Contact Us']")
+    public WebElement contactUsBtn;
+
+    @FindBy(xpath = "//div[@class='footerWidget4 slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-5']//a[contains(text(),'Leave Website Feedback')]")
+    public WebElement leaveWebFeedbackBtn;
+
+    @FindBy(xpath = "//img[@alt='Image']")
+    public WebElement adtEmblem;
 }
 
 

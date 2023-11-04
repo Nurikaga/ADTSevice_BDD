@@ -28,23 +28,12 @@ public class SmallBusinessPage {
     public WebElement accessabilityBtn;
     @FindBy(xpath = "/html//div[@id='productCategories']")
     public WebElement footerProductCategories;
-
-
-
     @FindBy(css = "div[class='adt-footer-links-section d-none d-lg-block'] a[title='Become an ADT Dealer']")
     public WebElement becomeDealerBtn;
     @FindBy(css = "div[class='adt-footer-links-section d-none d-lg-block'] a[title='Dealer Lookup']")
     public WebElement dealerLookupBtn;
     @FindBy(css = "div[class='adt-footer-links-section d-none d-lg-block'] a[title='Local Service Areas']")
     public WebElement localServiceAreasBtn;
-    public SmallBusinessPage() {
-
-        PageFactory.initElements(BrowserUtils.getDriver(), this);
-    }
-
-
-
-
     @FindBy(xpath = "//p[@class='text-justify pb-2 pb-lg-0']")
     public WebElement footerText;
     @FindBy(xpath = "/html//a[@id='dropdownMenuLink']")

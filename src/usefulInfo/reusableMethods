@@ -12,3 +12,8 @@ actions.sendKeys(Keys.PAGE_DOWN).build().perform();
 
   Actions actions = new Actions(BrowserUtils.getDriver());
         actions.moveToElement(page.phoneIcon).perform();
+
+        ## HANDLING IFRAME ##
+
+           WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
+                BrowserUtils.getDriver().switchTo().frame(iframeElement);
