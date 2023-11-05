@@ -15,6 +15,7 @@ public class Hooks {
         // BrowserUtils.getDriver();
         CucumberLogUtils.initScenario(scenario);
         scenario.log(CucumberLogUtils.getLogTime() + ""); //custom message would go here
+        CucumberLogUtils.logPass("Scenario: " + scenario.getName(), true);
     }
 
 

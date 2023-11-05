@@ -152,6 +152,8 @@ Feature: Home Page Related Scenarios
     Then I click on drop down choice Advertising Choice
     And I verify a title of the page "TrustArc Preference Manager"
 
+
+
   @US39
   Scenario: Verify the text "Personal Information Uses, Disclosures, and Sharing" after clicking on footer privacy policy link
     When I scroll down
