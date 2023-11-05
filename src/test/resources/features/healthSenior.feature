@@ -48,28 +48,16 @@ Feature: Home Page Related Scenarios
     Then I verify click_here button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
-
-  @US-22
-  Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
-    And Verify "<links>" are displayed
-    Examples:
-      | links            |
-      | Products         |
-      | Compare Packages |
-      | Why ADT          |
-      | FAQS             |
-      | Testimonials     |
-
-  @US25
-  Scenario: Verify Picture under the main menu Health & Senior Safety Page
-    Then I verify the picture is displayed
-
   @US24 @smoke
   Scenario: Verify the phone symbol is hovered over and the phone number is displayed. Verify the  Customer symbol button is clickable and forward to the following page. Verify the current URL of the Customers page.
     And I hover over phone symbol button
     Then Verify "(800) 588-0023" is displayed
     When I click customer symbol button
     Then Verify the url is "https://www.adt.com/customer/login"
+
+  @US25
+  Scenario: Verify Picture under the main menu Health & Senior Safety Page
+    Then I verify the picture is displayed
 
   @US26
   Scenario Outline: Verify the Health & Senior Page has header and texts, descriptions under are displayed
@@ -102,12 +90,6 @@ Feature: Home Page Related Scenarios
     Then Verify "Have no worries with medical alert systems for every lifestyle " text in header is displayed
     And I click on Shop Now button and Verify titles of the pages
 
-  @US29
-  Scenario: Verify a header and a video is displayed and able to play
-    And I verify the header "See how ADT Medical Alert Systems work" in the page
-    Then I verify the video is displayed
-    And I verify the video is able to play
-
   @US28
   Scenario Outline: There should be a section with the header “Add even more wellbeing to your ADT Medical Alert System” and the equipment options with pictures, names, and descriptions. Verify the pictures, names, and descriptions are displayed
     Then Verify "Add even more wellbeing to your ADT Medical Alert System " text in header is displayed
@@ -121,12 +103,25 @@ Feature: Home Page Related Scenarios
       | Lockbox                      | If there’s an emergency, keeping a spare key in an ADT Lockbox can give friends, family or first responders a quick and easy way into the house without the need for forced entry.                                                             |                                                        |
       | Waterproof Wall-Mount Button | With our emergency button in a set location, you know exactly where to go to press for help in an emergency. Easily mounts to the wall or can be placed on a table or nightstand. Available with the Medical Alert Plus and On-the-Go systems. |                                                        |
 
+  @US29
+  Scenario: Verify a header and a video is displayed and able to play
+    And I verify the header "See how ADT Medical Alert Systems work" in the page
+    Then I verify the video is displayed
+    And I verify the video is able to play
+
   @US30
   Scenario: It should be section “Fast, reliable 24/7 help in an emergency”.  Verify a header, text, and three buttons are displayed and clickable.
     Then Verify "Fast, reliable 24/7 help in an emergency " text in header is displayed
     Then Verify "When you need help quickly, ADT is there for you. We've got you covered with fast, reliable help in an emergency, so you can live with no worries. " text under the header is displayed
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
+
+  @US41
+  Scenario: There should be a header <Help seniors maintain their lifestyle>  small text, an image of 4 texts, and a big image on the left side. Verify they all are displayed.
+    Then Verify header text is "Help seniors maintain their lifestyle"
+    Then Verify text under header is "For seniors, an ADT Medical Alert System is a way to continue living independently and help stay safe and comfortable in their home."
+    Then Verify image with four texts with emblems are displayed
+    Then Verify the bigger picture is displayed on the right side
 
   @US45
   Scenario: Scroll down the page and verify  <Live Chat Now> button is displayed on the footer of the page. When you click on the button, it opens a chat window.  Verify the window is displayed.
