@@ -15,6 +15,7 @@ import utils.CucumberLogUtils;
 
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
+    String mainWindowHandle;
 
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
@@ -84,9 +85,15 @@ public class HealthSeniorSteps implements CommonPage {
 //        js.executeScript("window.scrollBy(0, -250);");
     }
 
+
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
         BrowserUtils.click(page.clickHereBtn);
+        CucumberLogUtils.logPass("Clicked on button", true);
+        BrowserUtils.switchToNewWindow();
+
     }
 
     @Then("Verify title is {string}")
@@ -141,6 +148,7 @@ public class HealthSeniorSteps implements CommonPage {
             BrowserUtils.assertTrue(each.isEnabled());
         }
     }
+
     @Then("I verify the picture is displayed")
     public void iVerifyThePictureIsDisplayed() {
         page.bigImg.isDisplayed();
@@ -173,7 +181,81 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), url);
     }
 
+    @Then("I verify click_here button")
+    public void iVerifyClick_hereButton() {
+        page.clickHereBtn2.click();
+        BrowserUtils.switchToNewWindow();
+        BrowserUtils.getDriver().getTitle();
+        CucumberLogUtils.logPass("Button is enabled", true);
+    }
+
+    @When("I scroll down to the footer")
+    public void iScrollDownToTheFooter() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+    }
+
+    @When("I click on Support button")
+    public void iClickOnSupportButton() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+
+        BrowserUtils.click(page.supportBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+        BrowserUtils.switchToNewWindow();
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify title is {string} on that page")
+    public void verifyTitleIsOnThatPage(String titleOfSupportPage) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titleOfSupportPage);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @When("I come back to home page")
+    public void iComeBackToHomePage() {
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @When("I click on Contact Us button")
+    public void iClickOnContactUsButton() {
+        BrowserUtils.click(page.contactUsBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+    }
+
+    @When("I click on Leave Website Feedback button")
+    public void iClickOnLeaveWebsiteFeedbackButton() throws InterruptedException {
+        BrowserUtils.click(page.leaveWebFeedbackBtn);
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify ADT emblem is displayed in pop up window")
+    public void verifyADTEmblemIsDisplayedInPopUpWindow() {
+        WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
+        BrowserUtils.getDriver().switchTo().frame(iframeElement);
+        BrowserUtils.isDisplayed(page.adtEmblem);
+        CucumberLogUtils.logPass("Image is displayed", true);
+    }
+
+
+    @Then("Verify that {string} button is displayed")
+    public void verifyThatButtonIsDisplayed(String liveChatNowBtn) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, liveChatNowBtn))));
+    }
+
+    @When("I click on the {string} button")
+    public void iClickOnTheButton(String liveChatNOwBtn) throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath("//div[text()='LIVE CHAT NOW!']")).click();
+        Thread.sleep(7000);
+    }
+
+    @Then("Verify the header in pop-up window is ADT's Digital Assistant")
+    public void verifyTheHeaderInPopUpWindowIsADTSDigitalAssistant() {
+        BrowserUtils.isDisplayed(page.popUpHeader);
+    }
+
+
 }
+
 
 
 

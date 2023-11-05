@@ -1,4 +1,4 @@
-@videoSurveillanceScenarios
+@videoSurveillanceScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page

@@ -1,4 +1,4 @@
-@smallBusinessScenarios
+@smallBusinessScenarios @regression
 Feature: Home Page Related Scenarios
 
   Background: Navigate to page
@@ -61,8 +61,21 @@ Feature: Home Page Related Scenarios
 
   @US31
   Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields
-    When I click "Home & Personal" hovered-over button
-    Then I click on "Small Business" link button that forwarding to the Small Business page
+    When I scroll down until i see We'll Call You test
+    Then Verify the "We'll Call You" text under header is displayed
+    Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
+    When I fill out the form
+      | Key                          | Value                 |
+      | Res_Customer_Full_Name_460   | Patric                |
+      | Res_Business_Name_460        | TOOSu                 |
+      | Btn_Industry_460             | Professional Services |
+      | Btn_Company_Size_460         | 1,000 - 5,000 sq. ft  |
+      | Res_E_Mail_Address_460       | patric@gmail.com      |
+      | Res_Phone_Number_Primary_460 | 3355335544            |
+      | Res_Postal_Code_460          | 53533                |
+    And I click on the Call Me Back button
+    Then Verify Thank You, we will reach out shortly. header text is visible
+
 
   @US32
   Scenario Outline: verify the links headers stay the same on the corresponding pages
@@ -92,6 +105,22 @@ Feature: Home Page Related Scenarios
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
+
+  @US34
+  Scenario Outline: Verify links under About Section
+    When I scroll down
+    Then Verify "<link>" link buttons are enabled
+    And I change Window to the new tab
+    Then Verify "<title>" of each page
+    Then I take screenshot of test
+    Examples:
+      | link               | title                                                          |
+      | About Us           | About ADT Company History \| What is & Who Owns ADT            |
+      | ADT Reviews        | Why ADT has the Best Home Security and Customer Service \| ADT |
+      | Newsroom           | ADT - Newsroom & Stories                                       |
+      | Careers            | Working at ADT \| Jobs and Careers at ADT                      |
+      | Investor Relations | ADT Inc. - Investor Relations                                  |
+
   @US35
   Scenario: Verify the footer Dealers & Service menu
     When I scroll down
@@ -115,3 +144,22 @@ Feature: Home Page Related Scenarios
 
 
 
+  @US37
+  Scenario Outline: Verify the footer text and links buttons
+    When I scroll down
+    Then verify text is displayed
+    And verify Terms drop down button is enabled
+    Then Verify "<link>" link buttons are displayed and enabled
+    Examples:
+      | link           |
+      | Privacy Policy |
+      | En Español     |
+      | Licenses       |
+      | Sitemap        |
+
+  @US38
+  Scenario: Verify the footer Terms button choice is enabled
+    When I scroll down
+    Then I click on Terms drop down button
+    Then I click on drop down choice Advertising Choice
+    And I verify a title of the page "TrustArc Preference Manager"

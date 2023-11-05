@@ -1,4 +1,4 @@
-@accessControlScenarios
+@accessControlScenarios @regression
 Feature: Access Control Page Related Scenarios
 
   Background: Navigate to page
@@ -15,7 +15,7 @@ Feature: Access Control Page Related Scenarios
     Then I verify a text "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." in the page
     And I verify the select box is clickable and has the following options
     When the user fills out the form with the following data
-      | Field                | Value               |
+      | Key                  | Value               |
       | Customer_Full_Name   | Tom Bull            |
       | Business_Name        | Kenny               |
       | E_Mail_Address       | someone@someone.com |
