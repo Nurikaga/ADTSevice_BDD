@@ -128,6 +128,13 @@ Feature: Home Page Related Scenarios
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
 
+  @US45
+  Scenario: Scroll down the page and verify  <Live Chat Now> button is displayed on the footer of the page. When you click on the button, it opens a chat window.  Verify the window is displayed.
+    When I scroll down to the footer
+    Then Verify that "LIVE CHAT NOW!" button is displayed
+    When I click on the "LIVE CHAT NOW!" button
+    Then Verify the header in pop-up window is ADT's Digital Assistant
+
   @US47
   Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
     When I scroll down to the footer

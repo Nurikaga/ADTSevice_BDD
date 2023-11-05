@@ -78,6 +78,9 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//img[@alt='Image']")
     public WebElement adtEmblem;
+
+    @FindBy(xpath = "//header[@class='sidebarHeader']")
+    public WebElement popUpHeader;
 }
 
 
