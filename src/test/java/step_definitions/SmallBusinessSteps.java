@@ -22,7 +22,6 @@ public class SmallBusinessSteps implements CommonPage {
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
-
     }
 
     @When("I click on Home & Personal button")
@@ -171,7 +170,6 @@ public class SmallBusinessSteps implements CommonPage {
 
     @Then("Verify {string} text under We'll Call You is displayed")
     public void verifyTextUnderWeLlCallYouIsDisplayed(String fillOutThisF) {
-
         BrowserUtils.isDisplayed(page.fillOutThisF);
     }
 
@@ -234,7 +232,6 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-
     @Then("I click on {string} text link")
     public void iClickOnHyberLink(String textLink) {
         BrowserUtils.click(page.privacyPolicy);
@@ -242,14 +239,9 @@ public class SmallBusinessSteps implements CommonPage {
 
     @And("Verify the text {string} is displayed")
     public void verifyTheTextIsDisplayed(String text) throws InterruptedException {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY, text))));
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY))).isDisplayed();
         System.out.println(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY))));
-
     }
-
-
-}
-
 
     @Then("verify text is displayed")
     public void verifyTextIsDisplayed() {
@@ -272,7 +264,6 @@ public class SmallBusinessSteps implements CommonPage {
     public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
-
         // BrowserUtils.getDriver().findElement(By.xpath("//input[@id='Res_Customer_Full_Name_460']")).sendKeys("Patric");
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
@@ -280,16 +271,13 @@ public class SmallBusinessSteps implements CommonPage {
                     , each.get("Value"));
             BrowserUtils.sleep(1000);
         }
-
     }
 
     @And("I click on the Call Me Back button")
     public void iClickOnTheCallMeBackButton() {
-
         BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")).click();
         BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")));
         CucumberLogUtils.logPass("clicked the button", true);
-
     }
 
     @Then("Verify Thank You, we will reach out shortly. header text is visible")
@@ -299,7 +287,6 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.thankYouText);
         BrowserUtils.highlightElement(page.thankYouText);
     }
-
 
     @Then("I click on Terms drop down button")
     public void iClickOnTermsDropDownButton() {
@@ -316,7 +303,6 @@ public class SmallBusinessSteps implements CommonPage {
     public void iVerifyATitleOfThePage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-
 
 }
 
