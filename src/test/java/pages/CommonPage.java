@@ -27,4 +27,9 @@ public interface CommonPage {
     String CSS_TEMPLATE_IMG = "img[alt='%s']";
     String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
 
+
+
+
+
+
 }

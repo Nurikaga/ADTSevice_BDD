@@ -15,7 +15,7 @@ import utils.CucumberLogUtils;
 
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
-
+    String mainWindowHandle;
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
     }
@@ -77,18 +77,21 @@ public class HealthSeniorSteps implements CommonPage {
 
     @When("I scroll up")
     public void iScrollUp() throws InterruptedException {
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
 //        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
 //        // Scroll up by a certain pixel amount (you can adjust the value as needed)
 //        js.executeScript("window.scrollBy(0, -250);");
     }
 
+
     @When("I click {string} button")
     public void iClickButton(String button) throws InterruptedException {
-      BrowserUtils.actionPageUP(page.clickHereBtn);
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
       BrowserUtils.click(page.clickHereBtn);
-
+        CucumberLogUtils.logPass("Clicked on button", true);
+BrowserUtils.switchToNewWindow();
 
     }
 
@@ -184,46 +187,53 @@ public class HealthSeniorSteps implements CommonPage {
         CucumberLogUtils.logPass("Button is enabled", true);
     }
 
-    @Then("I verify the image {string}is clickable")
-    public void iVerifyTheImageIsClickable(String image) {
-        BrowserUtils.getDriver().findElement(By.cssSelector(String.format(CSS_TEMPLATE_IMG, image))).click();
+    @When("I scroll down to the footer")
+    public void iScrollDownToTheFooter() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
     }
 
-    @When("I scroll down till the header")
-    public void iScrollDownTillTheHeader() {
+    @When("I click on Support button")
+    public void iClickOnSupportButton() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+
+        BrowserUtils.click(page.supportBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
         BrowserUtils.switchToNewWindow();
-       // JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver(); js.executeScript("window.scrollBy(0,250)", page.header);
-
-        BrowserUtils.actionPageDOWN(page.header);
+        Thread.sleep(3000);
     }
 
-    @When("I verify  header {string} in the page")
-    public void iVerifyHeaderInThePage(String header) {
-        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_h4, header))).isDisplayed();
-        CucumberLogUtils.logPass("Header is displayed", true);
+    @Then("Verify title is {string} on that page")
+    public void verifyTitleIsOnThatPage(String titleOfSupportPage) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titleOfSupportPage);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
     }
 
-    @Then("I verify  text {string} in the page")
-    public void iVerifyTextInThePage(String text) {
-        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_p, text))).isDisplayed();
+    @When("I come back to home page")
+    public void iComeBackToHomePage() {
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
     }
 
-    @When("I verify  header The ADT Health Difference in the page")
-    public void iVerifyHeaderTheADTHealthDifferenceInThePage() {
-        String expectedHeader = "The ADT Health Difference";
-        BrowserUtils.assertEquals(page.header.getText(), expectedHeader);
-        CucumberLogUtils.logPass("Header is displayed", true);
+    @When("I click on Contact Us button")
+    public void iClickOnContactUsButton() {
+        BrowserUtils.click(page.contactUsBtn);
+        CucumberLogUtils.logPass("clicked on the button", true);
+    }
+    @When("I click on Leave Website Feedback button")
+    public void iClickOnLeaveWebsiteFeedbackButton() throws InterruptedException {
+       BrowserUtils.click(page.leaveWebFeedbackBtn);
+       Thread.sleep(3000);
+    }
+    @Then("Verify ADT emblem is displayed in pop up window")
+    public void verifyADTEmblemIsDisplayedInPopUpWindow() {
+        WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
+        BrowserUtils.getDriver().switchTo().frame(iframeElement);
+        BrowserUtils.isDisplayed(page.adtEmblem);
+        CucumberLogUtils.logPass("Image is displayed", true);
     }
 
-    @Then("I verify  text in the page")
-    public void iVerifyTextInThePage() {
-        String expectedText = "Learn more about how ADT Health works to keep you safe, secure and connected to help whenever you need it" ;
-        BrowserUtils.assertEquals(page.text.getText(), expectedText);
-        CucumberLogUtils.logPass("Text is displayed", true);
 
-    }
 }
-
 
 
 

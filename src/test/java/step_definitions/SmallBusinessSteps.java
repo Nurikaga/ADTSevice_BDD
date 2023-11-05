@@ -20,6 +20,7 @@ import java.util.Map;
 
 public class SmallBusinessSteps implements CommonPage {
     SmallBusinessPage page;
+    String mainWindowHandle;
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
@@ -80,6 +81,7 @@ public class SmallBusinessSteps implements CommonPage {
     @Then("Verify {string} text in header is displayed")
     public void verifyTextInHeaderIsDisplayed(String headerText) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));
+        //BrowserUtils.getDriver().navigate().refresh();
     }
 
     @Then("Verify {string} text under header is displayed")
@@ -194,6 +196,50 @@ public class SmallBusinessSteps implements CommonPage {
     }
 
 
+
+    @And("I click on Become an ADT Dealer button and Window to the new tab")
+    public void iClickOnBecomeAnADTDealerButtonAndWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.becomeDealerBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify title of the Become an ADT Dealer page is {string}")
+    public void verifyTitleOfTheBecomeAnADTDealerPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @And("I click on Dealer Lookup button and Window to the new tab")
+    public void iClickOnDealerLookupButtonAndWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.dealerLookupBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify title of the Dealer Lookup page is {string}")
+    public void verifyTitleOfTheDealerLookupPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);
+    }
+
+    @Then("I click Local Service Areas button and change Window to the new tab")
+    public void iClickLocalServiceAreasButtonAndChangeWindowToTheNewTab() throws InterruptedException {
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        Thread.sleep(3000);
+        BrowserUtils.click(page.localServiceAreasBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("I verify title of the Local Service Areas page is {string}")
+    public void iVerifyTitleOfTheLocalServiceAreasPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
+
+
     @Then("verify text is displayed")
     public void verifyTextIsDisplayed() {
         page.footerText.isDisplayed();
@@ -214,18 +260,20 @@ public class SmallBusinessSteps implements CommonPage {
 
 
     @When("I fill out the form")
-    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.sendKeys(Keys.PAGE_UP).build().perform();
+    public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        // BrowserUtils.getDriver().findElement(By.xpath("//input[@id='Res_Customer_Full_Name_460']")).sendKeys("Patric");
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
                     , each.get("Value"));
-
-            CucumberLogUtils.logPass("fill out form", true);
-            Thread.sleep(1000);
+            BrowserUtils.sleep(1000);
         }
+
     }
+
     @And("I click on the Call Me Back button")
     public void iClickOnTheCallMeBackButton() {
 
@@ -261,6 +309,9 @@ public class SmallBusinessSteps implements CommonPage {
 
 
     }
+
+
+
 
 
 

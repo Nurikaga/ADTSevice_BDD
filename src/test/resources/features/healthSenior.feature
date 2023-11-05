@@ -48,19 +48,6 @@ Feature: Home Page Related Scenarios
     Then I verify click_here button
     Then Verify title is "ADT Terms & Conditions for Medical Alert Systems by ADT"
 
-  @US42
-  Scenario Outline: Verify a header,text, images and titles of the correspondence page
-    When I scroll down till the header
-    When I verify  header The ADT Health Difference in the page
-    Then I verify  text in the page
-    Then I verify the image "<image>"is clickable
-    Then I change Window to the new tab
-    And I verify the title of the page "<title>"
-    Examples:
-      | image                              | title                                                            |
-      | CareGiver Friendly Award 2022      | ADT Medical Alert Recognized with Caregiver Friendly Award - ADT |
-      | Senior Sensitivity Training        | Special Training Equips ADT Health Agents with Empathy - ADT     |
-      | ADT Medical Alert Life Saver Award | Aging in Place with ADT Medical Alert - ADT                      |
 
   @US-22
   Scenario Outline: Verify the page Health & Senior Safety Page top menu text links are displayed
@@ -141,4 +128,14 @@ Feature: Home Page Related Scenarios
     Then Verify three buttons are displayed
     Then Verify three buttons are enabled
 
-
+  @US47
+  Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
+    When I scroll down to the footer
+    Then Verify "Customer Service" text in header is displayed
+    When I click on Support button
+    Then Verify title is "Home" on that page
+    When I come back to home page
+    When I click on Contact Us button
+    Then Verify title is "Contact Support" on that page
+    When I click on Leave Website Feedback button
+    Then Verify ADT emblem is displayed in pop up window

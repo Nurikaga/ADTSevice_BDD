@@ -65,15 +65,14 @@ Feature: Home Page Related Scenarios
     Then Verify the "We'll Call You" text under header is displayed
     Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
     When I fill out the form
-
-      | Key                          | Value                |
-      | Res_Customer_Full_Name_835   | Patric               |
-      | Res_Business_Name_835        | TOOSu                |
-      | Btn_Industry_835             | Retail               |
-      | Btn_Company_Size_835         | 1,000 - 5,000 sq. ft |
-      | Res_E_Mail_Address_835       | patric@gmail.com     |
-      | Res_Phone_Number_Primary_835 | 3355335544           |
-      | Res_Postal_Code_835          | 535333               |
+      | Key                          | Value                 |
+      | Res_Customer_Full_Name_460   | Patric                |
+      | Res_Business_Name_460        | TOOSu                 |
+      | Btn_Industry_460             | Professional Services |
+      | Btn_Company_Size_460         | 1,000 - 5,000 sq. ft  |
+      | Res_E_Mail_Address_460       | patric@gmail.com      |
+      | Res_Phone_Number_Primary_460 | 3355335544            |
+      | Res_Postal_Code_460          | 53533                |
     And I click on the Call Me Back button
     Then Verify Thank You, we will reach out shortly. header text is visible
 
@@ -106,6 +105,7 @@ Feature: Home Page Related Scenarios
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
+
   @US34
   Scenario Outline: Verify links under About Section
     When I scroll down
@@ -120,6 +120,21 @@ Feature: Home Page Related Scenarios
       | Newsroom           | ADT - Newsroom & Stories                                       |
       | Careers            | Working at ADT \| Jobs and Careers at ADT                      |
       | Investor Relations | ADT Inc. - Investor Relations                                  |
+
+  @US35
+  Scenario: Verify the footer Dealers & Service menu
+    When I scroll down
+    Then I click Local Service Areas button and change Window to the new tab
+    Then I verify title of the Local Service Areas page is "ADT Local Service Areas"
+    And I take screenshot of test
+    And I click on Become an ADT Dealer button and Window to the new tab
+    Then Verify title of the Become an ADT Dealer page is "Official ADT Authorized Dealer Program"
+    And I take screenshot of test
+    And I click on Dealer Lookup button and Window to the new tab
+    Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
+    And I take screenshot of test
+
+
 
   @US37
   Scenario Outline: Verify the footer text and links buttons

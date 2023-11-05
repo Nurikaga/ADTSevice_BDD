@@ -37,7 +37,7 @@ public class HealthSeniorPage {
     public WebElement shopNowBtn3;
     @FindBy(xpath = "(//span[@class='btn-cta-text'])[4]")
     public WebElement shopNowBtn4;
-    @FindBy(xpath = "//u[normalize-space()='Click here.']")
+    @FindBy(xpath = "//div[@class='legal']//u[contains(text(),'Click here.')]")
     public WebElement clickHereBtn;
     @FindBy(xpath = "//div[@class='vid-img-overlay row no-gutters d-flex align-items-center align-self-center']")
     public WebElement videoImg;
@@ -67,7 +67,17 @@ public class HealthSeniorPage {
     public WebElement header;
 
 
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[@title='Support']")
+    public WebElement supportBtn;
 
+    @FindBy(xpath = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[@title='Contact Us']")
+    public WebElement contactUsBtn;
+
+    @FindBy(xpath = "//div[@class='footerWidget4 slds-col slds-p-around_small slds-size_1-of-1 slds-medium-size_1-of-5']//a[contains(text(),'Leave Website Feedback')]")
+    public WebElement leaveWebFeedbackBtn;
+
+    @FindBy(xpath = "//img[@alt='Image']")
+    public WebElement adtEmblem;
 }
 
 
