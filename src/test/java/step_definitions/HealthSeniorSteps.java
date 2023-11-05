@@ -183,7 +183,47 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.getDriver().getTitle();
         CucumberLogUtils.logPass("Button is enabled", true);
     }
+
+    @Then("I verify the image {string}is clickable")
+    public void iVerifyTheImageIsClickable(String image) {
+        BrowserUtils.getDriver().findElement(By.cssSelector(String.format(CSS_TEMPLATE_IMG, image))).click();
+    }
+
+    @When("I scroll down till the header")
+    public void iScrollDownTillTheHeader() {
+        BrowserUtils.switchToNewWindow();
+       // JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver(); js.executeScript("window.scrollBy(0,250)", page.header);
+
+        BrowserUtils.actionPageDOWN(page.header);
+    }
+
+    @When("I verify  header {string} in the page")
+    public void iVerifyHeaderInThePage(String header) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_h4, header))).isDisplayed();
+        CucumberLogUtils.logPass("Header is displayed", true);
+    }
+
+    @Then("I verify  text {string} in the page")
+    public void iVerifyTextInThePage(String text) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_p, text))).isDisplayed();
+    }
+
+    @When("I verify  header The ADT Health Difference in the page")
+    public void iVerifyHeaderTheADTHealthDifferenceInThePage() {
+        String expectedHeader = "The ADT Health Difference";
+        BrowserUtils.assertEquals(page.header.getText(), expectedHeader);
+        CucumberLogUtils.logPass("Header is displayed", true);
+    }
+
+    @Then("I verify  text in the page")
+    public void iVerifyTextInThePage() {
+        String expectedText = "Learn more about how ADT Health works to keep you safe, secure and connected to help whenever you need it" ;
+        BrowserUtils.assertEquals(page.text.getText(), expectedText);
+        CucumberLogUtils.logPass("Text is displayed", true);
+
+    }
 }
+
 
 
 
