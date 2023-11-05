@@ -16,6 +16,7 @@ import utils.CucumberLogUtils;
 public class HealthSeniorSteps implements CommonPage {
     HealthSeniorPage page;
     String mainWindowHandle;
+
     public HealthSeniorSteps() {
         page = new HealthSeniorPage();
     }
@@ -89,9 +90,9 @@ public class HealthSeniorSteps implements CommonPage {
     public void iClickButton(String button) throws InterruptedException {
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
-      BrowserUtils.click(page.clickHereBtn);
+        BrowserUtils.click(page.clickHereBtn);
         CucumberLogUtils.logPass("Clicked on button", true);
-BrowserUtils.switchToNewWindow();
+        BrowserUtils.switchToNewWindow();
 
     }
 
@@ -147,6 +148,7 @@ BrowserUtils.switchToNewWindow();
             BrowserUtils.assertTrue(each.isEnabled());
         }
     }
+
     @Then("I verify the picture is displayed")
     public void iVerifyThePictureIsDisplayed() {
         page.bigImg.isDisplayed();
@@ -219,11 +221,13 @@ BrowserUtils.switchToNewWindow();
         BrowserUtils.click(page.contactUsBtn);
         CucumberLogUtils.logPass("clicked on the button", true);
     }
+
     @When("I click on Leave Website Feedback button")
     public void iClickOnLeaveWebsiteFeedbackButton() throws InterruptedException {
-       BrowserUtils.click(page.leaveWebFeedbackBtn);
-       Thread.sleep(3000);
+        BrowserUtils.click(page.leaveWebFeedbackBtn);
+        Thread.sleep(3000);
     }
+
     @Then("Verify ADT emblem is displayed in pop up window")
     public void verifyADTEmblemIsDisplayedInPopUpWindow() {
         WebElement iframeElement = BrowserUtils.getDriver().findElement(By.id("kampyleForm35275"));
@@ -233,7 +237,25 @@ BrowserUtils.switchToNewWindow();
     }
 
 
+    @Then("Verify that {string} button is displayed")
+    public void verifyThatButtonIsDisplayed(String liveChatNowBtn) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, liveChatNowBtn))));
+    }
+
+    @When("I click on the {string} button")
+    public void iClickOnTheButton(String liveChatNOwBtn) throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath("//div[text()='LIVE CHAT NOW!']")).click();
+        Thread.sleep(7000);
+    }
+
+    @Then("Verify the header in pop-up window is ADT's Digital Assistant")
+    public void verifyTheHeaderInPopUpWindowIsADTSDigitalAssistant() {
+        BrowserUtils.isDisplayed(page.popUpHeader);
+    }
+
+
 }
+
 
 
 
