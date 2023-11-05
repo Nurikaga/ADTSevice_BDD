@@ -202,6 +202,20 @@ public class SmallBusinessSteps implements CommonPage {
     public void iVerifyTitleOfTheLocalServiceAreasPageIs(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
+
+    @Then("I click on {string} text link")
+    public void iClickOnHyberLink(String textLink) {
+        BrowserUtils.click(page.privacyPolicy);
+    }
+
+    @And("Verify the text {string} is displayed")
+    public void verifyTheTextIsDisplayed(String text) throws InterruptedException {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY, text))));
+        System.out.println(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY))));
+
+    }
+
+
 }
 
 

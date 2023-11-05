@@ -31,6 +31,10 @@ public class SmallBusinessPage {
     public WebElement dealerLookupBtn;
     @FindBy(css = "div[class='adt-footer-links-section d-none d-lg-block'] a[title='Local Service Areas']")
     public WebElement localServiceAreasBtn;
+    @FindBy(css = "a[title='Privacy Policy']")
+    public WebElement privacyPolicy;
+
+
     public SmallBusinessPage() {
 
         PageFactory.initElements(BrowserUtils.getDriver(), this);

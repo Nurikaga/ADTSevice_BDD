@@ -105,5 +105,13 @@ Feature: Home Page Related Scenarios
     Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
     And I take screenshot of test
 
+    @US39
+    Scenario: Verify the text "Personal Information Uses, Disclosures, and Sharing" after clicking on footer privacy policy link
+      When I scroll down
+      Then I click on "Privacy Policy" text link
+      Then I change Window to the new tab
+      And Verify the text "Personal Information Uses, Disclosures, and Sharing" is displayed
+
+
 
 
