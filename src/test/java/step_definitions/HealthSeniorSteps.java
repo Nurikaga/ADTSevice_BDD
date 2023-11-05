@@ -252,9 +252,27 @@ public class HealthSeniorSteps implements CommonPage {
     public void verifyTheHeaderInPopUpWindowIsADTSDigitalAssistant() {
         BrowserUtils.isDisplayed(page.popUpHeader);
     }
+    @Then("Verify header text is {string}")
+    public void verifyHeaderTextIs(String helpSenMainHeader) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, helpSenMainHeader))));
+    }
 
+    @Then("Verify text under header is {string}")
+    public void verifyTextUnderHeaderIs(String txtUnderHeader) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, txtUnderHeader))));
+    }
+    @Then("Verify image with four texts with emblems are displayed")
+    public void verifyImageWithFourTextsWithEmblemsAreDisplayed() {
+        BrowserUtils.isDisplayed(page.fourSections);
+    }
+    @Then("Verify the bigger picture is displayed on the right side")
+    public void verifyTheBiggerPictureIsDisplayedOnTheRightSide() {
+        BrowserUtils.isDisplayed(page.imgOfBlackLady);
+    }
 
 }
+
+
 
 
 

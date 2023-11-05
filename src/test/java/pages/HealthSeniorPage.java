@@ -61,8 +61,10 @@ public class HealthSeniorPage {
     public List<WebElement> threeButtons;
    @FindBy(xpath = "//a[@href='/about-adt/legal/home-health-term-and-conditions'][@title='See terms and pricing']")
     public WebElement clickHereBtn2;
+
    @FindBy(xpath = "//p[@class='adt7-txa-2385 adt7-txa']")
     public WebElement text;
+
     @FindBy(css = ".adt7-txa-7975.adt7-txa")
     public WebElement header;
 
@@ -81,6 +83,12 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//header[@class='sidebarHeader']")
     public WebElement popUpHeader;
+
+    @FindBy(xpath = "//div[@class='img-body-desktop']")
+    public WebElement fourSections;
+
+    @FindBy(xpath = "//div[@class='img-body ']//img[@id='img-7080']")
+    public WebElement imgOfBlackLady;
 }
 
 
