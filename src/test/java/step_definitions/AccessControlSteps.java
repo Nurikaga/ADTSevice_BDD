@@ -47,7 +47,7 @@ public class AccessControlSteps<V> implements CommonPage {
     public void the_user_fills_out_the_form_with_the_following_data(io.cucumber.datatable.DataTable dataTable) {
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
-            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD2, each.get("Field"))))
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.cssSelector(String.format(CSS_TEMPLATE_INPUT, each.get("Field"))))
                     , each.get("Value"));
             BrowserUtils.sleep(1000);
         }

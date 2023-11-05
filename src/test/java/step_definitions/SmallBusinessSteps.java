@@ -116,6 +116,7 @@ public class SmallBusinessSteps implements CommonPage {
     @Then("I verify the title of the page {string}")
     public void iVerifyTheTitleOfThePage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        CucumberLogUtils.logPass("Title is displayed", true);
     }
 
     @And("Verify  all {string} are displayed")
@@ -305,7 +306,10 @@ public class SmallBusinessSteps implements CommonPage {
     public void iVerifyATitleOfThePage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-}
+
+
+    }
+
 
 
 
