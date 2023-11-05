@@ -1,0 +1,179 @@
+Index: src/test/java/runners/CukesRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\n\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/report.html\", //will create report\n                \"json:target/cucumber-reports/cucumber.json\",\n                \"rerun:target/rerun.txt\", //will create a report containing any failed scenarios\n        },\n        features = \"src/test/resources/features\", //if you want to run failed scenarios from rerun do \"@target/rerun.txt\" for features\n        glue = \"step_definitions\",\n        stepNotifications = true,\n        dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/\n        ,tags = \"@US45\"\n\n        //keywords\n        //\"and not\" - 'x and not y' to exclude scenarios with that tag\n        //\"and\" - 'x and y' to run scenarios with both tags\n)\npublic class CukesRunner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/CukesRunner.java b/src/test/java/runners/CukesRunner.java
+--- a/src/test/java/runners/CukesRunner.java	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/src/test/java/runners/CukesRunner.java	(date 1699207561286)
+@@ -16,7 +16,7 @@
+         glue = "step_definitions",
+         stepNotifications = true,
+         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
+-        ,tags = "@US45"
++        ,tags = "@US10"
+ 
+         //keywords
+         //"and not" - 'x and not y' to exclude scenarios with that tag
+Index: src/test/resources/features/accessControl.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@accessControlScenarios @regression\nFeature: Access Control Page Related Scenarios\n\n  Background: Navigate to page\n    Given I open url of homepage\n    When I click \"Home & Personal\" hovered-over button\n    Then I click on \"Small Business\" link button that forwarding to the Small Business page\n    And I change Window to the new tab\n    Then I navigate to \"Solutions\" drop down menu\n    And I click on \"Access Control\" link button that takes to the Access Control page\n\n  @US10\n  Scenario: Verify a user able to fill out a form and specialist will contact back\n    When I verify the header \"Get a FREE Security Assessment\" in the page\n    Then I verify a text \"Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.\" in the page\n    And I verify the select box is clickable and has the following options\n    When the user fills out the form with the following data\n      | Key                  | Value               |\n      | Customer_Full_Name   | Tom Bull            |\n      | Business_Name        | Kenny               |\n      | E_Mail_Address       | someone@someone.com |\n      | Phone_Number_Primary | 234-456-2345        |\n      | Postal_Code          | 34826               |\n    And I verify the button \"Call Me Back\" in the page clickable and takes to the new page\n    And I verify the Message is displayed in the pop-up window
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/accessControl.feature b/src/test/resources/features/accessControl.feature
+--- a/src/test/resources/features/accessControl.feature	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/src/test/resources/features/accessControl.feature	(date 1699210737541)
+@@ -14,12 +14,6 @@
+     When I verify the header "Get a FREE Security Assessment" in the page
+     Then I verify a text "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." in the page
+     And I verify the select box is clickable and has the following options
+-    When the user fills out the form with the following data
+-      | Key                  | Value               |
+-      | Customer_Full_Name   | Tom Bull            |
+-      | Business_Name        | Kenny               |
+-      | E_Mail_Address       | someone@someone.com |
+-      | Phone_Number_Primary | 234-456-2345        |
+-      | Postal_Code          | 34826               |
++    When the user fills out the form
+     And I verify the button "Call Me Back" in the page clickable and takes to the new page
+     And I verify the Message is displayed in the pop-up window
+\ No newline at end of file
+Index: src/test/java/step_definitions/AccessControlSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\n\n\nimport io.cucumber.java.an.E;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport io.cucumber.messages.types.DataTable;\n\nimport io.cucumber.messages.types.TableRow;\nimport org.checkerframework.checker.units.qual.K;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.ui.Select;\nimport pages.AccessControlPage;\nimport pages.CommonPage;\nimport utils.BrowserUtils;\n\nimport java.util.List;\nimport java.util.Map;\n\npublic class AccessControlSteps<V> implements CommonPage {\n    AccessControlPage page;\n\n    public AccessControlSteps() {\n        page = new AccessControlPage();\n    }\n\n    @And(\"I click on {string} link button that takes to the Access Control page\")\n    public void iClickOnLinkButtonThatTakesToTheAccessControlPage(String accessControlBtn) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, accessControlBtn))).click();\n    }\n\n    @Then(\"I verify a text {string} in the page\")\n    public void iVerifyATextInThePage(String text) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))).click();\n    }\n\n    @And(\"I verify the button {string} in the page clickable and takes to the new page\")\n    public void iVerifyTheButtonInThePageClickableAndTakesToTheNewPage(String callMeBtn) {\n        page.callMeBtn.click();\n    }\n\n    @When(\"the user fills out the form with the following data\")\n    public void the_user_fills_out_the_form_with_the_following_data(io.cucumber.datatable.DataTable dataTable) {\n        List<Map<String, String>> asMaps = dataTable.asMaps();\n        for (Map<String, String> each : asMaps) {\n            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.cssSelector(String.format(CSS_TEMPLATE_INPUT, each.get(\"Field\"))))\n                    , each.get(\"Value\"));\n            BrowserUtils.sleep(1000);\n        }\n    }\n\n    @And(\"I verify the Message is displayed in the pop-up window\")\n    public void iVerifyTheMessageIsDisplayedInThePopUpWindow() {\n        page.callMeMessage.isDisplayed();\n        BrowserUtils.getText(page.callMeMessage);\n        BrowserUtils.sleep(3000);\n    }\n\n    @And(\"I verify the select box is clickable and has the following options\")\n    public void iVerifyTheSelectBoxIsClickableAndHasTheFollowingOptions() {\n        WebElement radioButton = page.industryBtn;\n        radioButton.click();\n        page.Other.click();\n        WebElement radioButton1 = page.companySizeBtn;\n        radioButton1.click();\n        page.companySize.click();\n    }\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/AccessControlSteps.java b/src/test/java/step_definitions/AccessControlSteps.java
+--- a/src/test/java/step_definitions/AccessControlSteps.java	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/src/test/java/step_definitions/AccessControlSteps.java	(date 1699211427609)
+@@ -69,6 +69,11 @@
+         radioButton1.click();
+         page.companySize.click();
+     }
++
++    @When("the user fills out the form")
++    public void theUserFillsOutTheForm() {
++        page.fillOutForm("John Black", "johnD@gmail.com", "6145678905", "IT Group", "32822");
++    }
+ }
+ 
+ 
+Index: src/test/java/pages/AccessControlPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utils.BrowserUtils;\n\npublic class AccessControlPage {\n    public AccessControlPage() {\n        PageFactory.initElements(BrowserUtils.getDriver(), this);\n    }\n\n    @FindBy(xpath = \"//form[@id='adt-banner-form-id']//button[@name='submit_banner_form']\")\n    public WebElement callMeBtn;\n    @FindBy(xpath = \"//div[@id='container-form-banner-id']\")\n    public WebElement callMeMessage;\n    @FindBy(xpath = \"//div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/button[1]\")\n    public WebElement industryBtn;\n    @FindBy(xpath = \"//div[1]/form[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/button[1]\")\n    public WebElement companySizeBtn;\n    @FindBy(xpath = \"//ul[@class='dropdown-menu show']//a[contains(text(),'Other')]\")\n    public WebElement Other;\n    @FindBy(xpath = \"//ul[@class='dropdown-menu show']//a[contains(text(),'100 - 1,000 sq. ft.')]\")\n    public WebElement companySize;\n\n\n }\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/AccessControlPage.java b/src/test/java/pages/AccessControlPage.java
+--- a/src/test/java/pages/AccessControlPage.java	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/src/test/java/pages/AccessControlPage.java	(date 1699211635555)
+@@ -22,6 +22,27 @@
+     public WebElement Other;
+     @FindBy(xpath = "//ul[@class='dropdown-menu show']//a[contains(text(),'100 - 1,000 sq. ft.')]")
+     public WebElement companySize;
++    @FindBy(xpath = "/html//form[@id='adt-banner-form-id']//input[@name='Customer_Full_Name']")
++    public WebElement fullNameInput;
++    @FindBy(xpath = "/html//form[@id='adt-banner-form-id']//input[@name='E_Mail_Address']")
++    public WebElement emailInput;
++    @FindBy(xpath = "/html//form[@id='adt-banner-form-id']/div[@class='form-field-collection']//input[@name='Phone_Number_Primary']")
++    public WebElement phoneInput;
++    @FindBy(xpath = "/html//form[@id='adt-banner-form-id']//input[@name='Business_Name']")
++    public WebElement companyName;
++@FindBy(xpath = "/html//form[@id='adt-banner-form-id']/div[@class='form-field-collection']//input[@name='Postal_Code']")
++    public WebElement zipCode;
++
++public void fillOutForm(String fullName, String email, String phone, String company, String zip) {
++    fullNameInput.sendKeys(fullName);
++    emailInput.sendKeys(email);
++    phoneInput.sendKeys(phone);
++    companyName.sendKeys(company);
++    zipCode.sendKeys(zip);
++}
++
++
++
+ 
+ 
+- }
++}
+Index: src/test/java/pages/CommonPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\npublic interface CommonPage {\n    String XPATH_TEMPLATE_BUTTON = \"//button[text()='%s']\";\n    String XPATH_TEMPLATE_TEXT_TITLE = \"//a[@title='%s']\";\n    String XPATH_TEMPLATE_LINKTEXT = \"//a[text()='%s']\";\n    String XPATH_TEMPLATE_LINKTEXT2 = \"//h5[normalize-space()='%s']\";\n    String XPATH_TEMPLATE_TEXT = \"//*[text()='%s']\";\n    String XPATH_TEMPLATE_TEXT_h4 = \"//h4[@class='adt7-txa-6326 adt7-txa'][contains(text(), '%s')]\";\n    String XPATH_TEMPLATE_TEXT_h5 = \"//h5[contains(text(), '%s')]\";\n    String XPATH_TEMPLATE_TEXT_p = \"//p[contains(text(), '%s')]\";\n    String XPATH_TEMPLATE_INPUT_FIELD = \"//input[@placeholder='%s']\";\n    String XPATH_TEMPLATE_INPUT_FIELD2 = \"//div[@id='adt-header-id']//input[@type='text'][@class='form-control'][@name='%s']\";\n    String XPATH_TEMPLATE_TEXT_ShopNow = \"//div[@class='col-12 ']//span[@class='btn-cta-text'][normalize-space()='%s']\";\n    String XPATH_TEMPLATE_TEXT_CONTAINS = \"//*[contains(text(), '%s')]\";\n    String XPATH_TEMPLATE_TEXT2_CONTAINS = \"(//a[contains(text(), '%s')])[2]\";\n    String XPATH_TEMPLATE_CLASS = \"//*[@class='%s']\";\n    String XPATH_TEMPLATE_CLASS_DIV = \"//div[@class='%s']\";\n    String XPATH_TEMPLATE_TEXT2 = \"//div[@class='menu-bg']//a[contains(@href,'%s')]\";\n    String XPATH_TEMPLATE_LINKTEXT_HREF = \"//a[@href='%s']\";\n    String XPATH_TEMPLATE_IMG = \"//img[@id='%s')]\";\n    String XPATH_TEMPLATE_NUR = \"//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']\";\n\n    String XPATH_TEMPLATE_INPUT_FIELD3 = \"//*[@id='%s']\";\n\n    String XPATH_TEMPLATE_TEXT_CLASS = \"//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']\";\n    String CSS_TEMPLATE_IMG = \"img[alt='%s']\";\n    String CSS_TEMPLATE_INPUT = \"div[class='form-field-collection'] input[name='%s']\";\n\n\n\n\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/CommonPage.java b/src/test/java/pages/CommonPage.java
+--- a/src/test/java/pages/CommonPage.java	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/src/test/java/pages/CommonPage.java	(date 1699208867721)
+@@ -25,7 +25,7 @@
+ 
+     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
+     String CSS_TEMPLATE_IMG = "img[alt='%s']";
+-    String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
++    String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
+ 
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d1baf64c-3691-4b35-b6f9-03bae2cfad91\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/runners/CukesRunner.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/healthSenior.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/healthSenior.feature\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2XjBnQOymICQj2MsumprBo0LTgg\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;Nurik&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"CukesRunner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"ADTSevice_BDD\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.CukesRunner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.CukesRunner\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d1baf64c-3691-4b35-b6f9-03bae2cfad91\" name=\"Changes\" comment=\"\" />\n      <created>1699132776665</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1699132776665</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision aecafd68c325a1df638c59b32128aad9edaf80bc)
++++ b/.idea/workspace.xml	(date 1699210940679)
+@@ -6,10 +6,11 @@
+   <component name="ChangeListManager">
+     <list default="true" id="d1baf64c-3691-4b35-b6f9-03bae2cfad91" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HealthSeniorPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/healthSenior.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,6 +19,9 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MacroExpansionManager">
++    <option name="directoryName" value="pve5bpyi" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4
+@@ -30,13 +34,13 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;Nurik&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "julia"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="CukesRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="ADTSevice_BDD" />

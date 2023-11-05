@@ -69,6 +69,11 @@ public class AccessControlSteps<V> implements CommonPage {
         radioButton1.click();
         page.companySize.click();
     }
+
+    @When("the user fills out the form")
+    public void theUserFillsOutTheForm() {
+        page.fillOutForm("John Black", "johnD@gmail.com", "6145678905", "IT Group", "32822");
+    }
 }
 
 

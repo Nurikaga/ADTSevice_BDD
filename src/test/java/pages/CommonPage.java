@@ -25,7 +25,7 @@ public interface CommonPage {
 
     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
     String CSS_TEMPLATE_IMG = "img[alt='%s']";
-    String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
+    String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
 
 
 
