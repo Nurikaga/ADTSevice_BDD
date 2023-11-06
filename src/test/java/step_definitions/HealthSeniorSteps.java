@@ -271,8 +271,17 @@ public class HealthSeniorSteps implements CommonPage {
     }
 
 
-
+    @Then("Verify Privacy Feedback -Powered by TRUSTe button is displayed")
+    public void verifyPrivacyFeedbackPoweredByTRUSTeButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.privacyFeedBtn);
     }
+
+    @When("I click on Privacy Feedback -Powered by TRUSTe button")
+    public void iClickOnPrivacyFeedbackPoweredByTRUSTeButton() {
+        BrowserUtils.click(page.privacyFeedBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+}
 
 
 
