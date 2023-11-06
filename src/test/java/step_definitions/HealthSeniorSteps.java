@@ -270,7 +270,10 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.imgOfBlackLady);
     }
 
-}
+
+
+    }
+
 
 
 

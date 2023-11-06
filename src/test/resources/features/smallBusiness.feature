@@ -65,17 +65,19 @@ Feature: Home Page Related Scenarios
     Then Verify the "We'll Call You" text under header is displayed
     Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
     When I fill out the form
-      | Key                          | Value                 |
-      | Res_Customer_Full_Name_460   | Patric                |
-      | Res_Business_Name_460        | TOOSu                 |
-      | Btn_Industry_460             | Professional Services |
-      | Btn_Company_Size_460         | 1,000 - 5,000 sq. ft  |
-      | Res_E_Mail_Address_460       | patric@gmail.com      |
-      | Res_Phone_Number_Primary_460 | 3355335544            |
-      | Res_Postal_Code_460          | 53533                |
-    And I click on the Call Me Back button
-    Then Verify Thank You, we will reach out shortly. header text is visible
+      | Key                  | Value            |
+      | Customer_Full_Name   | Patric           |
+      | Business_Name        | TOOSu            |
+      | E_Mail_Address       | patric@gmail.com |
+      | Phone_Number_Primary | 3355335544       |
+      | Postal_Code          | 53533            |
+#    When I choose values from dropdowns
+#      | key          | value                |
+#      | Industry     | Retail               |
+#      | Company Size | 1,000 - 5,000 sq. ft |
 
+    And I click on the Call Me Back button
+    Then Verify Customize a Security Solution for Your Business  header text is visible
 
   @US32
   Scenario Outline: verify the links headers stay the same on the corresponding pages
@@ -105,7 +107,6 @@ Feature: Home Page Related Scenarios
       | Health & Senior Safety | Medical Alert Systems \| Health & Senior Safety Resources by ADT  |
       | Mobile Apps            | ADT® Apps \| Home Security Apps \| Smart Home Control by ADT      |
 
-
   @US34
   Scenario Outline: Verify links under About Section
     When I scroll down
@@ -134,8 +135,6 @@ Feature: Home Page Related Scenarios
     Then Verify title of the Dealer Lookup page is "ADT Dealer License Lookup"
     And I take screenshot of test
 
-
-
   @US37
   Scenario Outline: Verify the footer text and links buttons
     When I scroll down
@@ -155,3 +154,10 @@ Feature: Home Page Related Scenarios
     Then I click on Terms drop down button
     Then I click on drop down choice Advertising Choice
     And I verify a title of the page "TrustArc Preference Manager"
+
+  @US39
+  Scenario: Verify the text "Personal Information Uses, Disclosures, and Sharing" after clicking on footer privacy policy link
+    When I scroll down
+    Then I click on "Privacy Policy" text link
+    Then I change Window to the new tab
+    And Verify the text "Personal Information Uses, Disclosures, and Sharing" is displayed

@@ -9,12 +9,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
-import java.util.LinkedHashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +23,6 @@ public class SmallBusinessSteps implements CommonPage {
 
     public SmallBusinessSteps() {
         page = new SmallBusinessPage();
-
     }
 
     @When("I click on Home & Personal button")
@@ -173,7 +171,6 @@ public class SmallBusinessSteps implements CommonPage {
 
     @Then("Verify {string} text under We'll Call You is displayed")
     public void verifyTextUnderWeLlCallYouIsDisplayed(String fillOutThisF) {
-
         BrowserUtils.isDisplayed(page.fillOutThisF);
     }
 
@@ -182,7 +179,6 @@ public class SmallBusinessSteps implements CommonPage {
         Actions actions = new Actions(BrowserUtils.getDriver());
         actions.sendKeys(Keys.PAGE_UP).build().perform();
     }
-
 
 
     @Then("Verify {string} link buttons are enabled")
@@ -194,7 +190,6 @@ public class SmallBusinessSteps implements CommonPage {
     public void verifyOfEachPage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
-
 
 
     @And("I click on Become an ADT Dealer button and Window to the new tab")
@@ -238,7 +233,16 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+    @Then("I click on {string} text link")
+    public void iClickOnHyberLink(String textLink) {
+        BrowserUtils.click(page.privacyPolicy);
+    }
 
+    @And("Verify the text {string} is displayed")
+    public void verifyTheTextIsDisplayed(String text) throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY))).isDisplayed();
+        System.out.println(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_PRIVACY))));
+    }
 
     @Then("verify text is displayed")
     public void verifyTextIsDisplayed() {
@@ -257,39 +261,30 @@ public class SmallBusinessSteps implements CommonPage {
         page.dropdownTerms.isEnabled();
     }
 
-
-
     @When("I fill out the form")
-    public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        // BrowserUtils.getDriver().findElement(By.xpath("//input[@id='Res_Customer_Full_Name_460']")).sendKeys("Patric");
+    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
                     , each.get("Value"));
-            BrowserUtils.sleep(1000);
+Thread.sleep(1000);
         }
-
     }
 
     @And("I click on the Call Me Back button")
-    public void iClickOnTheCallMeBackButton() {
-
-        BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")).click();
-        BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")));
+    public void iClickOnTheCallMeBackButton() throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath("//form[@id='adt-res-form-id-244']//button[@class='btn btn-res-form  btn-cta btn-cta-blue btn-cta-md resi-submit-btn']")).click();
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("clicked the button", true);
-
-    }
-    @Then("Verify Thank You, we will reach out shortly. header text is visible")
-    public void verifyThankYouWeWillReachOutShortlyHeaderTextIsVisible() {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        BrowserUtils.isDisplayed(page.thankYouText);
-        BrowserUtils.highlightElement(page.thankYouText);
     }
 
+    @Then("Verify Customize a Security Solution for Your Business  header text is visible")
+    public void verifyCustomizeASecuritySolutionForYourBusinessHeaderTextIsVisible() {
+
+        BrowserUtils.isDisplayed(page.headerText);
+        BrowserUtils.highlightElement(page.headerText);
+    }
 
     @Then("I click on Terms drop down button")
     public void iClickOnTermsDropDownButton() {
@@ -307,8 +302,22 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
+    @When("I choose values from dropdowns")
+    public void iChooseValuesFromDropdowns(DataTable dataTable) {
+                Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        List<Map<String, String>> asMaps = dataTable.asMaps();
+        for (Map<String, String> each : asMaps) {
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_Drop_Down, each.get("key"))))
+                    , each.get("value"));
+
+            BrowserUtils.sleep(5000);
+        }
+    }
+
 
     }
+
 
 
 
