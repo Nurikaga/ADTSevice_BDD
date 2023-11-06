@@ -8,6 +8,11 @@ import utils.BrowserUtils;
 import java.util.List;
 
 public class SmallBusinessPage {
+    public SmallBusinessPage() {
+
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
+
     @FindBy(xpath = "//button[@id='mainNav']")
     public WebElement homeAndPersonalBtn;
     @FindBy(css = "//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']")
@@ -38,18 +43,16 @@ public class SmallBusinessPage {
     public WebElement dropdownTerms;
     @FindBy(xpath = "//a[@title='Advertising Choice']")
     public WebElement advertisingChoiceTerms;
-    @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'res-form-sbtl-p2')][normalize-space()='Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.']")
+    @FindBy(xpath = "//div[contains(text(),'Fill out')]")
     public WebElement fillOutThisF;
     @FindBy(xpath = "(//div[@class='res-form-title-h3 ha3'])[1]")
     public WebElement weWillCallYou;
-    @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'card-title sb ha2')][normalize-space()='Thank You, we will reach out shortly.']")
-    public WebElement thankYouText;
+    @FindBy(xpath = "//h1")
+    public WebElement headerText;
 
-    public SmallBusinessPage() {
 
-        PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
-}
+
 
 
 
