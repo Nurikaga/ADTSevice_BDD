@@ -1,0 +1,310 @@
+Index: src/test/java/runners/CukesRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\n\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/report.html\", //will create report\n                \"json:target/cucumber-reports/cucumber.json\",\n                \"rerun:target/rerun.txt\", //will create a report containing any failed scenarios\n        },\n        features = \"src/test/resources/features\", //if you want to run failed scenarios from rerun do \"@target/rerun.txt\" for features\n        glue = \"step_definitions\",\n        stepNotifications = true,\n        dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/\n        ,tags = \"@US41\"\n\n        //keywords\n        //\"and not\" - 'x and not y' to exclude scenarios with that tag\n        //\"and\" - 'x and y' to run scenarios with both tags\n)\npublic class CukesRunner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/CukesRunner.java b/src/test/java/runners/CukesRunner.java
+--- a/src/test/java/runners/CukesRunner.java	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/java/runners/CukesRunner.java	(date 1699218467476)
+@@ -16,7 +16,7 @@
+         glue = "step_definitions",
+         stepNotifications = true,
+         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
+-        ,tags = "@US41"
++        ,tags = "@US75"
+ 
+         //keywords
+         //"and not" - 'x and not y' to exclude scenarios with that tag
+Index: src/test/java/step_definitions/Hooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\n\nimport io.cucumber.java.After;\nimport io.cucumber.java.Before;\nimport io.cucumber.java.Scenario;\nimport utils.BrowserUtils;\nimport utils.CucumberLogUtils;\n\npublic class Hooks {\n\n    @Before\n\n    public void setUp(Scenario scenario) {\n        //initializes the driver object to open the browser\n        // BrowserUtils.getDriver();\n        CucumberLogUtils.initScenario(scenario);\n        scenario.log(CucumberLogUtils.getLogTime() + \"\"); //custom message would go here\n    }\n\n\n    @After\n    public void tearDown(Scenario scenario) {\n        if (BrowserUtils.checkDriverStatus() != null) {\n            if (scenario.isFailed()) {\n\n                CucumberLogUtils.logFail(\"Scenario failed\", true);\n            } else {\n                CucumberLogUtils.logPass(\"Scenario passed\", true);\n\n            }\n        }\n        BrowserUtils.quitDriver();\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/Hooks.java b/src/test/java/step_definitions/Hooks.java
+--- a/src/test/java/step_definitions/Hooks.java	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/java/step_definitions/Hooks.java	(date 1699219303053)
+@@ -15,6 +15,7 @@
+         // BrowserUtils.getDriver();
+         CucumberLogUtils.initScenario(scenario);
+         scenario.log(CucumberLogUtils.getLogTime() + ""); //custom message would go here
++        CucumberLogUtils.logPass("Scenario: " + scenario.getName(), true);
+     }
+ 
+ 
+Index: src/test/resources/features/smallBusiness.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@smallBusinessScenarios @regression\nFeature: Home Page Related Scenarios\n\n  Background: Navigate to page\n    Given I open url of homepage\n    When I click \"Home & Personal\" hovered-over button\n    Then I click on \"Small Business\" link button that forwarding to the Small Business page\n\n  @US01 @smoke\n  Scenario:Verify title of the Small Business page\n    Then I verify the title of the page \"Business Security Systems & Services | ADT®\"\n\n  @US02\n  Scenario Outline: Verify Solutions, Industries, Products, Packages, Risk Assessment, and Resources buttons in the header are displayed, & enable to click\n    Then Verify \"<links>\" are displayed\n    Then Verify \"<buttons>\" are enabled\n    Examples:\n      | links           | buttons         |\n      | Solutions       | Solutions       |\n      | Industries      | Industries      |\n      | Products        | Products        |\n      | Packages        | Packages        |\n      | Risk Assessment | Risk Assessment |\n      | Resources       | Resources       |\n\n  @US03\n  Scenario: Verify that user is able to see the a header of the page\n    Then I navigate to \"Solutions\" drop down menu\n    And I click on \"Intrusion Detection\" link button that takes to the Intrusion Detection page\n    Then I change Window to the new tab\n    And I verify the header \"Professionally-monitored intrusion detection\" in the page\n\n  @US04\n  Scenario Outline: Verify a header and the links are displayed on Interactive Security page\n    Then I navigate to \"Solutions\" drop down menu\n    Then I navigate to \"Interactive Security\" drop down menu\n    Then I change Window to the new tab\n    And I verify the header \"Interactive security with automations\" in the page\n    And Verify  all \"<links>\" are displayed\n    Examples:\n      | links              |\n      | Remote Arm/Disarm  |\n      | Multiple Locations |\n      | Climate Control    |\n      | Instant Alerts     |\n      | Security Cameras   |\n      | Lighting Control   |\n\n  @US18\n  Scenario: Verify that user is able to see the a header of the page\n    Then I navigate to Accessibility button in the footer and click it\n    Then Verify pop-up window with Accessibility menu buttons is display on the right top of the page\n\n  @US20\n  Scenario: Verify header text and text under is displayed. 6 pictures with texts an Learn more buttons are displayed\n    Then Verify \"Customize a business security system today \" text in header is displayed\n    Then Verify \"Your business isn’t just your business. It’s your passion, your way of life. It’s also a livelihood for you and your employees. We can tailor a security solution to help protect it. \" text under header is displayed\n    Then Verify pictures are displayed\n    Then Verify the texts under pictures are displayed\n    Then Verify Learn more buttons are displayed\n\n  @US31\n  Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields\n    When I scroll down until i see We'll Call You test\n    Then Verify the \"We'll Call You\" text under header is displayed\n    Then Verify \"Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.\" text under We'll Call You is displayed\n    When I fill out the form\n      | Key                          | Value                 |\n      | Res_Customer_Full_Name_460   | Patric                |\n      | Res_Business_Name_460        | TOOSu                 |\n      | Btn_Industry_460             | Professional Services |\n      | Btn_Company_Size_460         | 1,000 - 5,000 sq. ft  |\n      | Res_E_Mail_Address_460       | patric@gmail.com      |\n      | Res_Phone_Number_Primary_460 | 3355335544            |\n      | Res_Postal_Code_460          | 53533                |\n    And I click on the Call Me Back button\n    Then Verify Thank You, we will reach out shortly. header text is visible\n\n\n  @US32\n  Scenario Outline: verify the links headers stay the same on the corresponding pages\n    When user clicks on \"<linkHeader>\" link's header button\n    Then verify the linkHeader is \"<header>\"\n    Examples:\n      | linkHeader               | header                |\n      | Professional Services    | Professional Services |\n      | Food & Beverage          | Food & Beverage       |\n      | Retail                   | Retail                |\n      | Automotive Repairs       | Automotive            |\n      | Manufacturing/Warehouses | Manufacturing         |\n      | Health & Wellness        | Health & Wellness     |\n\n  @US-33\n  Scenario Outline: Verify the footer Product Categories menu\n    When I scroll down\n    Then Verify \"<link>\" link buttons are enabled\n    Then Verify \"<title>\" of each page\n    Examples:\n      | link                   | title                                                             |\n      | Home Security          | Best Home Security Systems by ADT® \\| Home Security You Can Trust |\n      | Smart Home Automation  | Smart Home Automation Systems \\| ADT®                             |\n      | Security Cameras       | Home Security Cameras & Wireless Camera Systems \\| ADT®           |\n      | Business Security      | Business Security Systems & Services \\| ADT®                      |\n      | Commercial             | Everon Security & Fire Monitoring                                 |\n      | Health & Senior Safety | Medical Alert Systems \\| Health & Senior Safety Resources by ADT  |\n      | Mobile Apps            | ADT® Apps \\| Home Security Apps \\| Smart Home Control by ADT      |\n\n\n  @US34\n  Scenario Outline: Verify links under About Section\n    When I scroll down\n    Then Verify \"<link>\" link buttons are enabled\n    And I change Window to the new tab\n    Then Verify \"<title>\" of each page\n    Then I take screenshot of test\n    Examples:\n      | link               | title                                                          |\n      | About Us           | About ADT Company History \\| What is & Who Owns ADT            |\n      | ADT Reviews        | Why ADT has the Best Home Security and Customer Service \\| ADT |\n      | Newsroom           | ADT - Newsroom & Stories                                       |\n      | Careers            | Working at ADT \\| Jobs and Careers at ADT                      |\n      | Investor Relations | ADT Inc. - Investor Relations                                  |\n\n  @US35\n  Scenario: Verify the footer Dealers & Service menu\n    When I scroll down\n    Then I click Local Service Areas button and change Window to the new tab\n    Then I verify title of the Local Service Areas page is \"ADT Local Service Areas\"\n    And I take screenshot of test\n    And I click on Become an ADT Dealer button and Window to the new tab\n    Then Verify title of the Become an ADT Dealer page is \"Official ADT Authorized Dealer Program\"\n    And I take screenshot of test\n    And I click on Dealer Lookup button and Window to the new tab\n    Then Verify title of the Dealer Lookup page is \"ADT Dealer License Lookup\"\n    And I take screenshot of test\n\n\n\n  @US37\n  Scenario Outline: Verify the footer text and links buttons\n    When I scroll down\n    Then verify text is displayed\n    And verify Terms drop down button is enabled\n    Then Verify \"<link>\" link buttons are displayed and enabled\n    Examples:\n      | link           |\n      | Privacy Policy |\n      | En Español     |\n      | Licenses       |\n      | Sitemap        |\n\n  @US38\n  Scenario: Verify the footer Terms button choice is enabled\n    When I scroll down\n    Then I click on Terms drop down button\n    Then I click on drop down choice Advertising Choice\n    And I verify a title of the page \"TrustArc Preference Manager\"\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/smallBusiness.feature b/src/test/resources/features/smallBusiness.feature
+--- a/src/test/resources/features/smallBusiness.feature	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/resources/features/smallBusiness.feature	(date 1699218587004)
+@@ -155,3 +155,5 @@
+     Then I click on Terms drop down button
+     Then I click on drop down choice Advertising Choice
+     And I verify a title of the page "TrustArc Preference Manager"
++
++
+Index: src/test/java/step_definitions/SmallBusinessSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\n\nimport io.cucumber.datatable.DataTable;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.JavascriptExecutor;\nimport org.openqa.selenium.Keys;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.interactions.Actions;\nimport org.openqa.selenium.support.ui.Select;\nimport pages.CommonPage;\nimport pages.SmallBusinessPage;\nimport utils.BrowserUtils;\nimport utils.CucumberLogUtils;\nimport java.util.LinkedHashMap;\nimport java.util.List;\nimport java.util.Map;\n\npublic class SmallBusinessSteps implements CommonPage {\n    SmallBusinessPage page;\n    String mainWindowHandle;\n\n    public SmallBusinessSteps() {\n        page = new SmallBusinessPage();\n\n    }\n\n    @When(\"I click on Home & Personal button\")\n    public void iClickOnHomePersonalButton() throws InterruptedException {\n        BrowserUtils.click(page.homeAndPersonalBtn);\n    }\n\n    @And(\"I click on Small Business button\")\n    public void iClickOnSmallBusinessButton() throws InterruptedException {\n        BrowserUtils.getDriver().findElement(By.xpath(\"(//span[text()='Small Business'])[1]\")).click();\n        Thread.sleep(5000);\n    }\n\n    @Then(\"Verify {string} are displayed\")\n    public void verifyAreDisplayed(String btns) {\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btns))));\n    }\n\n    @Then(\"Verify {string} are enabled\")\n    public void verifyAreEnabled(String Buttons) {\n        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Buttons))));\n    }\n\n    @When(\"I click {string} hovered-over button\")\n    public void iClickHoveredOverButton(String homePersonalBtn) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();\n    }\n\n    @Then(\"I click on {string} link button that forwarding to the Small Business page\")\n    public void iClickOnLinkButtonThatForwardingToTheSmallBusinessPage(String smallBusinessBtn) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, smallBusinessBtn))).click();\n    }\n\n    @And(\"I change Window to the new tab\")\n    public void iChangeWindowToTheNewTab() {\n        BrowserUtils.switchToNewWindow();\n    }\n\n    @Then(\"I navigate to {string} drop down menu\")\n    public void iNavigateToDropDownMenu(String solutionLink) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, solutionLink))).click();\n    }\n\n    @And(\"I click on {string} link button that takes to the Intrusion Detection page\")\n    public void iClickOnLinkButtonThatTakesToTheIntrusionDetectionPage(String intrusionDetectionLink) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, intrusionDetectionLink))).click();\n    }\n\n    @And(\"I verify the header {string} in the page\")\n    public void iVerifyTheHeaderInThePage(String header) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, header))).getText(), header);\n    }\n\n    @Then(\"Verify {string} text in header is displayed\")\n    public void verifyTextInHeaderIsDisplayed(String headerText) {\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));\n        //BrowserUtils.getDriver().navigate().refresh();\n    }\n\n    @Then(\"Verify {string} text under header is displayed\")\n    public void verifyTextUnderHeaderIsDisplayed(String text) {\n        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));\n    }\n\n    @Then(\"Verify pictures are displayed\")\n    public void verifyPicturesAreDisplayed() throws InterruptedException {\n\n        for (WebElement each : page.pictureTitles) {\n            BrowserUtils.assertTrue(each.isDisplayed());\n        }\n    }\n\n    @Then(\"Verify the texts under pictures are displayed\")\n    public void verifyTheTextsUnderPicturesAreDisplayed() {\n        for (WebElement element : page.textUnderPictures) {\n            BrowserUtils.assertTrue(element.isDisplayed());\n            System.out.println(element.getText());\n        }\n    }\n\n    @Then(\"Verify Learn more buttons are displayed\")\n    public void verifyLearnMoreButtonsAreDisplayed() {\n        for (WebElement element : page.learnMoreBtns) {\n            BrowserUtils.isDisplayed(element);\n            System.out.println(element.getText());\n        }\n    }\n\n    @Then(\"I verify the title of the page {string}\")\n    public void iVerifyTheTitleOfThePage(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        CucumberLogUtils.logPass(\"Title is displayed\", true);\n    }\n\n    @And(\"Verify  all {string} are displayed\")\n    public void verifyAllAreDisplayed(String links) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, links))).isDisplayed();\n    }\n\n    @And(\"I verify the image,title,text is displayed\")\n    public void iVerifyTheImageTitleTextIsDisplayed() {\n        for (WebElement each : page.imageList4) {\n            BrowserUtils.isDisplayed(each);\n        }\n    }\n\n    @And(\"I take screenshot of test\")\n    public void iTakeScreenshotOfTest() {\n        CucumberLogUtils.logPass(\"Image is displayed\", true);\n    }\n\n    @Then(\"Verify pop-up window with Accessibility menu buttons is display on the right top of the page\")\n    public void verifyPopUpWindowWithAccessibilityMenuButtonsIsDisplayOnTheRightTopOfThePage() {\n        BrowserUtils.sleep(5000);\n        CucumberLogUtils.logPass(\"Accessibility menu buttons is display on the right top of the page\", true);\n    }\n\n    @Then(\"I navigate to Accessibility button in the footer and click it\")\n    public void iNavigateToAccessibilityButtonInTheFooterAndClickIt() {\n        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();\n        js.executeScript(\"window.scrollBy(0,350)\", page.accessabilityBtn);\n        BrowserUtils.click(page.accessabilityBtn);\n    }\n\n    @When(\"user clicks on {string} link's header button\")\n    public void userClicksOnLinkSHeaderButton(String linkHeader) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, linkHeader))).click();\n    }\n\n    @Then(\"verify the linkHeader is {string}\")\n    public void verifyTheLinkHeaderIs(String header) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, header))).getText(), header);\n    }\n\n    @When(\"I scroll down until i see We'll Call You test\")\n    public void iScrollDownUntilISeeWeLlCallYouTest() throws InterruptedException {\n        Actions actions = new Actions(BrowserUtils.getDriver());\n        actions.sendKeys(Keys.PAGE_DOWN).build().perform();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the {string} text under header is displayed\")\n    public void verifyTheTextUnderHeaderIsDisplayed(String weWillCallYou) {\n        BrowserUtils.isDisplayed(page.weWillCallYou);\n    }\n\n    @Then(\"Verify {string} text under We'll Call You is displayed\")\n    public void verifyTextUnderWeLlCallYouIsDisplayed(String fillOutThisF) {\n\n        BrowserUtils.isDisplayed(page.fillOutThisF);\n    }\n\n    @When(\"I scroll table to the view\")\n    public void iScrollTableToTheView() {\n        Actions actions = new Actions(BrowserUtils.getDriver());\n        actions.sendKeys(Keys.PAGE_UP).build().perform();\n    }\n\n\n\n    @Then(\"Verify {string} link buttons are enabled\")\n    public void verifyLinkButtonsAreEnabled(String productLinks) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CLASS, productLinks))).click();\n    }\n\n    @Then(\"Verify {string} of each page\")\n    public void verifyOfEachPage(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n\n\n    @And(\"I click on Become an ADT Dealer button and Window to the new tab\")\n    public void iClickOnBecomeAnADTDealerButtonAndWindowToTheNewTab() throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        Thread.sleep(3000);\n        BrowserUtils.click(page.becomeDealerBtn);\n        BrowserUtils.switchToNewWindow();\n    }\n\n    @Then(\"Verify title of the Become an ADT Dealer page is {string}\")\n    public void verifyTitleOfTheBecomeAnADTDealerPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @And(\"I click on Dealer Lookup button and Window to the new tab\")\n    public void iClickOnDealerLookupButtonAndWindowToTheNewTab() throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        Thread.sleep(3000);\n        BrowserUtils.click(page.dealerLookupBtn);\n        BrowserUtils.switchToNewWindow();\n    }\n\n    @Then(\"Verify title of the Dealer Lookup page is {string}\")\n    public void verifyTitleOfTheDealerLookupPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @Then(\"I click Local Service Areas button and change Window to the new tab\")\n    public void iClickLocalServiceAreasButtonAndChangeWindowToTheNewTab() throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        Thread.sleep(3000);\n        BrowserUtils.click(page.localServiceAreasBtn);\n        BrowserUtils.switchToNewWindow();\n    }\n\n    @Then(\"I verify title of the Local Service Areas page is {string}\")\n    public void iVerifyTitleOfTheLocalServiceAreasPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n\n\n    @Then(\"verify text is displayed\")\n    public void verifyTextIsDisplayed() {\n        page.footerText.isDisplayed();\n    }\n\n    @Then(\"Verify {string} link buttons are displayed and enabled\")\n    public void verifyLinkButtonsAreDisplayedAndEnabled(String link) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isDisplayed();\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))).isEnabled();\n    }\n\n    @And(\"verify Terms drop down button is enabled\")\n    public void verifyTermsDropDownButtonIsEnabled() {\n        page.dropdownTerms.isDisplayed();\n        page.dropdownTerms.isEnabled();\n    }\n\n\n\n    @When(\"I fill out the form\")\n    public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {\n        Actions actions = new Actions(BrowserUtils.getDriver());\n        actions.sendKeys(Keys.PAGE_UP).build().perform();\n\n        // BrowserUtils.getDriver().findElement(By.xpath(\"//input[@id='Res_Customer_Full_Name_460']\")).sendKeys(\"Patric\");\n        List<Map<String, String>> asMaps = dataTable.asMaps();\n        for (Map<String, String> each : asMaps) {\n            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get(\"Key\"))))\n                    , each.get(\"Value\"));\n            BrowserUtils.sleep(1000);\n        }\n\n    }\n\n    @And(\"I click on the Call Me Back button\")\n    public void iClickOnTheCallMeBackButton() {\n\n        BrowserUtils.getDriver().findElement(By.xpath(\"//button[@id='res_smb_form_835']\")).click();\n        BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath(\"//button[@id='res_smb_form_835']\")));\n        CucumberLogUtils.logPass(\"clicked the button\", true);\n\n    }\n    @Then(\"Verify Thank You, we will reach out shortly. header text is visible\")\n    public void verifyThankYouWeWillReachOutShortlyHeaderTextIsVisible() {\n        Actions actions = new Actions(BrowserUtils.getDriver());\n        actions.sendKeys(Keys.PAGE_UP).build().perform();\n        BrowserUtils.isDisplayed(page.thankYouText);\n        BrowserUtils.highlightElement(page.thankYouText);\n    }\n\n\n    @Then(\"I click on Terms drop down button\")\n    public void iClickOnTermsDropDownButton() {\n        page.dropdownTerms.click();\n    }\n\n    @Then(\"I click on drop down choice Advertising Choice\")\n    public void iClickOnDropDownChoiceAdvertisingChoice() {\n        page.advertisingChoiceTerms.click();\n        BrowserUtils.switchToNewWindow();\n    }\n\n    @And(\"I verify a title of the page {string}\")\n    public void iVerifyATitleOfThePage(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n\n    }\n\n\n\n\n\n\n\n\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/SmallBusinessSteps.java b/src/test/java/step_definitions/SmallBusinessSteps.java
+--- a/src/test/java/step_definitions/SmallBusinessSteps.java	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/java/step_definitions/SmallBusinessSteps.java	(date 1699218467491)
+@@ -2,6 +2,7 @@
+ 
+ import io.cucumber.datatable.DataTable;
+ import io.cucumber.java.en.And;
++import io.cucumber.java.en.Given;
+ import io.cucumber.java.en.Then;
+ import io.cucumber.java.en.When;
+ import org.openqa.selenium.By;
+@@ -308,7 +309,10 @@
+     }
+ 
+ 
+-    }
++
++
++
++}
+ 
+ 
+ 
+Index: src/test/java/pages/SmallBusinessPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utils.BrowserUtils;\n\nimport java.util.List;\n\npublic class SmallBusinessPage {\n    public SmallBusinessPage() {\n\n        PageFactory.initElements(BrowserUtils.getDriver(), this);\n    }\n    @FindBy(xpath = \"//button[@id='mainNav']\")\n    public WebElement homeAndPersonalBtn;\n    @FindBy(css = \"//header[@id='nav-menu']//div[@class='adt7-btn-desktop']//a[@title='Open Form']\")\n    public WebElement freeRiskAssessmentBtn;\n    @FindBy(xpath = \"//div[@class='card-main-content']\")\n    public List<WebElement> pictureTitles;\n    @FindBy(xpath = \"//div[@class='card-text c-bl-text']\")\n    public List<WebElement> textUnderPictures;\n    @FindBy(xpath = \"//div[@class='card-main-content']//div[@class='tertiary-link-text']\")\n    public List<WebElement> learnMoreBtns;\n    @FindBy(xpath = \"//div[@class='mainc-69392292']/div/div\")\n    public List<WebElement> imageList4;\n    @FindBy(xpath = \"//span[@class='btn-equal-web-icon']\")\n    public WebElement accessabilityBtn;\n    @FindBy(xpath = \"/html//div[@id='productCategories']\")\n    public WebElement footerProductCategories;\n    @FindBy(css = \"div[class='adt-footer-links-section d-none d-lg-block'] a[title='Become an ADT Dealer']\")\n    public WebElement becomeDealerBtn;\n    @FindBy(css = \"div[class='adt-footer-links-section d-none d-lg-block'] a[title='Dealer Lookup']\")\n    public WebElement dealerLookupBtn;\n    @FindBy(css = \"div[class='adt-footer-links-section d-none d-lg-block'] a[title='Local Service Areas']\")\n    public WebElement localServiceAreasBtn;\n    @FindBy(xpath = \"//p[@class='text-justify pb-2 pb-lg-0']\")\n    public WebElement footerText;\n    @FindBy(xpath = \"/html//a[@id='dropdownMenuLink']\")\n    public WebElement dropdownTerms;\n    @FindBy(xpath = \"//a[@title='Advertising Choice']\")\n    public WebElement advertisingChoiceTerms;\n\n    @FindBy(xpath = \"//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'res-form-sbtl-p2')][normalize-space()='Fill out this form and an ADT specialist will contact you to discuss ADT security solutions.']\")\n    public WebElement fillOutThisF;\n    @FindBy(xpath = \"(//div[@class='res-form-title-h3 ha3'])[1]\")\n    public WebElement weWillCallYou;\n\n    @FindBy(xpath = \"//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'card-title sb ha2')][normalize-space()='Thank You, we will reach out shortly.']\")\n    public WebElement thankYouText;\n\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/SmallBusinessPage.java b/src/test/java/pages/SmallBusinessPage.java
+--- a/src/test/java/pages/SmallBusinessPage.java	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/java/pages/SmallBusinessPage.java	(date 1699218467486)
+@@ -49,6 +49,8 @@
+     @FindBy(xpath = "//div[contains(@class,'adt-form-res-835 res-form')]//div[contains(@class,'card-title sb ha2')][normalize-space()='Thank You, we will reach out shortly.']")
+     public WebElement thankYouText;
+ 
++
++
+ }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d1baf64c-3691-4b35-b6f9-03bae2cfad91\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/CommonPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/CommonPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/accessControl.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/accessControl.feature\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MacroExpansionManager\">\n    <option name=\"directoryName\" value=\"pve5bpyi\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2XjBnQOymICQj2MsumprBo0LTgg\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;julia&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"CukesRunner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"ADTSevice_BDD\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.CukesRunner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.CukesRunner\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d1baf64c-3691-4b35-b6f9-03bae2cfad91\" name=\"Changes\" comment=\"\" />\n      <created>1699132776665</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1699132776665</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/.idea/workspace.xml	(date 1699219303153)
+@@ -5,16 +5,28 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="d1baf64c-3691-4b35-b6f9-03bae2cfad91" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/src/test/java/pages/CommercialPage.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/step_definitions/CommercialSteps.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/resources/features/commercial.feature" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AccessControlPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/AccessControlSteps.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/accessControl.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SmallBusinessPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HomeSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/Hooks.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -40,7 +52,46 @@
+     &quot;git-widget-placeholder&quot;: &quot;julia&quot;
+   }
+ }</component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="JUnit.CukesRunner">
++    <configuration name="Feature: commercial" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/commercial.feature" />
++      <option name="GLUE" value="step_definitions" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="ADTSevice_BDD" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: commercial" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Scenario: Verify nineteen icons are present" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++      <option name="CUCUMBER_CORE_VERSION" value="5" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/commercial.feature" />
++      <option name="GLUE" value="step_definitions" />
++      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++      <module name="ADTSevice_BDD" />
++      <option name="NAME_FILTER" value="^Verify nineteen icons are present$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify nineteen icons are present$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify nineteen icons are present" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="CukesRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="ADTSevice_BDD" />
+       <extension name="coverage">
+@@ -59,6 +110,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.CukesRunner" />
++        <item itemvalue="Cucumber Java.Scenario: Verify nineteen icons are present" />
++        <item itemvalue="Cucumber Java.Feature: commercial" />
+       </list>
+     </recent_temporary>
+   </component>
+Index: src/test/java/step_definitions/CommercialSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/CommercialSteps.java b/src/test/java/step_definitions/CommercialSteps.java
+new file mode 100644
+--- /dev/null	(date 1699219462604)
++++ b/src/test/java/step_definitions/CommercialSteps.java	(date 1699219462604)
+@@ -0,0 +1,30 @@
++package step_definitions;
++
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import org.openqa.selenium.WebElement;
++import pages.CommercialPage;
++import pages.CommonPage;
++import utils.BrowserUtils;
++import utils.CucumberLogUtils;
++
++public class CommercialSteps implements CommonPage {
++    CommercialPage page = new CommercialPage();
++
++    public CommercialSteps() {
++        page = new CommercialPage();
++    }
++    @Given("I open url of Commercial page")
++    public void iOpenUrlOfCommercialPage() {
++        BrowserUtils.getDriver().get("https://www.adt.com/commercial");
++    }
++    @Then("I verify that nineteen icons are present")
++    public void iVerifyThatNineteenIconsArePresent() {
++        CucumberLogUtils.logPass("Icons are present", true);
++        for (WebElement each : page.nineteenIcons) {
++            BrowserUtils.isDisplayed(each);
++
++        }
++    }
++
++}
+Index: src/test/java/step_definitions/HomeSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package step_definitions;\n\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.openqa.selenium.Alert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.interactions.Actions;\nimport pages.CommonPage;\nimport pages.HomePage;\nimport utils.BrowserUtils;\nimport utils.CucumberLogUtils;\n\npublic class HomeSteps implements CommonPage {\n    HomePage page;\n    String mainWindowHandle;\n\n    public HomeSteps() {\n        page = new HomePage();\n\n    }\n\n    @Given(\"I open url of homepage\")\n    public void i_open_url_of_homepage() {\n        BrowserUtils.getDriver();\n    }\n\n    @Then(\"Verify Title of Home page is {string}\")\n    public void verifyTitleOfHomePageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n    @Then(\"Verify the Title of Home & Personal page is {string}\")\n    public void verifyTheTitleOfHomePersonalPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n    @Then(\"Verify ADT logo button is displayed\")\n    public void verifyADTLogoButtonIsDisplayed() throws InterruptedException {\n        BrowserUtils.isDisplayed(page.adtLogoBtn);\n        Thread.sleep(3000);\n    }\n\n    @And(\"Verify the drop down menu should be visible\")\n    public void verifyTheDropDownMenuShouldBeVisible() {\n        BrowserUtils.isDisplayed(page.dropDownMenu);\n    }\n\n    @And(\"Verify {string} are enable\")\n    public void verifyAreEnable(String buttons) {\n        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement\n                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, buttons))));\n    }\n\n    @Then(\"Verify {string} button is displayed\")\n    public void verifyButtonIsDisplayed(String shopNowBtn) {\n        BrowserUtils.isDisplayed(page.shopNowBtn);\n    }\n\n    @And(\"Verify {string} button is enabled\")\n    public void verifyButtonIsEnabled(String shopNowBtn) {\n        BrowserUtils.isEnabled(page.shopNowBtn);\n    }\n\n\n    @And(\"I verify the {string} is displayed\")\n    public void iVerifyTheIsDisplayed(String image) {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG, image))).isDisplayed();\n    }\n\n//    @Then(\"I click on {string} hovered-over button\")\n//    public void iClickOnHoveredOverButton(String callBtn) throws InterruptedException {\n//        BrowserUtils.click(page.callBtn);\n//        Thread.sleep(5000);\n//        Alert alert = BrowserUtils.getDriver().switchTo().alert();\n//        alert.dismiss();\n//    }\n\n    @Then(\"I hover over call button\")\n    public void iHoverOverCallButton() throws InterruptedException {\n        Actions actions = new Actions(BrowserUtils.getDriver());\n        actions.moveToElement(page.callBtn).perform();\n        Thread.sleep(3000);\n        CucumberLogUtils.logPass(\"Image is displayed\", true);\n    }\n    @And(\"Verify phone number under icon is {string}\")\n    public void verifyPhoneNumberUnderIconIs(String phoneNumber) throws InterruptedException {\n        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, phoneNumber))).click();\n    }\n\n    @And(\"Verify {string} under icon is displayed\")\n    public void verifyUnderIconIsDisplayed() {\n        BrowserUtils.isDisplayed(page.phoneNumber);\n    }\n\n    @Then(\"I click on Customer Login icon\")\n    public void iClickOnCustomerLoginIcon() {\n        BrowserUtils.click(page.customerIcon);\n    }\n\n    @When(\"I click on Shopping cart icon\")\n    public void iClickOnShoppingCartIcon() {\n        BrowserUtils.getDriver().findElement(By.xpath(\"//div[@class='right-container']//img[@alt='cart icon']\")).click();\n    }\n\n    @Then(\"I click on Get a free quote button\")\n    public void iClickOnGetAFreeQuoteButton() {\n        BrowserUtils.click(page.getFreeQuoteBtn);\n    }\n\n    @And(\"Verify the window is displayed\")\n    public void verifyTheWindowIsDisplayed() {\n        BrowserUtils.sleep(1000);\n        BrowserUtils.isDisplayed(page.getFreeQuoteWindow);\n    }\n\n    @When(\"I scroll down\")\n    public void iScrollDown() {\n        BrowserUtils.moveIntoView(page.footerSocialMediaIcons);\n    }\n\n    @Then(\"Verify the {string} button is displayed\")\n    public void verifyTheButtonIsDisplayed(String facebookIcon) {\n        BrowserUtils.isDisplayed(page.facebookIcon);\n    }\n\n    @Then(\"Verify the {string} button is enabled\")\n    public void verifyTheButtonIsEnabled(String facebookIcon) {\n        BrowserUtils.isEnabled(page.facebookIcon);\n    }\n\n    @And(\"I click on {string} icon and change Window to the new tab\")\n    public void iClickOnIconAndChangeWindowToTheNewTab(String facebookIcon) throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        BrowserUtils.click(page.facebookIcon);\n        BrowserUtils.switchToNewWindow();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the title of the FaceBook page is {string}\")\n    public void verifyTheTitleOfTheFaceBookPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @Then(\"Verify Twitter button {string}  is displayed\")\n    public void verifyTwitterButtonIsDisplayed(String twitterIcon) {\n        BrowserUtils.isDisplayed(page.twitterIcon);\n    }\n\n    @Then(\"Verify Twitter {string}  is enabled\")\n    public void verifyTwitterIsEnabled(String twitterIcon) {\n        BrowserUtils.isEnabled(page.twitterIcon);\n    }\n\n    @And(\"I click on button {string} icon and change Window to the new tab\")\n    public void iClickOnButtonIconAndChangeWindowToTheNewTab(String twitterIcon) throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        BrowserUtils.click(page.twitterIcon);\n        BrowserUtils.switchToNewWindow();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the title of the Twitter page is {string}\")\n    public void verifyTheTitleOfTheTwitterPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @Then(\"Verify Pinterest button {string}  is displayed\")\n    public void verifyPinterestButtonIsDisplayed(String pinterestIcon) {\n        BrowserUtils.isDisplayed(page.pinterestIcon);\n    }\n\n    @Then(\"Verify Pinterest {string}  is enabled\")\n    public void verifyPinterestIsEnabled(String pinterestIcon) {\n        BrowserUtils.isEnabled(page.pinterestIcon);\n    }\n\n    @And(\"I click Pinterest button {string} icon and change Window to the new tab\")\n    public void iClickPinterestButtonIconAndChangeWindowToTheNewTab(String pinterestIcon) throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        BrowserUtils.click(page.pinterestIcon);\n        BrowserUtils.switchToNewWindow();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the title of the Pinterest page is {string}\")\n    public void verifyTheTitleOfThePinterestPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @Then(\"Verify Instagram button {string}  is displayed\")\n    public void verifyInstagramButtonIsDisplayed(String instagramIcon) {\n        BrowserUtils.isDisplayed(page.instagramIcon);\n    }\n\n    @Then(\"Verify Instagram {string}  is enabled\")\n    public void verifyInstagramIsEnabled(String instagramIcon) {\n        BrowserUtils.isEnabled(page.instagramIcon);\n    }\n\n    @And(\"I click Instagram button {string} icon and change Window to the new tab\")\n    public void iClickInstagramButtonIconAndChangeWindowToTheNewTab(String instagramIcon) throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        BrowserUtils.click(page.instagramIcon);\n        BrowserUtils.switchToNewWindow();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the title of theInstagram page is {string}\")\n    public void verifyTheTitleOfTheInstagramPageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n        BrowserUtils.getDriver().switchTo().window(mainWindowHandle);\n    }\n\n    @Then(\"Verify YouTube button {string}  is displayed\")\n    public void verifyYouTubeButtonIsDisplayed(String youtubeIcon) {\n        BrowserUtils.isDisplayed(page.youtubeIcon);\n    }\n\n    @Then(\"Verify YouTube {string}  is enabled\")\n    public void verifyYouTubeIsEnabled(String youtubeIcon) {\n        BrowserUtils.isEnabled(page.youtubeIcon);\n    }\n\n    @And(\"I click YouTube button {string} icon and change Window to the new tab\")\n    public void iClickYouTubeButtonIconAndChangeWindowToTheNewTab(String youtubeIcon) throws InterruptedException {\n        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();\n        BrowserUtils.click(page.youtubeIcon);\n        BrowserUtils.switchToNewWindow();\n        Thread.sleep(3000);\n    }\n\n    @Then(\"Verify the title of YouTube page is {string}\")\n    public void verifyTheTitleOfYouTubePageIs(String title) {\n        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);\n    }\n\n\n    }\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/step_definitions/HomeSteps.java b/src/test/java/step_definitions/HomeSteps.java
+--- a/src/test/java/step_definitions/HomeSteps.java	(revision e26153a344bdcf9e698175c457a8083b23d5afe8)
++++ b/src/test/java/step_definitions/HomeSteps.java	(date 1699215861929)
+@@ -240,7 +240,8 @@
+     }
+ 
+ 
+-    }
++
++}
+ 
+ 
+ 
+Index: src/test/java/pages/CommercialPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/CommercialPage.java b/src/test/java/pages/CommercialPage.java
+new file mode 100644
+--- /dev/null	(date 1699218467480)
++++ b/src/test/java/pages/CommercialPage.java	(date 1699218467480)
+@@ -0,0 +1,16 @@
++package pages;
++
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import utils.BrowserUtils;
++
++import java.util.List;
++
++public class CommercialPage{
++    public CommercialPage(){
++        PageFactory.initElements(BrowserUtils.getDriver(), this);
++    }
++    @FindBy(xpath = "//section[1]/div[2]/ul[1]/li")
++    public List<WebElement> nineteenIcons;
++}
+Index: src/test/resources/features/commercial.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/commercial.feature b/src/test/resources/features/commercial.feature
+new file mode 100644
+--- /dev/null	(date 1699218280696)
++++ b/src/test/resources/features/commercial.feature	(date 1699218280696)
+@@ -0,0 +1,11 @@
++@CommercialScenarios
++  Feature: Commercial Scenarios
++    Background: Navigate to page
++      Given I open url of homepage
++      When I click "Home & Personal" hovered-over button
++      Then I click on "Small Business" link button that forwarding to the Small Business page
++
++    @US75
++    Scenario:Verify nineteen icons are present
++      Given I open url of Commercial page
++      Then I verify that nineteen icons are present
+\ No newline at end of file
