@@ -130,6 +130,13 @@ Feature: Home Page Related Scenarios
     When I click on the "LIVE CHAT NOW!" button
     Then Verify the header in pop-up window is ADT's Digital Assistant
 
+    @US46
+      Scenario:Scroll down the page and verify  <Privacy Feedback -Powered by TRUSTe> link button is displayed on the footer of the page. When you click on the link button, it takes you to the corresponding page. Verify the title of that page.
+When I scroll down
+      Then Verify Privacy Feedback -Powered by TRUSTe button is displayed
+      When I click on Privacy Feedback -Powered by TRUSTe button
+      Then Verify title is "Privacy Feedback Button – TrustArc The Leader in Privacy Management Software"
+
   @US47
   Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
     When I scroll down to the footer
