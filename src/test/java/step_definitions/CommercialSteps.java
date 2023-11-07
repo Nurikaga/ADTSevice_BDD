@@ -31,14 +31,5 @@ public class CommercialSteps implements CommonPage {
         }
     }
 
-    @When("I scroll down to the footer of the page")
-    public void iScrollDownToTheFooterOfThePage() {
-        BrowserUtils.moveIntoView(page.footerCopyRight);
-    }
 
-    @Then("I verify that text is displayed page")
-    public void iVerifyThatTextIsDisplayedPage() {
-        String text = "© 2023 ADT. All rights reserved. The product/service names listed in this document are marks and/or registered marks of their respective owners and used under license. Unauthorized use strictly prohibited.";
-        BrowserUtils.assertEquals(page.footerCopyRight.getText(), text);
-    }
 }

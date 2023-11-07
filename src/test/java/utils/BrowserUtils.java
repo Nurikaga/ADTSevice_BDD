@@ -138,10 +138,10 @@ public class BrowserUtils {
         waitForElementClickability(element);
         moveIntoView(element);
         highlightElement(element);
-      //  BrowserUtils.getDriver().navigate().refresh();
-      //  waitForPageToReload();
+        BrowserUtils.getDriver().navigate().refresh();
+        waitForPageToReload();
         element.click();
-       // waitForPageFinishLoading();
+        waitForPageFinishLoading();
     }
 
     public static void assertEquals(String actual, String expected) {

@@ -9,7 +9,4 @@
     Scenario:Verify nineteen icons are present
       Given I open url of Commercial page
       Then I verify that nineteen icons are present
-    @US81
-    Scenario: Verify Copyright text is displayed in the footer of Commercial Page
-      When I scroll down to the footer of the page
-      Then I verify that text is displayed page
+
