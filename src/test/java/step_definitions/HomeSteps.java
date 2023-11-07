@@ -6,6 +6,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.HomePage;
@@ -241,6 +244,31 @@ public class HomeSteps implements CommonPage {
 
 
 
+    @Then("Verify Not sure where to start? question is displayed when you scroll down towards the middle")
+    public void verifyNotSureWhereToStartQuestionIsDisplayedWhenYouScrollDownTowardsTheMiddle() {
+        BrowserUtils.isDisplayed(page.notSureQuestion);
+    }
+
+    @Then("Verify that the {string} button is displayed")
+    public void verifyThatTheButtonIsDisplayed(String takeAQuiz) {
+        //BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, takeAQuiz))));
+        BrowserUtils.isDisplayed(page.takeAQuizBtn);
+    }
+
+    @When("I click on Take a quiz button")
+    public void iClickOnTakeAQuizButton() throws InterruptedException {
+
+        BrowserUtils.getDriver().findElement(By.xpath("//span[contains(text(), 'Take a quiz')]")).click();
+    }
+
+    @When("I scroll up little")
+    public void iScrollUpLittle() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, -500)");
+//        Actions actions = new Actions(BrowserUtils.getDriver());
+//        actions.moveToElement(page.takeAQuizBtn).perform();
+//        Thread.sleep(5000);
+    }
 }
 
 
