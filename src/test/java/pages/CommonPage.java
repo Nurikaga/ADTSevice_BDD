@@ -25,6 +25,7 @@ public interface CommonPage {
     String CSS_TEMPLATE_IMG = "img[alt='%s']";
 
   //  String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
+  String XPATH_TEMPLATE_Drop_Down = "//button[@class='btn-form-select col-12 dropdown-toggle']//span[text()='%s'])[2]";
 
 
 
