@@ -148,3 +148,10 @@ When I scroll down
     Then Verify title is "Contact Support" on that page
     When I click on Leave Website Feedback button
     Then Verify ADT emblem is displayed in pop up window
+
+    @US48
+    Scenario: Scroll down and verify  <Bug Reporting> link is displayed on the page. When you click on the link, it takes you to the corresponding page. Verify the title of that page.
+      When I scroll down
+      Then Verify "Bug Reporting" link is displayed
+      When I click on "Bug Reporting" button
+      Then Verify header is "Vulnerability and Bug Reporting"
