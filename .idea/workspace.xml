@@ -28,14 +28,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bef59bc1-f82a-4700-b565-d8c44a99907f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM_[Changes]/3b21f601d55500afdf7ac23b7d439f41cf32dfc0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM_[Changes]1/3b21f601d55500afdf7ac23b7d439f41cf32dfc0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_30_2023_11_37_AM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CommonPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/SmallBusinessSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/smallBusiness.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/CommercialSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/CommercialSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/HealthSeniorSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/commercial.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/commercial.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +57,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="pve5bpyi" />
-
   <component name="GitToolBoxStore">
     <option name="recentBranches">
       <RecentBranches>
@@ -80,7 +81,9 @@
         </option>
       </RecentBranches>
     </option>
-
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="36xsbssw" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -93,19 +96,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;julia&quot;
-
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Irina"
-
+    "git-widget-placeholder": "julia"
   }
 }]]></component>
   <component name="RunManager">

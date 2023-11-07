@@ -198,7 +198,6 @@ public class HealthSeniorSteps implements CommonPage {
     @When("I click on Support button")
     public void iClickOnSupportButton() throws InterruptedException {
         mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
-
         BrowserUtils.click(page.supportBtn);
         CucumberLogUtils.logPass("clicked on the button", true);
         BrowserUtils.switchToNewWindow();
