@@ -317,7 +317,17 @@ Thread.sleep(1000);
     }
 
 
+    @Then("I click on En Espanol button")
+    public void iClickOnEnEspanolButton() {
+        page.espanolBtn.click();
+
     }
+
+    @And("Verify the text {string} is displayed on corresponding page")
+    public void verifyTheTextIsDisplayedOnCorrespondingPage(String text) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, text))));
+    }
+}
 
 
 
