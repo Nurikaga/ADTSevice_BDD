@@ -48,7 +48,8 @@ public class SmallBusinessSteps implements CommonPage {
 
     @When("I click {string} hovered-over button")
     public void iClickHoveredOverButton(String homePersonalBtn) {
-        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();
+        BrowserUtils.click( BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))));
+       // BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();
     }
 
     @Then("I click on {string} link button that forwarding to the Small Business page")
