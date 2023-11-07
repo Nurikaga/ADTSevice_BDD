@@ -14,3 +14,7 @@ Feature: Commercial Scenarios
   @US74
   Scenario: Verify title of the Commercial page
     Then I verify title of the page "Everon Security & Fire Monitoring"
+  @US81
+  Scenario: Verify Copyright text is displayed in the footer of Commercial Page
+    When I scroll down to the footer of the page
+    Then I verify that text is displayed page
