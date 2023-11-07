@@ -102,8 +102,14 @@ Feature: Home Page Related Scenarios
     And I click YouTube button "YouTube" icon and change Window to the new tab
     Then Verify the title of YouTube page is "ADT - YouTube"
 
-
-
+@US56
+Scenario: When you open a Home Page and scroll down half of the page, you will see ‘Not sure where to start?’ text. Verify the text is present, verify the Take A Quiz button is present and clickable, and verify the title of the page after you click on Take A Quiz button
+ When I scroll down
+ Then Verify Not sure where to start? question is displayed when you scroll down towards the middle
+ Then Verify that the "Take a quiz" button is displayed
+  When I scroll up little
+  When I click on Take a quiz button
+  Then Verify title is "Quiz"
 
 
 
