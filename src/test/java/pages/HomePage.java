@@ -39,5 +39,10 @@ public class HomePage {
     @FindBy(css = ".d-lg-block [title='Youtube']")
     public WebElement youtubeIcon;
 
+@FindBy(xpath = "//h4[text()='Not sure where to start? ']")
+public WebElement notSureQuestion;
+
+    @FindBy(xpath = "//span[contains(text(), 'Take a quiz')]")
+    public WebElement takeAQuizBtn;
 }
 

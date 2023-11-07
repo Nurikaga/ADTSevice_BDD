@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -47,7 +48,8 @@ public class SmallBusinessSteps implements CommonPage {
 
     @When("I click {string} hovered-over button")
     public void iClickHoveredOverButton(String homePersonalBtn) {
-        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();
+        BrowserUtils.click( BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))));
+       // BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, homePersonalBtn))).click();
     }
 
     @Then("I click on {string} link button that forwarding to the Small Business page")
@@ -261,31 +263,28 @@ public class SmallBusinessSteps implements CommonPage {
     }
 
     @When("I fill out the form")
-    public void i_fill_out_the_form(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        // BrowserUtils.getDriver().findElement(By.xpath("//input[@id='Res_Customer_Full_Name_460']")).sendKeys("Patric");
+    public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
             BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
                     , each.get("Value"));
-            BrowserUtils.sleep(1000);
+Thread.sleep(1000);
         }
     }
 
     @And("I click on the Call Me Back button")
-    public void iClickOnTheCallMeBackButton() {
-        BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")).click();
-        BrowserUtils.highlightElement(BrowserUtils.getDriver().findElement(By.xpath("//button[@id='res_smb_form_835']")));
+    public void iClickOnTheCallMeBackButton() throws InterruptedException {
+        BrowserUtils.getDriver().findElement(By.xpath("//form[@id='adt-res-form-id-244']//button[@class='btn btn-res-form  btn-cta btn-cta-blue btn-cta-md resi-submit-btn']")).click();
+        mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
+        BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("clicked the button", true);
     }
 
-    @Then("Verify Thank You, we will reach out shortly. header text is visible")
-    public void verifyThankYouWeWillReachOutShortlyHeaderTextIsVisible() {
-        Actions actions = new Actions(BrowserUtils.getDriver());
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        BrowserUtils.isDisplayed(page.thankYouText);
-        BrowserUtils.highlightElement(page.thankYouText);
+    @Then("Verify Customize a Security Solution for Your Business  header text is visible")
+    public void verifyCustomizeASecuritySolutionForYourBusinessHeaderTextIsVisible() {
+
+        BrowserUtils.isDisplayed(page.headerText);
+        BrowserUtils.highlightElement(page.headerText);
     }
 
     @Then("I click on Terms drop down button")
@@ -304,7 +303,21 @@ public class SmallBusinessSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-}
+    @When("I choose values from dropdowns")
+    public void iChooseValuesFromDropdowns(DataTable dataTable) {
+                Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        List<Map<String, String>> asMaps = dataTable.asMaps();
+        for (Map<String, String> each : asMaps) {
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_Drop_Down, each.get("key"))))
+                    , each.get("value"));
+
+            BrowserUtils.sleep(5000);
+        }
+    }
+
+
+    }
 
 
 

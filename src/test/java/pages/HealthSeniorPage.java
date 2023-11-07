@@ -89,6 +89,9 @@ public class HealthSeniorPage {
 
     @FindBy(xpath = "//div[@class='img-body ']//img[@id='img-7080']")
     public WebElement imgOfBlackLady;
+
+    @FindBy(xpath = "//a[@title='TRUSTe']")
+    public WebElement privacyFeedBtn;
 }
 
 

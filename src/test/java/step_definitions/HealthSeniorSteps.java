@@ -269,7 +269,29 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.imgOfBlackLady);
     }
 
+
+    @Then("Verify Privacy Feedback -Powered by TRUSTe button is displayed")
+    public void verifyPrivacyFeedbackPoweredByTRUSTeButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.privacyFeedBtn);
+    }
+
+    @When("I click on Privacy Feedback -Powered by TRUSTe button")
+    public void iClickOnPrivacyFeedbackPoweredByTRUSTeButton() {
+        BrowserUtils.click(page.privacyFeedBtn);
+        BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify {string} link is displayed")
+    public void verifyLinkIsDisplayed(String lInk) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, lInk))));
+    }
+
+    @Then("Verify header is {string}")
+    public void verifyHeaderIs(String headText) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headText))));
+    }
 }
+
 
 
 
