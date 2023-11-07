@@ -2,7 +2,6 @@ package step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.CommercialPage;
@@ -31,5 +30,14 @@ public class CommercialSteps implements CommonPage {
         }
     }
 
+    @Then("I click on {string} link button that forwarding to the Commercial page")
+    public void iClickOnLinkButtonThatForwardingToTheCommercialPage(String CommercialBusinessBtn) {
+        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, CommercialBusinessBtn))).click();
+    }
 
+    @Then("I verify title of the page {string}")
+    public void iVerifyTitleOfThePage(String title) {
+        String actualTitle = BrowserUtils.getDriver().getTitle();
+        BrowserUtils.assertEquals(actualTitle, title);
+    }
 }
