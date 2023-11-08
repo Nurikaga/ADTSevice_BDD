@@ -13,4 +13,11 @@ public class CommercialPage{
     }
     @FindBy(xpath = "//section[1]/div[2]/ul[1]/li")
     public List<WebElement> nineteenIcons;
+
+
+    @FindBy(xpath = "//div/h2[contains(text(),'Powered by Experience. Driven by Excellence.')]")
+    public WebElement sectionTitlePoweredByEx;
+
+    @FindBy(xpath = "//a[normalize-space()='OUR ADVANTAGE']")
+    public WebElement OurAdvBtn;
 }
