@@ -20,4 +20,7 @@ public class CommercialPage{
 
     @FindBy(xpath = "//a[normalize-space()='OUR ADVANTAGE']")
     public WebElement OurAdvBtn;
+    @FindBy(xpath = "//p[@class='text-justify pb-2 pb-lg-0']")
+    public WebElement footerCopyRight;
+
 }

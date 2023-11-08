@@ -123,6 +123,19 @@ Feature: Home Page Related Scenarios
     Then Verify image with four texts with emblems are displayed
     Then Verify the bigger picture is displayed on the right side
 
+  @US43
+  Scenario Outline: Verify the headers of five columns in the footer
+    When I scroll down to the footer
+    Then Verify "<header>" is displayed
+    Examples:
+      | header             |
+      | Product Categories |
+      | About Us           |
+      | Dealers & Service  |
+      | Customer Service   |
+      | Follow Us          |
+
+
   @US45
   Scenario: Scroll down the page and verify  <Live Chat Now> button is displayed on the footer of the page. When you click on the button, it opens a chat window.  Verify the window is displayed.
     When I scroll down to the footer
@@ -130,12 +143,12 @@ Feature: Home Page Related Scenarios
     When I click on the "LIVE CHAT NOW!" button
     Then Verify the header in pop-up window is ADT's Digital Assistant
 
-    @US46
-      Scenario:Scroll down the page and verify  <Privacy Feedback -Powered by TRUSTe> link button is displayed on the footer of the page. When you click on the link button, it takes you to the corresponding page. Verify the title of that page.
-When I scroll down
-      Then Verify Privacy Feedback -Powered by TRUSTe button is displayed
-      When I click on Privacy Feedback -Powered by TRUSTe button
-      Then Verify title is "Privacy Feedback Button – TrustArc The Leader in Privacy Management Software"
+  @US46
+  Scenario:Scroll down the page and verify  <Privacy Feedback -Powered by TRUSTe> link button is displayed on the footer of the page. When you click on the link button, it takes you to the corresponding page. Verify the title of that page.
+    When I scroll down
+    Then Verify Privacy Feedback -Powered by TRUSTe button is displayed
+    When I click on Privacy Feedback -Powered by TRUSTe button
+    Then Verify title is "Privacy Feedback Button – TrustArc The Leader in Privacy Management Software"
 
   @US47
   Scenario: The footer of the page has a header < Customer Service > of the links column. Verify a header and the links are displayed. When you click on the link’s buttons they take you to their pages. Verify the titles of their pages.
@@ -148,3 +161,10 @@ When I scroll down
     Then Verify title is "Contact Support" on that page
     When I click on Leave Website Feedback button
     Then Verify ADT emblem is displayed in pop up window
+
+  @US48
+  Scenario: Scroll down and verify  <Bug Reporting> link is displayed on the page. When you click on the link, it takes you to the corresponding page. Verify the title of that page.
+    When I scroll down
+    Then Verify "Bug Reporting" link is displayed
+    When I click on "Bug Reporting" button
+    Then Verify header is "Vulnerability and Bug Reporting"

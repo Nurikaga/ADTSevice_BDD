@@ -49,6 +49,8 @@ public class SmallBusinessPage {
     public WebElement weWillCallYou;
     @FindBy(xpath = "//h1")
     public WebElement headerText;
+    @FindBy(xpath = "//a[@title='En Español']")
+    public WebElement espanolBtn;
 
 
     }

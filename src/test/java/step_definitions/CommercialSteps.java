@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import utils.BrowserUtils;
 import utils.CucumberLogUtils;
 
 public class CommercialSteps implements CommonPage {
-    CommercialPage page = new CommercialPage();
+    CommercialPage page;
 
     public CommercialSteps() {
         page = new CommercialPage();
@@ -70,5 +71,16 @@ public class CommercialSteps implements CommonPage {
                // BrowserUtils.click(page.OurAdvBtn);
                 break;
         }
+    }
+
+    @When("I scroll down to the footer of the page")
+    public void iScrollDownToTheFooterOfThePage() {
+        BrowserUtils.moveIntoView(page.footerCopyRight);
+    }
+
+    @Then("I verify that text is displayed page")
+    public void iVerifyThatTextIsDisplayedPage() {
+        String text = "© 2023 ADT Commercial LLC. All rights reserved. The product/service names listed in this document are marks and/or registered marks of their respective owners and used under license or with permission. Unauthorized use strictly prohibited. Licenses held under ADT Commercial LLC available at https://www.adt.com/commercial/licenses.";
+        BrowserUtils.assertEquals(page.footerCopyRight.getText(), text);
     }
 }

@@ -21,3 +21,7 @@ Feature: Commercial Scenarios
     Then I should see a button labeled "Our Advantage"
     And I should be able to click on the "Our Advantage" button
     Then I verify a title of the page "Our Advantage | Everon"
+  @US81
+  Scenario: Verify Copyright text is displayed in the footer of Commercial Page
+    When I scroll down to the footer of the page
+    Then I verify that text is displayed page

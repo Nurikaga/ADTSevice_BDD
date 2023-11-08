@@ -198,7 +198,6 @@ public class HealthSeniorSteps implements CommonPage {
     @When("I click on Support button")
     public void iClickOnSupportButton() throws InterruptedException {
         mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
-
         BrowserUtils.click(page.supportBtn);
         CucumberLogUtils.logPass("clicked on the button", true);
         BrowserUtils.switchToNewWindow();
@@ -280,6 +279,16 @@ public class HealthSeniorSteps implements CommonPage {
     public void iClickOnPrivacyFeedbackPoweredByTRUSTeButton() {
         BrowserUtils.click(page.privacyFeedBtn);
         BrowserUtils.switchToNewWindow();
+    }
+
+    @Then("Verify {string} link is displayed")
+    public void verifyLinkIsDisplayed(String lInk) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, lInk))));
+    }
+
+    @Then("Verify header is {string}")
+    public void verifyHeaderIs(String headText) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headText))));
     }
 }
 
