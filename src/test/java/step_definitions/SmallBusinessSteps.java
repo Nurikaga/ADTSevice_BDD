@@ -274,7 +274,7 @@ Thread.sleep(1000);
 
     @And("I click on the Call Me Back button")
     public void iClickOnTheCallMeBackButton() throws InterruptedException {
-        BrowserUtils.getDriver().findElement(By.xpath("//form[@id='adt-res-form-id-244']//button[@class='btn btn-res-form  btn-cta btn-cta-blue btn-cta-md resi-submit-btn']")).click();
+        BrowserUtils.getDriver().findElement(By.xpath("(//button[@name='res_smb_form'])[1]")).click();
         mainWindowHandle = BrowserUtils.getDriver().getWindowHandle();
         BrowserUtils.switchToNewWindow();
         CucumberLogUtils.logPass("clicked the button", true);
