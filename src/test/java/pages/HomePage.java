@@ -44,5 +44,7 @@ public WebElement notSureQuestion;
 
     @FindBy(xpath = "//span[contains(text(), 'Take a quiz')]")
     public WebElement takeAQuizBtn;
+
+
 }
 

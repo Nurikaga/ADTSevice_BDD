@@ -111,6 +111,14 @@ Scenario: When you open a Home Page and scroll down half of the page, you will s
   When I click on Take a quiz button
   Then Verify title is "Quiz"
 
+  @US001
+  Scenario: Verify the Phone is clickable o
+    When I click on Phone number
+    Then Verify the popUp window is displayed and close the popUp window
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -262,10 +263,9 @@ public class HomeSteps implements CommonPage {
     public void iScrollUpLittle() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, -500)");
-//        Actions actions = new Actions(BrowserUtils.getDriver());
-//        actions.moveToElement(page.takeAQuizBtn).perform();
-//        Thread.sleep(5000);
+
     }
+
 }
 
 
