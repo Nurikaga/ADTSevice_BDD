@@ -6,6 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import org.openqa.selenium.devtools.v85.page.Page;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;n
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.HomePage;

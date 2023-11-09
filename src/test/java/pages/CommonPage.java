@@ -20,13 +20,15 @@ public interface CommonPage {
     String XPATH_TEMPLATE_LINKTEXT_HREF = "//a[@href='%s']";
     String XPATH_TEMPLATE_IMG = "//img[@id='%s')]";
     String XPATH_TEMPLATE_NUR = "//div[@class='col-12 col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4  ']";
-    String XPATH_TEMPLATE_INPUT_FIELD3 = "(//*[@name='%s'])[2]";
+    String XPATH_TEMPLATE_INPUT_FIELD3 = "//*[@id='%s']";
     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
     String CSS_TEMPLATE_IMG = "img[alt='%s']";
-    String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
-    String CSS_TEMPLATE_INPUT2 = "div[class='form-field-collection'] input[name='%s']";
+
+  //  String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
+  String XPATH_TEMPLATE_Drop_Down = "//button[@class='btn-form-select col-12 dropdown-toggle']//span[text()='%s'])[2]";
+  String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
     String XPATH_TEMPLATE_TEXT_PRIVACY = "//h3[contains(text(),'Personal Information Uses, Disclosures, and Sharing')]";
 
-String XPATH_TEMPLATE_Drop_Down = "//button[@class='btn-form-select col-12 dropdown-toggle']//span[text()='%s'])[2]";
+
 
 }

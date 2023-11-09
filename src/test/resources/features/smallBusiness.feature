@@ -163,3 +163,9 @@ Feature: Home Page Related Scenarios
     Then I click on "Privacy Policy" text link
     Then I change Window to the new tab
     And Verify the text "Personal Information Uses, Disclosures, and Sharing" is displayed
+  @US40
+  Scenario: Verify  En Espanol button
+    When I scroll down
+    Then I click on En Espanol button
+    Then I change Window to the new tab
+    And Verify the text "¿Qué es ADT?" is displayed on corresponding page
