@@ -4,16 +4,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
 import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
@@ -268,6 +268,30 @@ public class HomeSteps implements CommonPage {
 //        Actions actions = new Actions(BrowserUtils.getDriver());
 //        actions.moveToElement(page.takeAQuizBtn).perform();
 //        Thread.sleep(5000);
+    }
+
+    @Then("Verify header text is Get in touch with America’s #{int} smart home security provider")
+    public void verifyHeaderTextIsGetInTouchWithAmericaSSmartHomeSecurityProvider(int arg0) {
+        BrowserUtils.isDisplayed(page.getInTouchText);
+    }
+
+    @Then("Verify phone number button is displayed")
+    public void verifyPhoneNumberButtonIsDisplayed() throws InterruptedException {
+        BrowserUtils.isDisplayed(page.phoneNumberBtn);
+
+    }
+
+    @When("I click on phone number button")
+    public void iClickOnPhoneNumberButton() throws InterruptedException, AWTException {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, -500)");
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']//span[text()='(800) 510-9061']")).click();
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        }
+    @Then("Handle the alert press cancel")
+    public void handleTheAlertPressCancel() {
+
     }
 }
 
