@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;n
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.HomePage;
@@ -288,8 +288,9 @@ public class HomeSteps implements CommonPage {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, -500)");
         BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']//span[text()='(800) 510-9061']")).click();
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_CONTROL);
+//       Actions actions = new Actions(BrowserUtils.getDriver());
+//        actions.moveByOffset(200,400).click().perform();
+        BrowserUtils.getDriver().switchTo().defaultContent();
         }
     @Then("Handle the alert press cancel")
     public void handleTheAlertPressCancel() {
