@@ -1,4 +1,4 @@
-@CommercialScenarios
+@CommercialScenarios @regression
 Feature: Commercial Scenarios
 
   Background: Navigate to page

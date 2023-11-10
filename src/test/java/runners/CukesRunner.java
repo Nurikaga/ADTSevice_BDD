@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "step_definitions",
         stepNotifications = true,
         dryRun = false,
-        tags = " "
+        tags = "@US42"
 
 
         /*if true, it will only run all feature steps not implemented and implement them*/

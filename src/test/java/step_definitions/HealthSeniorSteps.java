@@ -3,6 +3,7 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By;
@@ -11,6 +12,10 @@ import pages.CommonPage;
 import pages.HealthSeniorPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+import utils.Screenshot;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public class HealthSeniorSteps implements CommonPage {
@@ -289,6 +294,29 @@ public class HealthSeniorSteps implements CommonPage {
     @Then("Verify header is {string}")
     public void verifyHeaderIs(String headText) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headText))));
+    }
+    @When("I scroll down till the header")
+    public void iScrollDownTillTheHeader() {
+        BrowserUtils.moveIntoView(page.headerText);
+    }
+
+    @When("I verify header The ADT Health Difference in the page")
+    public void iVerifyHeaderTheADTHealthDifferenceInThePage() {
+        BrowserUtils.isDisplayed(page.headerText);
+        Screenshot.takeScreenshot(BrowserUtils.getDriver());
+    }
+
+    @Then("I verify text in the page")
+    public void iVerifyTextInThePage() throws IOException {
+        String textExpected = "Learn more about how ADT Health works to keep you safe, secure and connected to help whenever you need it";
+        BrowserUtils.assertEquals(page.textUnderHeader.getText(), textExpected);
+        Screenshot.takeScreenshot(BrowserUtils.getDriver());
+    }
+
+    @Then("I verify the image {string}is clickable")
+    public void iVerifyTheImageIsClickable(String image) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG2, image))));
+        Screenshot.takeScreenshot(BrowserUtils.getDriver());
     }
 }
 
