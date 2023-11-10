@@ -184,3 +184,9 @@ Feature: Home Page Related Scenarios
     Then Verify "Bug Reporting" link is displayed
     When I click on "Bug Reporting" button
     Then Verify header is "Vulnerability and Bug Reporting"
+
+    @US49
+    Scenario: Verify Terms link and the title of the page
+    When I scroll down
+      Then Verify "Licenses" link buttons are clicked
+      Then Verify title is "Home Security Systems, Home Security Products, Home Alarm Systems - ADT"
