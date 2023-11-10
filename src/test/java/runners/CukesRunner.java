@@ -15,9 +15,12 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features", //if you want to run failed scenarios from rerun do "@target/rerun.txt" for features
         glue = "step_definitions",
         stepNotifications = true,
-        dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
+        dryRun = false,
+        tags = "@US42"
 
-        ,tags = "@US60"
+
+        /*if true, it will only run all feature steps not implemented and implement them*/
+        //keywords
         //"and not" - 'x and not y' to exclude scenarios with that tag
         //"and" - 'x and y' to run scenarios with both tags
 )

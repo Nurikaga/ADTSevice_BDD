@@ -1,9 +1,11 @@
 package utils;
 
 import io.cucumber.java.Scenario;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -49,4 +51,7 @@ public class CucumberLogUtils {
         Calendar calendar = Calendar.getInstance();
         return dateFormat.format(calendar.getTime());
     }
+    File scrFile = ((TakesScreenshot)BrowserUtils.getDriver()).getScreenshotAs(OutputType.FILE);
+// Now you can do whatever you need to do with it, for example copy somewhere
+
 }

@@ -23,6 +23,7 @@ public interface CommonPage {
     String XPATH_TEMPLATE_INPUT_FIELD3 = "//*[@id='%s']";
     String XPATH_TEMPLATE_TEXT_CLASS = "//div[@class='adt-footer-links-section d-none d-lg-block']//a[text()='%s']";
     String CSS_TEMPLATE_IMG = "img[alt='%s']";
+    String XPATH_TEMPLATE_IMG2="//img[@alt='%s']";
 
   //  String CSS_TEMPLATE_INPUT = "[data-form-name='hero expanded form'] [name='%s']";
   String XPATH_TEMPLATE_Drop_Down = "//button[@class='btn-form-select col-12 dropdown-toggle']//span[text()='%s'])[2]";

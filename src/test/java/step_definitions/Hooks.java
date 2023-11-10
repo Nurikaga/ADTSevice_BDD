@@ -20,7 +20,7 @@ public class Hooks {
 
 
     @After
-    public void tearDown(Scenario scenario) {
+    public static void tearDown(Scenario scenario) {
         if (BrowserUtils.checkDriverStatus() != null) {
             if (scenario.isFailed()) {
 
@@ -30,7 +30,7 @@ public class Hooks {
 
             }
         }
-       // BrowserUtils.quitDriver();
+        BrowserUtils.quitDriver();
     }
 }
 
