@@ -45,10 +45,13 @@ public WebElement notSureQuestion;
     @FindBy(xpath = "//span[contains(text(), 'Take a quiz')]")
     public WebElement takeAQuizBtn;
 
-    @FindBy(xpath = "//div[@class='adt7-txa-7509 adt7-txa   text-center  text-lg-left d-none d-md-block']//p[text()='Get in touch with America’s #1 smart home security provider']")
+    @FindBy(xpath = "(//p[contains(text(), 'Get in touch with America’s #1 smart home security provider')])[2]")
     public WebElement getInTouchText;
 
     @FindBy(xpath = "//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']")
     public WebElement phoneNumberBtn;
+
+    @FindBy(xpath = "//p[contains(text(), 'An ADT security expert can help you customize the perfect solution.')]")
+    public WebElement anAdtSecText;
 }
 

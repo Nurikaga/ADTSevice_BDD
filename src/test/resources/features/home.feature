@@ -116,7 +116,7 @@ Scenario: When you open a Home Page and scroll down half of the page, you will s
   Scenario: When you open a Home Page and scroll down 3/4 of the page, you will see ‘Get in touch with America’s #1 smart home security provider’ section. Verify the title of the section, the phone number is present,  correct (800) 510 - 9061, and clickable. Verify the section has a picture on the left
 #When I scroll down
     Then Verify header text is Get in touch with America’s #1 smart home security provider
-    Then Verify text under header is "An ADT security expert can help you customize the perfect solution."
+    Then Verify text under header is An ADT security expert can help you customize the perfect solution.
     Then Verify phone number button is displayed
     When I click on phone number button
     Then Handle the alert press cancel

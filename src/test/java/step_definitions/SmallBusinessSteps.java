@@ -266,7 +266,7 @@ public class SmallBusinessSteps implements CommonPage {
     public void i_fill_out_the_form(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> asMaps = dataTable.asMaps();
         for (Map<String, String> each : asMaps) {
-            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD3, each.get("Key"))))
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD2, each.get("Key"))))
                     , each.get("Value"));
 Thread.sleep(1000);
         }

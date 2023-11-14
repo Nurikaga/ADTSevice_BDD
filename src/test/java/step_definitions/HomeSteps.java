@@ -288,13 +288,18 @@ public class HomeSteps implements CommonPage {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, -500)");
         BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']//span[text()='(800) 510-9061']")).click();
-//       Actions actions = new Actions(BrowserUtils.getDriver());
+        //       Actions actions = new Actions(BrowserUtils.getDriver());
 //        actions.moveByOffset(200,400).click().perform();
-        BrowserUtils.getDriver().switchTo().defaultContent();
+        BrowserUtils.getDriver().switchTo().alert().dismiss();
         }
     @Then("Handle the alert press cancel")
     public void handleTheAlertPressCancel() {
 
+    }
+
+    @Then("Verify text under header is An ADT security expert can help you customize the perfect solution.")
+    public void verifyTextUnderHeaderIsAnADTSecurityExpertCanHelpYouCustomizeThePerfectSolution() {
+        BrowserUtils.isDisplayed(page.anAdtSecText);
     }
 }
 
