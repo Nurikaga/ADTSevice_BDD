@@ -123,6 +123,22 @@ Feature: Home Page Related Scenarios
     Then Verify image with four texts with emblems are displayed
     Then Verify the bigger picture is displayed on the right side
 
+  @US42
+  Scenario Outline:Verify a header,text, images and titles of the correspondence page
+    When I scroll down till the header
+    When I verify header The ADT Health Difference in the page
+    Then I verify text in the page
+    Then I verify the image "<image>"is clickable
+    Then I change Window to the new tab
+    And I verify the title of the page "<title>"
+
+
+    Examples:
+      | image                              | title                                                            |
+      | CareGiver Friendly Award 2022      | ADT Medical Alert Recognized with Caregiver Friendly Award - ADT |
+      | Senior Sensitivity Training        | Special Training Equips ADT Health Agents with Empathy - ADT     |
+      | ADT Medical Alert Life Saver Award | Aging in Place with ADT Medical Alert - ADT                      |
+
   @US43
   Scenario Outline: Verify the headers of five columns in the footer
     When I scroll down to the footer
@@ -168,3 +184,9 @@ Feature: Home Page Related Scenarios
     Then Verify "Bug Reporting" link is displayed
     When I click on "Bug Reporting" button
     Then Verify header is "Vulnerability and Bug Reporting"
+
+    @US49
+    Scenario: Verify Terms link and the title of the page
+    When I scroll down
+      Then Verify "Licenses" link buttons are clicked
+      Then Verify title is "Home Security Systems, Home Security Products, Home Alarm Systems - ADT"

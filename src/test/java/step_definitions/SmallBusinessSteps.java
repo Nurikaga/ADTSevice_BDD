@@ -13,6 +13,7 @@ import pages.CommonPage;
 import pages.SmallBusinessPage;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+import utils.Screenshot;
 
 import java.util.List;
 import java.util.Map;
@@ -189,6 +190,8 @@ public class SmallBusinessSteps implements CommonPage {
 
     @Then("Verify {string} of each page")
     public void verifyOfEachPage(String title) {
+        CucumberLogUtils.logPass("Title is displayed", true);
+        Screenshot.takeScreenshot(BrowserUtils.getDriver());
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
@@ -326,6 +329,11 @@ Thread.sleep(1000);
     @And("Verify the text {string} is displayed on corresponding page")
     public void verifyTheTextIsDisplayedOnCorrespondingPage(String text) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT2, text))));
+    }
+
+    @Then("Verify {string} link buttons are clicked")
+    public void verifyLinkButtonsAreClicked(String link) {
+       BrowserUtils.click( BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))));
     }
 }
 

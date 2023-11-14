@@ -301,6 +301,7 @@ public class HomeSteps implements CommonPage {
     public void verifyTextUnderHeaderIsAnADTSecurityExpertCanHelpYouCustomizeThePerfectSolution() {
         BrowserUtils.isDisplayed(page.anAdtSecText);
     }
+
 }
 
 

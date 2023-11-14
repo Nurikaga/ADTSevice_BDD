@@ -149,12 +149,16 @@ Feature: Home Page Related Scenarios
       | Sitemap        |
 
   @US38
-  Scenario: Verify the footer Terms button choice is enabled
+  Scenario Outline: Verify the footer Terms button choice is enabled
     When I scroll down
     Then I click on Terms drop down button
-    Then I click on drop down choice Advertising Choice
-    And I verify a title of the page "TrustArc Preference Manager"
-
+    Then Verify "<link>" link buttons are clicked
+    And I change Window to the new tab
+    Then Verify "<title>" of each page
+    Examples:
+      | link               | title                                                      |
+      | Terms of Use       | ADT Security Websites Terms of Use - ADT Security Services |
+      | Advertising Choice | TrustArc Preference Manager                                |
 
 
   @US39
@@ -163,6 +167,7 @@ Feature: Home Page Related Scenarios
     Then I click on "Privacy Policy" text link
     Then I change Window to the new tab
     And Verify the text "Personal Information Uses, Disclosures, and Sharing" is displayed
+
   @US40
   Scenario: Verify  En Espanol button
     When I scroll down
