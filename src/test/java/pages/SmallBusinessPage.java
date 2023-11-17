@@ -55,20 +55,22 @@ public class SmallBusinessPage {
     public WebElement industryBtnRadio2;
     @FindBy(xpath = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/span[1]")
     public WebElement companySizeBtnRadio2;
-    @FindBy(xpath = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    @FindBy(css= ".form-bg-white [name='Customer_Full_Name']")
     public WebElement fullNameInput2;
-    @FindBy(xpath = "/html//div[@id='adt-content-id']/div[@class='main-content']/div/div/div[3]/div[@class='res-footer-form']/div[@class='adt-form-res-170 res-form']/div/div//form//input[@name='E_Mail_Address']")
+    @FindBy(css = ".form-bg-white [name='E_Mail_Address'] ")
     public WebElement emailInput2;
-    @FindBy(xpath = "/html//div[@id='adt-content-id']/div[@class='main-content']/div/div/div[3]/div[@class='res-footer-form']/div[@class='adt-form-res-170 res-form']/div/div//form//input[@name='Phone_Number_Primary']")
+    @FindBy(css = ".form-bg-white [name='Phone_Number_Primary'] ")
     public WebElement phoneInput2;
-    @FindBy(xpath = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]")
+    @FindBy(css = ".form-bg-white [name='Business_Name']")
     public WebElement companyName2;
-    @FindBy(xpath = "/html//div[@id='adt-content-id']/div[@class='main-content']/div/div/div[3]/div[@class='res-footer-form']/div[@class='adt-form-res-170 res-form']/div/div//form//input[@name='Postal_Code']")
+    @FindBy(css = ".form-bg-white [name='Postal_Code']")
     public WebElement zipCode2;
-    @FindBy(xpath = "//html//div[@id='adt-content-id']/div[@class='main-content']/div/div/div[3]/div[@class='res-footer-form']/div[@class='adt-form-res-170 res-form']/div/div/div[@class='adt7-res-form']/div[@class='adt7-form-cnt']/div[@class='container-fluid res-form-cnt']//form//ul[@class='dropdown-menu show']/li[7]/a[@href='javascript:void(0);']")
+    @FindBy(xpath = "//ul[contains(@class,'dropdown-menu show')]//a[contains(text(),'Other')]")
     public WebElement other2;
-    @FindBy(xpath = "/html//div[@id='adt-content-id']/div[@class='main-content']/div/div/div[3]/div[@class='res-footer-form']/div[@class='adt-form-res-170 res-form']/div/div/div[@class='adt7-res-form']/div[@class='adt7-form-cnt']/div[@class='container-fluid res-form-cnt']//form//ul[@class='dropdown-menu show']/li[1]/a[@href='javascript:void(0);']")
+    @FindBy(xpath = "//ul[contains(@class,'dropdown-menu show')]//a[contains(text(),'100 - 1,000 sq. ft.')]")
     public WebElement companySize2;
+    @FindBy(css = ".form-bg-white .resi-submit-btn")
+    public WebElement submitBtn2;
     public void fillOutForm(String fullName, String email, String phone, String company, String zip) {
         fullNameInput2.sendKeys(fullName);
         emailInput2.sendKeys(email);
