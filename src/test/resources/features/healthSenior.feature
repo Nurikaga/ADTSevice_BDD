@@ -190,3 +190,8 @@ Feature: Home Page Related Scenarios
     When I scroll down
       Then Verify "Licenses" link buttons are clicked
       Then Verify title is "Home Security Systems, Home Security Products, Home Alarm Systems - ADT"
+  @US50
+   Scenario: Verify Sitemap link is on the footer and the title of the forwarding page
+      When I scroll down
+      Then Verify "Sitemap" link buttons are clicked
+      Then Verify title is "ADT.com Site Map"
