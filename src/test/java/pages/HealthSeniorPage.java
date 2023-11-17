@@ -93,9 +93,9 @@ public class HealthSeniorPage {
     @FindBy(xpath = "//a[@title='TRUSTe']")
     public WebElement privacyFeedBtn;
 
-    @FindBy(xpath = "//h4[@class='adt7-txa-1507 adt7-txa']")
+    @FindBy(css = ".adt7-txa-1179.adt7-txa")
     public WebElement headerText;
-    @FindBy(xpath = "//p[@class='adt7-txa-5874 adt7-txa']")
+    @FindBy(css = ".adt7-txa-7447.adt7-txa")
     public WebElement textUnderHeader;
 }
 

@@ -131,8 +131,6 @@ Feature: Home Page Related Scenarios
     Then I verify the image "<image>"is clickable
     Then I change Window to the new tab
     And I verify the title of the page "<title>"
-
-
     Examples:
       | image                              | title                                                            |
       | CareGiver Friendly Award 2022      | ADT Medical Alert Recognized with Caregiver Friendly Award - ADT |
