@@ -71,13 +71,26 @@ Feature: Home Page Related Scenarios
       | E_Mail_Address       | patric@gmail.com |
       | Phone_Number_Primary | 3355335544       |
       | Postal_Code          | 53533            |
-#    When I choose values from dropdowns
-#      | key          | value                |
-#      | Industry     | Retail               |
-#      | Company Size | 1,000 - 5,000 sq. ft |
+   # When I choose values from dropdowns
+     # | key          | value                |
+     # | Industry     | Retail               |
+     # | Company Size | 1,000 - 5,000 sq. ft |
 
     And I click on the Call Me Back button
     Then Verify Customize a Security Solution for Your Business  header text is visible
+
+    @US31a
+    Scenario: Verify the header We’ll Call You and the following text Fill out this form and an ADT specialist will contact you to discuss ADT security solutions. is displayed. Fill out input fields
+      When I scroll down until i see We'll Call You test
+      Then Verify the "We'll Call You" text under header is displayed
+      Then Verify "Fill out this form and an ADT specialist will contact you to discuss ADT security solutions." text under We'll Call You is displayed
+      And I verify the select box is clickable and has the options
+      When the user fills out the form with data
+      And I click on the Call Me Back button
+      Then Verify Customize a Security Solution for Your Business  header text is visible
+
+
+
 
   @US32
   Scenario Outline: verify the links headers stay the same on the corresponding pages

@@ -335,7 +335,23 @@ Thread.sleep(1000);
     public void verifyLinkButtonsAreClicked(String link) {
        BrowserUtils.click( BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_TITLE, link))));
     }
+
+    @And("I verify the select box is clickable and has the options")
+    public void iVerifyTheSelectBoxIsClickableAndHasTheOptions() {
+        WebElement radioButton = page.industryBtnRadio2;
+        radioButton.click();
+        page.other2.click();
+        WebElement radioButton1 = page.companySizeBtnRadio2;
+        radioButton1.click();
+        page.companySize2.click();
+    }
+
+    @When("the user fills out the form with data")
+    public void theUserFillsOutTheFormWithData() {
+        page.fillOutForm("Patric Dove", "patric@gmail.com", "6145678905", "TOOSu", "53533");
+    }
 }
+
 
 
 
