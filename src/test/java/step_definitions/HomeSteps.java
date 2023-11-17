@@ -302,6 +302,18 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.isDisplayed(page.anAdtSecText);
     }
 
+    @When("I move into the view of the element")
+    public void iMoveIntoTheViewOfTheElement() {
+        BrowserUtils.moveIntoView(BrowserUtils.getDriver().findElement(By.xpath("//*[contains(text(), 'Award-winning smart home')]")));
+    }
+
+    @Then("Verify pictures under header are displayed")
+    public void verifyPicturesUnderHeaderAreDisplayed() {
+        page.PicAwardsDisplay();
+        BrowserUtils.moveIntoView(page.awardWinningText);
+
+
+    }
 }
 
 

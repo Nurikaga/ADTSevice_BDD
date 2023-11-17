@@ -5,6 +5,7 @@ public interface CommonPage {
     String XPATH_TEMPLATE_TEXT_TITLE = "//a[@title='%s']";
     String XPATH_TEMPLATE_LINKTEXT = "//a[text()='%s']";
     String XPATH_TEMPLATE_LINKTEXT2 = "//h5[normalize-space()='%s']";
+    String XPATH_TEMPLATE_LINKTEXT_a ="//a[normalize-space()='%s']";
     String XPATH_TEMPLATE_TEXT = "//*[text()='%s']";
     String XPATH_TEMPLATE_TEXT_h4 = "//h4[@class='adt7-txa-6326 adt7-txa'][contains(text(), '%s')]";
     String XPATH_TEMPLATE_TEXT_h5 = "//h5[contains(text(), '%s')]";

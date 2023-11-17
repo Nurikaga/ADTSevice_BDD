@@ -38,7 +38,7 @@ public class CommercialSteps implements CommonPage {
 
     @Then("I click on {string} link button that forwarding to the Commercial page")
     public void iClickOnLinkButtonThatForwardingToTheCommercialPage(String CommercialBusinessBtn) {
-        BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, CommercialBusinessBtn))).click();
+     BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, CommercialBusinessBtn))));
     }
 
     @Then("I verify title of the page {string}")
@@ -82,5 +82,12 @@ public class CommercialSteps implements CommonPage {
     public void iVerifyThatTextIsDisplayedPage() {
         String text = "© 2023 ADT Commercial LLC. All rights reserved. The product/service names listed in this document are marks and/or registered marks of their respective owners and used under license or with permission. Unauthorized use strictly prohibited. Licenses held under ADT Commercial LLC available at https://www.adt.com/commercial/licenses.";
         BrowserUtils.assertEquals(page.footerCopyRight.getText(), text);
+    }
+
+    @Then("Verify the {string} link buttons are displayed and enabled")
+    public void verifyTheLinkButtonsAreDisplayedAndEnabled(String links) {
+        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT_a, links))));
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT_a, links))));
+
     }
 }
