@@ -261,8 +261,10 @@ public class SmallBusinessSteps implements CommonPage {
 
     @And("verify Terms drop down button is enabled")
     public void verifyTermsDropDownButtonIsEnabled() {
-        page.dropdownTerms.isDisplayed();
-        page.dropdownTerms.isEnabled();
+        BrowserUtils.click(page.dropdownTerms);
+        BrowserUtils.isDisplayed(page.dropdownMenuIcon);
+
+
     }
 
     @When("I fill out the form")

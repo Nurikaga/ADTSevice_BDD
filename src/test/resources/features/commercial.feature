@@ -21,7 +21,23 @@ Feature: Commercial Scenarios
     Then I should see a button labeled "Our Advantage"
     And I should be able to click on the "Our Advantage" button
     Then I verify a title of the page "Our Advantage | Everon"
+
   @US81
   Scenario: Verify Copyright text is displayed in the footer of Commercial Page
     When I scroll down to the footer of the page
     Then I verify that text is displayed page
+
+  @US82
+  Scenario Outline: Verify there are 5 hyperlinks under the Copyright text
+    When I scroll down to the footer of the page
+    Then verify text is displayed
+    And verify Terms drop down button is enabled
+    Then Verify the "<links>" link buttons are displayed and enabled
+
+    Examples:
+      | links           |
+      | Terms          |
+      | Privacy Policy |
+      | Licenses       |
+      | Sitemap        |
+      | Bug Reporting  |

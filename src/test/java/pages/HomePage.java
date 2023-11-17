@@ -4,6 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
+import utils.Screenshot;
+
+import java.util.List;
 
 public class HomePage {
     public HomePage() {
@@ -53,5 +56,19 @@ public WebElement notSureQuestion;
 
     @FindBy(xpath = "//p[contains(text(), 'An ADT security expert can help you customize the perfect solution.')]")
     public WebElement anAdtSecText;
+
+    @FindBy(xpath = "//p//img")
+    public List<WebElement> PicAwards;
+    @FindBy(xpath = "//h3[contains(text(),'Award-winning smart home security that fits your l')]")
+            public WebElement awardWinningText;
+
+    public void PicAwardsDisplay(){
+
+        for (WebElement each : PicAwards) {
+            BrowserUtils.isDisplayed(each);
+
+
+        }
+    }
 }
 

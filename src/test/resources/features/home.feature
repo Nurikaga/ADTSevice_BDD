@@ -120,4 +120,10 @@ Feature: Home Page Related Scenarios
     When I click on phone number button
     Then Handle the alert press cancel
 
+    @US63
+    Scenario:  Verify a header and Forbes Homes, BrandSpark, CEPro, PCMag pictures are displayed
+      When I move into the view of the element
+      Then Verify header text is "Award-winning smart home security that fits your life"
+      Then Verify pictures under header are displayed
+
 

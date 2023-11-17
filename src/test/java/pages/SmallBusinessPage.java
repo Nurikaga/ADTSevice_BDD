@@ -41,6 +41,8 @@ public class SmallBusinessPage {
     public WebElement footerText;
     @FindBy(xpath = "/html//a[@id='dropdownMenuLink']")
     public WebElement dropdownTerms;
+    @FindBy(xpath = "//div[@class='dropdown-menu footer-bottom-privacy-link-menu show']")
+    public WebElement dropdownMenuIcon;
     @FindBy(xpath = "//a[@title='Advertising Choice']")
     public WebElement advertisingChoiceTerms;
     @FindBy(xpath = "//div[contains(text(),'Fill out')]")
