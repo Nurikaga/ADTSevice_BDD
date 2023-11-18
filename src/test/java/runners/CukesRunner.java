@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false,
 
-        tags = "@US42"
+        tags = "@US76"
 
         /*if true, it will only run all feature steps not implemented and implement them*/
         //keywords
