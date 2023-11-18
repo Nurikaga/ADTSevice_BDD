@@ -30,7 +30,7 @@ public interface CommonPage {
   String XPATH_TEMPLATE_Drop_Down = "//button[@class='btn-form-select col-12 dropdown-toggle']//span[text()='%s'])[2]";
   String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
     String XPATH_TEMPLATE_TEXT_PRIVACY = "//h3[contains(text(),'Personal Information Uses, Disclosures, and Sharing')]";
-
+    String XPATH_TEMPLATE_TEXT_CONTAINS2 = "//ul[@class='solutions__flex-list']//li//a[contains(text(), '%s')]";
 
 
 }

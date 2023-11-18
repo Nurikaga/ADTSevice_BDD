@@ -15,6 +15,32 @@ Feature: Commercial Scenarios
   Scenario: Verify title of the Commercial page
     Then I verify title of the page "Everon Security & Fire Monitoring"
 
+  @US76
+  Scenario Outline: Confirm that in the middle of the Commercial page these 19 icons are redirecting users to corresponding pages. Ex: Access control icon supposed to send you to the Access control page.
+    When I click on "<icons>"
+    Then Verify "<title>" of the responding page
+    Examples:
+      | icons                                                | title                                                          |
+      | Access control                                       | Access Control Security Solutions \| Everon                    |
+      | ATM/ITM solutions                                    | ATM & ITM Security Solutions \| Everon                         |
+      | Electronic Article Surveillance                      | Electronic Article Surveillance (EAS) Systems \| Everon        |
+      | Elevated Skin Temperature systems                    | Elevated Skin Temperature System \| Everon                     |
+      | Emergency Responder Communication Enhancement System | Emergency Responder Communication Enhancement System \| Everon |
+      | Enterprise Solutions                                 | Security Solutions for Large Enterprise \| Everon              |
+      | eSuite                                               | eSuite Security Account Management \| Everon                   |
+      | Everon Customer Engagement Platform                  | Everon Account Engagement \| Everon                            |
+      | EvoGuard Guarding Solutions                          | EvoGuard™️ Guarding Solutions \| Everon                        |
+      | Fire & life safety                                   | Fire & Life Safety Solutions \| Everon                         |
+      | Infrastructure as a Service                          | Security Infrastructure as a Service \| Everon                 |
+      | Installation, inspections & maintenance              | Installation, Inspections & Security Maintenance \| Everon     |
+      | Integrated solutions                                 | Integrated Security Solutions \| Everon                        |
+      | Intrusion                                            | Intrusion Security Solutions \| Everon                         |
+      | Managed services                                     | Managed Security Services \| Everon                            |
+      | Monitoring                                           | Security Monitoring \| Everon                                  |
+      | Occupancy management                                 | Occupancy Management \| Everon                                 |
+      | Structured Cabling                                   | Structured Cabling \| Everon                                   |
+      | Video                                                | Video Security Solutions \| Everon                             |
+
   @US77
   Scenario: Check if the "Our Advantage" button is present and clickable
     When I navigate to the "Powered by Experinece section"
