@@ -51,7 +51,7 @@ public WebElement notSureQuestion;
     @FindBy(xpath = "(//p[contains(text(), 'Get in touch with America’s #1 smart home security provider')])[2]")
     public WebElement getInTouchText;
 
-    @FindBy(xpath = "//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']")
+    @FindBy(xpath = "//div[@class='adt7-btn-cta']//a[@data-number='(800) 510-9061']//span[@class='btn-cta-text']//span[text()='(800) 510-9061']")
     public WebElement phoneNumberBtn;
 
     @FindBy(xpath = "//p[contains(text(), 'An ADT security expert can help you customize the perfect solution.')]")
@@ -66,9 +66,9 @@ public WebElement notSureQuestion;
 
         for (WebElement each : PicAwards) {
             BrowserUtils.isDisplayed(each);
-
-
+        }}
+            @FindBy(xpath = "//button[@name='res_smb_form']")
+            public WebElement getAFreeQouteBtn;
         }
-    }
-}
+
 

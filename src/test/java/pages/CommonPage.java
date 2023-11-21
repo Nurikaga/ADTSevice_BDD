@@ -31,6 +31,6 @@ public interface CommonPage {
   String CSS_TEMPLATE_INPUT = "div[class='form-field-collection'] input[name='%s']";
     String XPATH_TEMPLATE_TEXT_PRIVACY = "//h3[contains(text(),'Personal Information Uses, Disclosures, and Sharing')]";
     String XPATH_TEMPLATE_TEXT_CONTAINS2 = "//ul[@class='solutions__flex-list']//li//a[contains(text(), '%s')]";
-
+    String XPATH_TEMPLATE_NUR_INPUT= "//div[@class='col-md-6']//div[@class='res-form-container']//input[@name='%s']";
 
 }
