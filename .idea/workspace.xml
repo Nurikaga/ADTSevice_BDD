@@ -27,7 +27,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bef59bc1-f82a-4700-b565-d8c44a99907f" name="Changes" comment="" />
+    <list default="true" id="bef59bc1-f82a-4700-b565-d8c44a99907f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/VideoSurveillancePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/VideoSurveillancePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/CukesRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/step_definitions/VideoSurveillanceSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/step_definitions/VideoSurveillanceSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/videoSurveillance.feature" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

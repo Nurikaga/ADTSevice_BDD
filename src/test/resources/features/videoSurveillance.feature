@@ -7,7 +7,8 @@ Feature: Home Page Related Scenarios
     Then I click on "Small Business" link button that forwarding to the Small Business page
     And I change Window to the new tab
     Then I navigate to "Solutions" drop down menu
-    Then I navigate to "Video Surveillance" drop down menu
+
+    Then I click on "Video Surveillance" link button that forwarding to the Video Surveillance page
     Then I change Window to the new tab
 
   @US16 @smoke
