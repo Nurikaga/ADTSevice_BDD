@@ -14,7 +14,10 @@ import utils.BrowserUtils;
 public class VideoSurveillanceSteps implements CommonPage {
     VideoSurveillancePage page;
 
-        public VideoSurveillanceSteps() {
+
+    public VideoSurveillanceSteps() {
+
+
 
         page = new VideoSurveillancePage();
     }
@@ -32,6 +35,11 @@ public class VideoSurveillanceSteps implements CommonPage {
             BrowserUtils.isDisplayed(each);
 
     }}
+
+    @Then("I click on {string} link button that forwarding to the Video Surveillance page")
+    public void iClickOnLinkButtonThatForwardingToTheVideoSurveillancePage(String linkBtn) {
+        BrowserUtils.click( BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2_CONTAINS, linkBtn))));
+    }
 }
 
 
