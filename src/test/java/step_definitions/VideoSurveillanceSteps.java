@@ -14,7 +14,8 @@ import utils.BrowserUtils;
 public class VideoSurveillanceSteps implements CommonPage {
     VideoSurveillancePage page;
 
-    VideoSurveillanceSteps() {
+        public VideoSurveillanceSteps() {
+
         page = new VideoSurveillancePage();
     }
 
