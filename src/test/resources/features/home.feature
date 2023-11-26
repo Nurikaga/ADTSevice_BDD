@@ -45,7 +45,7 @@ Feature: Home Page Related Scenarios
       | links          | buttons        |
       | Products       | Products       |
       | Packages       | Packages       |
-      | Build Your own | Build Your own |
+      | Build Your Own | Build Your Own |
       | Deals          | Deals          |
 
   @US-12
