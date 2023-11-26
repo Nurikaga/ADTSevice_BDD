@@ -38,7 +38,8 @@ public class CommercialSteps implements CommonPage {
 
     @Then("I click on {string} link button that forwarding to the Commercial page")
     public void iClickOnLinkButtonThatForwardingToTheCommercialPage(String CommercialBusinessBtn) {
-     BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, CommercialBusinessBtn))));
+     //BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, CommercialBusinessBtn))));
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='dropdown-menu show']//span[contains(text(), 'Commercial')]")).click();
     }
 
     @Then("I verify title of the page {string}")
@@ -89,5 +90,18 @@ public class CommercialSteps implements CommonPage {
         BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT_a, links))));
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT_a, links))));
 
+    }
+
+    @When("I click on {string}")
+    public void iClickOn(String icons) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS2, icons))));
+        CucumberLogUtils.logPass("icons are clickable", true);
+    
+    }
+
+    @Then("Verify {string} of the responding page")
+    public void verifyOfTheRespondingPage(String tItle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), tItle);
+        CucumberLogUtils.logPass("page is displayed", true);
     }
 }

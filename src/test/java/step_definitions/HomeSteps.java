@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,6 +17,8 @@ import utils.CucumberLogUtils;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Map;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
@@ -89,6 +92,7 @@ public class HomeSteps implements CommonPage {
         Thread.sleep(3000);
         CucumberLogUtils.logPass("Image is displayed", true);
     }
+
     @And("Verify phone number under icon is {string}")
     public void verifyPhoneNumberUnderIconIs(String phoneNumber) throws InterruptedException {
         BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, phoneNumber))).click();
@@ -245,7 +249,6 @@ public class HomeSteps implements CommonPage {
     }
 
 
-
     @Then("Verify Not sure where to start? question is displayed when you scroll down towards the middle")
     public void verifyNotSureWhereToStartQuestionIsDisplayedWhenYouScrollDownTowardsTheMiddle() {
         BrowserUtils.isDisplayed(page.notSureQuestion);
@@ -287,13 +290,11 @@ public class HomeSteps implements CommonPage {
     public void iClickOnPhoneNumberButton() throws InterruptedException, AWTException {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, -500)");
-        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn adt7-btn-6316 text-center text-md-center text-lg-left']//span[text()='(800) 510-9061']")).click();
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn-cta']//a[@data-number='(800) 510-9061']//span[@class='btn-cta-text']//span[text()='(800) 510-9061']")).click();
         //       Actions actions = new Actions(BrowserUtils.getDriver());
 //        actions.moveByOffset(200,400).click().perform();
-        BrowserUtils.getDriver().switchTo().alert().dismiss();
-        }
-    @Then("Handle the alert press cancel")
-    public void handleTheAlertPressCancel() {
+        //BrowserUtils.getDriver().switchTo().alert().dismiss();
+
 
     }
 
@@ -314,7 +315,47 @@ public class HomeSteps implements CommonPage {
 
 
     }
-}
+
+    @Then("Verify phone number button is enabled")
+    public void verifyPhoneNumberButtonIsEnabled() {
+        BrowserUtils.getDriver().findElement(By.xpath("//div[@class='adt7-btn-cta']//a[@data-number='(800) 510-9061']//span[@class='btn-cta-text']//span[text()='(800) 510-9061']")).isEnabled();
+    }
+
+    @Then("Verify {string} section is displayed")
+    public void verifySectionIsDisplayed(String section) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, section))));
+    }
+
+    @When("I click on GET A FREE QUOTE button")
+    public void iClickOnGETAFREEQUOTEButton() {
+BrowserUtils.getDriver().findElement(By.xpath("//button[@name='res_smb_form']")).click();
+
+    }
+    @Then("I fill out the form this form")
+    public void iFillOutTheFormThisForm(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> asMaps = dataTable.asMaps();
+        for (Map<String, String> each : asMaps) {
+            BrowserUtils.sendKeys(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_NUR_INPUT, each.get("key"))))
+                    , each.get("value"));
+            Thread.sleep(1000);
+        }
+    }
+    @When("I scroll up to button")
+    public void iScrollUpToButton() {
+        Actions actions = new Actions(BrowserUtils.getDriver());
+        actions.moveToElement(page.getAFreeQouteBtn).perform();
+    }
+
+    @Then("Verify {string} header text is displayed")
+    public void verifyHeaderTextIsDisplayed(String headerText) {;
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText))));
+        CucumberLogUtils.logPass("Thank you", true);
+    }
+
+
+
+    }
+
 
 
 

@@ -45,7 +45,7 @@ Feature: Home Page Related Scenarios
       | links          | buttons        |
       | Products       | Products       |
       | Packages       | Packages       |
-      | Build Your own | Build Your own |
+      | Build Your Own | Build Your Own |
       | Deals          | Deals          |
 
   @US-12
@@ -118,12 +118,24 @@ Feature: Home Page Related Scenarios
     Then Verify text under header is An ADT security expert can help you customize the perfect solution.
     Then Verify phone number button is displayed
     When I click on phone number button
-    Then Handle the alert press cancel
-
-    @US63
-    Scenario:  Verify a header and Forbes Homes, BrandSpark, CEPro, PCMag pictures are displayed
-      When I move into the view of the element
-      Then Verify header text is "Award-winning smart home security that fits your life"
-      Then Verify pictures under header are displayed
+    Then Verify phone number button is enabled
 
 
+  @US63
+  Scenario:  Verify a header and Forbes Homes, BrandSpark, CEPro, PCMag pictures are displayed
+    When I move into the view of the element
+    Then Verify header text is "Award-winning smart home security that fits your life"
+    Then Verify pictures under header are displayed
+
+  @US65
+  Scenario: When you open a Home Page and scroll down, you will see ‘Get a free quote and ADT offers’ section. Verify you can fill out the form
+    Then Verify "Get a free quote and ADT offers" section is displayed
+    Then I fill out the form this form
+      | key                  | value         |
+      | Customer_Full_Name   | Nur           |
+      | E_Mail_Address       | nur@yahoo.com |
+      | Phone_Number_Primary | 333 3333333   |
+      | Postal_Code          | 33555         |
+    When I scroll up to button
+    When I click on GET A FREE QUOTE button
+    Then Verify "Thank You!" header text is displayed

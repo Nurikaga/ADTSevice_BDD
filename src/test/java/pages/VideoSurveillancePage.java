@@ -12,6 +12,8 @@ public class VideoSurveillancePage {
     public VideoSurveillancePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
 
+
+
     }
     @FindBy(xpath = "//a[normalize-space()='Video Surveillance']")
     public WebElement videoSurveillanceBtn;
