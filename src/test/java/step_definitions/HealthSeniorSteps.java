@@ -318,6 +318,11 @@ public class HealthSeniorSteps implements CommonPage {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_IMG2, image))));
         Screenshot.takeScreenshot(BrowserUtils.getDriver());
     }
+    @Then("Verify links are displayed")
+    public void verifyLinksAreDisplayed() {
+        for (WebElement each : page.navBar) {
+            BrowserUtils.isDisplayed(each);
+        }}
 }
 
 
