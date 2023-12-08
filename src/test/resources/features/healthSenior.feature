@@ -137,6 +137,12 @@ Feature: Home Page Related Scenarios
       | Customer Service   |
       | Follow Us          |
 
+  @US44
+  Scenario: Verify the links of the tpo main bar still present after scroll down the page's footer
+    When I scroll down to the footer
+    Then Verify links are displayed
+
+
 
   @US45
   Scenario: Scroll down the page and verify  <Live Chat Now> button is displayed on the footer of the page. When you click on the button, it opens a chat window.  Verify the window is displayed.

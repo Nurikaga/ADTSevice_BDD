@@ -97,6 +97,10 @@ public class HealthSeniorPage {
     public WebElement headerText;
     @FindBy(css = ".adt7-txa-7447.adt7-txa")
     public WebElement textUnderHeader;
+
+    @FindBy(css = ".menu li")
+    public List<WebElement> navBar;
+
 }
 
 
